@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { GalleryImage } from '../types/index';
 import './Gallery.css';
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const imageRefs = useRef<{ [key: number]: HTMLImageElement | null }>({});
 
   const galleryData: GalleryImage[] = [
     {
@@ -52,6 +54,38 @@ const Gallery: React.FC = () => {
     setSelectedImage(null);
   };
 
+  const handleImageLoad = (imageId: number) => {
+    setLoadedImages(prev => new Set(prev).add(imageId));
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const img = entry.target as HTMLImageElement;
+            const imageId = parseInt(img.dataset.imageId || '0');
+            if (img.src !== galleryData.find(img => img.id === imageId)?.src) {
+              img.src = galleryData.find(img => img.id === imageId)?.src || '';
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '50px',
+        threshold: 0.1
+      }
+    );
+
+    Object.values(imageRefs.current).forEach((imgRef) => {
+      if (imgRef) {
+        observer.observe(imgRef);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="gallery" className="gallery">
       <div className="gallery-container">
@@ -65,9 +99,17 @@ const Gallery: React.FC = () => {
               className={`gallery-item gallery-item-${index + 1}`}
               onClick={() => openModal(image)}
             >
-              <div className="gallery-image">
-                <img src={image.src} alt={image.alt} />
-                <div className="gallery-overlay">
+                          <div className="gallery-image">
+              <img 
+                ref={(el) => { imageRefs.current[image.id] = el; }}
+                data-image-id={image.id}
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a1a'/%3E%3C/svg%3E"
+                alt={image.alt}
+                loading="lazy"
+                onLoad={() => handleImageLoad(image.id)}
+                className={loadedImages.has(image.id) ? 'loaded' : 'loading'}
+              />
+              <div className="gallery-overlay">
                   <div className="gallery-overlay-content">
                     <h3>{image.title}</h3>
                     <span className="view-icon">👁️</span>

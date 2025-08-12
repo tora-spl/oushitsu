@@ -9,6 +9,12 @@
   transition: all 0.3s ease;
 }
 
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -108,6 +114,11 @@
 
 .nav-list button:hover {
   color: #d4af37;
+  transform: translateY(-1px);
+}
+
+.nav-list button:active {
+  transform: translateY(0);
 }
 
 .hamburger {

@@ -11,6 +11,35 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* スペーシング変数 */
+  --section-padding: 6rem 0;
+  --section-padding-mobile: 4rem 0;
+  --container-padding: 0 2rem;
+  --container-padding-mobile: 0 1.5rem;
+  --section-gap: 4rem;
+  --section-gap-mobile: 3rem;
+  --title-margin-bottom: 2rem;
+  --subtitle-margin-bottom: 3rem;
+  --content-gap: 2rem;
+  --content-gap-mobile: 1.5rem;
+
+  /* カラーパレット変数 */
+  --primary-gold: #d4af37;
+  --primary-gold-hover: #b8941f;
+  --primary-gold-light: #ffd700;
+  --primary-gold-dark: #b8860b;
+  --background-dark: #000000;
+  --background-darker: #0f0f0f;
+  --background-medium: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.87);
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border-gold: rgba(212, 175, 55, 0.2);
+  --border-gold-hover: rgba(212, 175, 55, 0.4);
+  --shadow-gold: rgba(212, 175, 55, 0.3);
+  --shadow-gold-hover: rgba(212, 175, 55, 0.4);
+}
 }
 
 * {

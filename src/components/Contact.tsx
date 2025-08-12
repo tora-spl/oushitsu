@@ -13,6 +13,7 @@ const Contact: React.FC = () => {
     message: ''
   });
 
+  const [errors, setErrors] = useState<{[key: string]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
@@ -23,16 +24,71 @@ const Contact: React.FC = () => {
     hours: '18:00 - 翌4:00 (年中無休)'
   };
 
+  const validateForm = () => {
+    const newErrors: {[key: string]: string} = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'お名前を入力してください';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'お名前は2文字以上で入力してください';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'メールアドレスを入力してください';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = '有効なメールアドレスを入力してください';
+    }
+    
+    if (formData.phone.trim() && !/^[\d\-\(\)\s]+$/.test(formData.phone)) {
+      newErrors.phone = '有効な電話番号を入力してください';
+    }
+    
+    if (!formData.date) {
+      newErrors.date = '日付を選択してください';
+    } else {
+      const selectedDate = new Date(formData.date);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (selectedDate < today) {
+        newErrors.date = '過去の日付は選択できません';
+      }
+    }
+    
+    if (!formData.time) {
+      newErrors.time = '時間を選択してください';
+    }
+    
+    if (!formData.guests) {
+      newErrors.guests = '人数を選択してください';
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    
+    // 入力時にエラーをクリア
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // シミュレーション用の遅延
@@ -51,6 +107,9 @@ const Contact: React.FC = () => {
       guests: '',
       message: ''
     });
+    
+    // エラーをクリア
+    setErrors({});
     
     // 成功メッセージを3秒後に非表示
     setTimeout(() => setSubmitSuccess(false), 3000);
@@ -131,7 +190,9 @@ const Contact: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     placeholder="山田太郎"
+                    className={errors.name ? 'error' : ''}
                   />
+                  {errors.name && <span className="error-message">{errors.name}</span>}
                 </div>
                 
                 <div className="form-group">
@@ -144,7 +205,9 @@ const Contact: React.FC = () => {
                     onChange={handleInputChange}
                     required
                     placeholder="example@email.com"
+                    className={errors.email ? 'error' : ''}
                   />
+                  {errors.email && <span className="error-message">{errors.email}</span>}
                 </div>
               </div>
               
