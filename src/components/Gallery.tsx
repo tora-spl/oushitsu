@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { GalleryImage } from '../types/index';
 import './Gallery.css';
 
