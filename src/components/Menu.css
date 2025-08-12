@@ -56,6 +56,8 @@
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 .category-filter:hover {
@@ -212,6 +214,8 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 .btn-primary {

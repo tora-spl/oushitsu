@@ -213,6 +213,8 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   width: 100%;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 .btn-primary {

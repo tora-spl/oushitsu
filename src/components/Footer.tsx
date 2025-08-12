@@ -10,8 +10,13 @@ const Footer: React.FC = () => {
         <div className="footer-content">
           <div className="footer-section">
                       <div className="footer-logo">
-            <h3>王室</h3>
-            <p>エレガントな夜の体験</p>
+            <div className="footer-logo-image">
+              <img src="/logo.png" alt="王室ロゴ" />
+            </div>
+            <div className="footer-logo-text">
+              <h3>王室</h3>
+              <p>エレガントな夜の体験</p>
+            </div>
           </div>
             <p className="footer-description">
               最高品質のカクテルと洗練された空間で、<br />

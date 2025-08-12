@@ -9,8 +9,11 @@ const Hero: React.FC = () => {
       </div>
       
       <div className="hero-content">
-        <div className="hero-text">
-          <h1 className="hero-title">
+                  <div className="hero-text">
+            <div className="hero-logo">
+              <img src="/logo.png" alt="王室ロゴ" />
+            </div>
+            <h1 className="hero-title">
             <span className="hero-title-main">王室</span>
             <span className="hero-title-sub">エレガントな夜の体験</span>
           </h1>

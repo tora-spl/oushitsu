@@ -20,8 +20,13 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header-container">
         <div className="logo">
-          <h1>王室</h1>
-          <span className="tagline">エレガントな夜の体験</span>
+          <div className="logo-image">
+            <img src="/logo.png" alt="王室ロゴ" />
+          </div>
+          <div className="logo-text">
+            <h1>王室</h1>
+            <span className="tagline">エレガントな夜の体験</span>
+          </div>
         </div>
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

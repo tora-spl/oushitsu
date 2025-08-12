@@ -36,6 +36,20 @@
   z-index: 1;
 }
 
+.hero-logo {
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.1s both;
+}
+
+.hero-logo img {
+  margin-top: 100px;
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+}
+
+
+
 .hero-title {
   margin-bottom: 2rem;
 }
@@ -88,6 +102,8 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
+  min-width: fit-content;
 }
 
 .btn-primary {
