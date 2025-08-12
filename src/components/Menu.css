@@ -1,0 +1,254 @@
+.menu {
+  padding: 6rem 0;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: #d4af37;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 3rem;
+}
+
+.category-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.category-filter {
+  background: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.category-filter:hover {
+  background: #d4af37;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+.category-filter.active {
+  background: #d4af37;
+  color: #000;
+}
+
+.category-icon {
+  font-size: 1.2rem;
+}
+
+.category-name {
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.menu-item {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.menu-item:hover::before {
+  left: 100%;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.menu-item-name {
+  color: #d4af37;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.menu-item-price {
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.menu-item-description {
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.menu-item-category {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.category-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-badge.cocktail {
+  background: rgba(255, 105, 180, 0.2);
+  color: #ff69b4;
+  border: 1px solid rgba(255, 105, 180, 0.3);
+}
+
+.category-badge.wine {
+  background: rgba(138, 43, 226, 0.2);
+  color: #8a2be2;
+  border: 1px solid rgba(138, 43, 226, 0.3);
+}
+
+.category-badge.beer {
+  background: rgba(255, 165, 0, 0.2);
+  color: #ffa500;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.category-badge.spirit {
+  background: rgba(139, 69, 19, 0.2);
+  color: #8b4513;
+  border: 1px solid rgba(139, 69, 19, 0.3);
+}
+
+.category-badge['non-alcoholic'] {
+  background: rgba(0, 128, 0, 0.2);
+  color: #008000;
+  border: 1px solid rgba(0, 128, 0, 0.3);
+}
+
+.menu-cta {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.menu-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #d4af37, #b8941f);
+  color: #000;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 768px) {
+  .category-filters {
+    gap: 0.5rem;
+  }
+  
+  .category-filter {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .menu-item {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .menu-cta {
+    padding: 2rem 1.5rem;
+  }
+}
