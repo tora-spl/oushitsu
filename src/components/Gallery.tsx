@@ -12,37 +12,25 @@ const Gallery: React.FC = () => {
       id: 1,
       src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop',
       alt: 'エレガントなバーカウンター',
-      title: 'メインカウンター'
+      title: 'カウンター'
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-      alt: '洗練されたインテリア',
-      title: 'VIPエリア'
-    },
-    {
-      id: 3,
-      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
-      alt: 'アートなカクテル',
-      title: 'シグネチャーカクテル'
-    },
-    {
-      id: 4,
       src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop',
       alt: 'ライブ音楽ステージ',
       title: 'ライブステージ'
     },
     {
-      id: 5,
-      src: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop',
-      alt: 'プライベートルーム',
-      title: 'プライベートルーム'
+      id: 3,
+      src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
+      alt: '洗練されたインテリア',
+      title: 'インテリア'
     },
     {
-      id: 6,
+      id: 4,
       src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
-      alt: '特別なイベント',
-      title: 'イベントスペース'
+      alt: 'バーの歴史',
+      title: '歴史'
     }
   ];
 
@@ -65,15 +53,22 @@ const Gallery: React.FC = () => {
           if (entry.isIntersecting) {
             const img = entry.target as HTMLImageElement;
             const imageId = parseInt(img.dataset.imageId || '0');
-            if (img.src !== galleryData.find(img => img.id === imageId)?.src) {
-              img.src = galleryData.find(img => img.id === imageId)?.src || '';
+            const targetImage = galleryData.find(img => img.id === imageId);
+            if (targetImage && img.src !== targetImage.src) {
+              // 画像のプリロード
+              const tempImg = new Image();
+              tempImg.onload = () => {
+                img.src = targetImage.src;
+                img.classList.add('loaded');
+              };
+              tempImg.src = targetImage.src;
             }
           }
         });
       },
       {
-        rootMargin: '50px',
-        threshold: 0.1
+        rootMargin: '100px',
+        threshold: 0.01
       }
     );
 
@@ -122,9 +117,9 @@ const Gallery: React.FC = () => {
         
         <div className="gallery-cta">
           <p>実際の空間で特別な体験をお楽しみください</p>
-          <button className="btn btn-secondary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+          {/* <button className="btn btn-secondary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
             予約する
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -133,7 +128,15 @@ const Gallery: React.FC = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
-            <img src={selectedImage.src} alt={selectedImage.alt} />
+            
+            <div className="modal-image-container">
+              <img 
+                src={selectedImage.src} 
+                alt={selectedImage.alt} 
+                className="modal-main-image"
+              />
+            </div>
+            
             <h3>{selectedImage.title}</h3>
           </div>
         </div>

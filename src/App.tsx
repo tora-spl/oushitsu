@@ -4,7 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Menu from './components/Menu';
 import Gallery from './components/Gallery';
-import Contact from './components/Contact';
+// import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './App.css';
 
@@ -16,7 +16,7 @@ function App() {
       <About />
       <Menu />
       <Gallery />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </div>
   );

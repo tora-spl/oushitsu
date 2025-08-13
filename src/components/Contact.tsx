@@ -28,38 +28,38 @@ const Contact: React.FC = () => {
     const newErrors: {[key: string]: string} = {};
     
     if (!formData.name.trim()) {
-      newErrors.name = 'お名前を入力してください';
+      newErrors.name = 'お名前をご入力ください';
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'お名前は2文字以上で入力してください';
+      newErrors.name = 'お名前は2文字以上でご入力ください';
     }
     
     if (!formData.email.trim()) {
-      newErrors.email = 'メールアドレスを入力してください';
+      newErrors.email = 'メールアドレスをご入力ください';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = '有効なメールアドレスを入力してください';
+      newErrors.email = '正しいメールアドレスの形式でご入力ください';
     }
     
     if (formData.phone.trim() && !/^[\d\-\(\)\s]+$/.test(formData.phone)) {
-      newErrors.phone = '有効な電話番号を入力してください';
+      newErrors.phone = '正しい電話番号の形式でご入力ください';
     }
     
     if (!formData.date) {
-      newErrors.date = '日付を選択してください';
+      newErrors.date = 'ご希望の日付をお選びください';
     } else {
       const selectedDate = new Date(formData.date);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       if (selectedDate < today) {
-        newErrors.date = '過去の日付は選択できません';
+        newErrors.date = '本日以降の日付をお選びください';
       }
     }
     
     if (!formData.time) {
-      newErrors.time = '時間を選択してください';
+      newErrors.time = 'ご希望の時間をお選びください';
     }
     
     if (!formData.guests) {
-      newErrors.guests = '人数を選択してください';
+      newErrors.guests = 'ご来店予定人数をお選びください';
     }
     
     setErrors(newErrors);

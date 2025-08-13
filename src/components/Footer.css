@@ -99,16 +99,27 @@
   text-decoration: none;
   opacity: 0.8;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 .social-link:hover {
-  color: #d4af37;
   opacity: 1;
+  color: var(--primary-gold);
   transform: translateX(5px);
+}
+
+.instagram-link:hover {
+  color: #e4405f;
+}
+
+.map-link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.map-link:hover {
+  color: var(--primary-gold);
+  text-decoration: underline;
 }
 
 .footer-bottom {

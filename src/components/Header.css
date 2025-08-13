@@ -117,6 +117,59 @@
   transform: translateY(-1px);
 }
 
+/* ヘッダーソーシャルアイコン */
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--primary-gold);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.social-icon-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--primary-gold);
+  border-color: var(--primary-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.social-icon:hover .social-icon-image {
+  transform: scale(1.1);
+}
+
+.instagram-icon:hover {
+  background: #e4405f;
+  border-color: #e4405f;
+}
+
+.map-icon:hover {
+  background: #4285f4;
+  border-color: #4285f4;
+}
+
 .nav-list button:active {
   transform: translateY(0);
 }
@@ -201,5 +254,9 @@
   .tagline {
     font-size: 0.7rem;
     margin-top: 0.2rem;
+  }
+  
+  .header-social {
+    display: none;
   }
 }

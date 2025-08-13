@@ -38,21 +38,31 @@ const Footer: React.FC = () => {
             <ul className="footer-list">
               <li>📞 03-1234-5678</li>
               <li>✉️ info@luxebar.tokyo</li>
-              <li>📍 東京都渋谷区神南1-2-3</li>
+              <li>
+                <a 
+                  href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="map-link"
+                  aria-label="Googleマップで場所を表示"
+                >
+                  📍 〒830-0017 福岡県久留米市日吉町５−１７BAR王室
+                </a>
+              </li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>フォローする</h4>
             <div className="social-links">
-              <a href="#" className="social-link" aria-label="Instagram">
+              <a 
+                href="https://www.instagram.com/bar.ohshitsu1205/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link instagram-link" 
+                aria-label="Instagramで王室をフォロー"
+              >
                 📷 Instagram
-              </a>
-              <a href="#" className="social-link" aria-label="Twitter">
-                🐦 Twitter
-              </a>
-              <a href="#" className="social-link" aria-label="Facebook">
-                👥 Facebook
               </a>
             </div>
           </div>

@@ -132,31 +132,7 @@
   opacity: 0.9;
 }
 
-.btn {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  min-width: fit-content;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #d4af37;
-  border: 2px solid #d4af37;
-}
-
-.btn-secondary:hover {
-  background: #d4af37;
-  color: #000;
-  transform: translateY(-2px);
-}
+/* ボタンスタイルは src/index.css で統合済み */
 
 /* Modal Styles */
 .modal-overlay {
@@ -204,12 +180,23 @@
   color: #000;
 }
 
-.modal-content img {
+.modal-image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.modal-main-image {
   width: 100%;
   height: auto;
   max-height: 70vh;
   object-fit: contain;
+  border-radius: 8px;
 }
+
+/* 画像スライド機能のスタイルは削除 */
 
 .modal-content h3 {
   color: #d4af37;

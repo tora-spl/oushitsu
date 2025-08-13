@@ -164,9 +164,9 @@ const Menu: React.FC = () => {
         
         <div className="menu-cta">
           <p>特別なリクエストがございましたら、お気軽にお声がけください</p>
-          <button className="btn btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+          {/* <button className="btn btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
             お問い合わせ
-          </button>
+          </button> */}
         </div>
       </div>
     </section>

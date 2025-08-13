@@ -15,6 +15,18 @@
   bottom: 0;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d1b3d 50%, #1a1a1a 100%);
   z-index: -2;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  z-index: -2;
 }
 
 .hero-overlay {
@@ -97,42 +109,7 @@
   will-change: transform, opacity;
 }
 
-.btn {
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  min-width: fit-content;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #d4af37, #b8941f);
-  color: #000;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #fff;
-  border: 2px solid #d4af37;
-}
-
-.btn-secondary:hover {
-  background: #d4af37;
-  color: #000;
-  transform: translateY(-2px);
-}
+/* ボタンスタイルは src/index.css で統合済み */
 
 .hero-features {
   display: flex;
@@ -160,44 +137,7 @@
   letter-spacing: 1px;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: #fff;
-  opacity: 0.7;
-  animation: fadeInUp 1s ease-out 1.5s both;
-}
-
-.scroll-arrow {
-  width: 2px;
-  height: 20px;
-  background: #d4af37;
-  position: relative;
-  animation: scrollBounce 2s infinite;
-}
-
-.scroll-arrow::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -3px;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #d4af37;
-  border-bottom: 2px solid #d4af37;
-  transform: rotate(45deg);
-}
-
-.scroll-indicator span {
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-}
+/* スクロールインジケーターは削除 */
 
 @keyframes fadeInUp {
   from {

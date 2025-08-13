@@ -46,9 +46,30 @@ const Header: React.FC = () => {
             <li><button onClick={() => scrollToSection('about')} aria-label="私たちについてセクションへ移動">私たちについて</button></li>
             <li><button onClick={() => scrollToSection('menu')} aria-label="メニューセクションへ移動">メニュー</button></li>
             <li><button onClick={() => scrollToSection('gallery')} aria-label="ギャラリーセクションへ移動">ギャラリー</button></li>
-            <li><button onClick={() => scrollToSection('contact')} aria-label="お問い合わせセクションへ移動">お問い合わせ</button></li>
+            {/* <li><button onClick={() => scrollToSection('contact')} aria-label="お問い合わせセクションへ移動">お問い合わせ</button></li> */}
           </ul>
         </nav>
+        
+        <div className="header-social">
+          <a 
+            href="https://www.instagram.com/bar.ohshitsu1205/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-icon instagram-icon" 
+            aria-label="Instagramで王室をフォロー"
+          >
+            <img src="/instagram.png" alt="Instagram" className="social-icon-image" />
+          </a>
+          <a 
+            href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="social-icon map-icon"
+            aria-label="Googleマップで場所を表示"
+          >
+            <img src="/googleMap.png" alt="Google Maps" className="social-icon-image" />
+          </a>
+        </div>
 
         <button 
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}

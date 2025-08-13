@@ -5,6 +5,7 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="hero">
       <div className="hero-background">
+        <img src="/hero-bg.png" alt="バー背景" className="hero-bg-image" />
         <div className="hero-overlay"></div>
       </div>
       
@@ -49,10 +50,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
       
-      <div className="scroll-indicator">
-        <div className="scroll-arrow"></div>
-        <span>スクロール</span>
-      </div>
+      {/* スクロールインジケーターは削除 */}
     </section>
   );
 };
