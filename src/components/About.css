@@ -181,6 +181,81 @@
   box-shadow: 0 0 10px var(--primary-gold);
 }
 
+/* 1周年記念フェア */
+.anniversary-fair {
+  margin-top: 4rem;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(45, 27, 61, 0.1));
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 15px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.fair-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fair-title {
+  font-size: 2rem;
+  color: var(--primary-gold);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.fair-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.fair-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.fair-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.fair-label {
+  font-weight: 600;
+  color: var(--primary-gold);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fair-text {
+  font-size: 1rem;
+  color: var(--text-primary);
+  opacity: 0.9;
+}
+
+.fair-price {
+  font-size: 1.2rem;
+  color: var(--primary-gold);
+  font-weight: 700;
+  background: rgba(212, 175, 55, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: inline-block;
+}
+
+.fair-cta {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  opacity: 0.9;
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .about {
     padding: var(--section-padding-mobile);
@@ -225,5 +300,19 @@
   
   .about-features {
     gap: var(--content-gap-mobile);
+  }
+  
+  .anniversary-fair {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+  
+  .fair-title {
+    font-size: 1.8rem;
+  }
+  
+  .fair-details {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 }

@@ -9,32 +9,32 @@ const About: React.FC = () => {
           <div className="about-text">
             <h2 className="section-title">私たちについて</h2>
             <p className="about-description">
-              王室は、2010年の創業以来、東京の夜を彩る特別な場所として多くのお客様に愛されてまいりました。
-              私たちは、単なる飲み物の提供にとどまらず、お客様一人ひとりに心に残る特別な体験をお届けすることを使命としております。
+              王室は、1968年の創業以来、福岡県久留米市の夜を彩る特別な場所として多くのお客様に愛されてまいりました。
+              先代が52年にわたり築き上げてきた王室の良さを残しつつ、お客様一人ひとりに心に残る特別な体験をお届けすることを使命としております。
             </p>
             
             <div className="about-features">
               <div className="about-feature">
                 <div className="feature-number">01</div>
                 <div className="feature-content">
-                  <h3>最高品質のカクテル</h3>
-                  <p>熟練したバーテンダーが、厳選された材料を使用して、アートのようなカクテルを作り上げます。</p>
+                  <h3>熟練のバーテンダー</h3>
+                  <p>バーテンダー歴37年のマスターが、厳選された材料で最高品質のカクテルをお作りします。</p>
                 </div>
               </div>
               
               <div className="about-feature">
                 <div className="feature-number">02</div>
                 <div className="feature-content">
-                  <h3>洗練された空間</h3>
-                  <p>アートデコとモダンな照明が織りなす、贅沢で落ち着いた雰囲気の空間です。</p>
+                  <h3>歴史ある空間</h3>
+                  <p>創業当時から設置されているジュークボックスと共に、伝統とモダンが融合した洗練された空間です。</p>
                 </div>
               </div>
               
               <div className="about-feature">
                 <div className="feature-number">03</div>
                 <div className="feature-content">
-                  <h3>特別な体験</h3>
-                  <p>ライブ音楽、カクテルクラス、プライベートイベントなど、様々な特別な体験をご提供します。</p>
+                  <h3>オリジナルカクテル</h3>
+                  <p>マスターのオリジナルカクテルやフルーツカクテルを多数ご用意し、特別な体験をお届けします。</p>
                 </div>
               </div>
             </div>
@@ -47,25 +47,14 @@ const About: React.FC = () => {
                 alt="エレガントな空間" 
                 className="about-main-image"
               />
-              <div className="image-overlay">
-              </div>
+
             </div>
           </div>
         </div>
         
-        <div className="about-history">
-          <div className="history-line">
-            <div className="history-point">
-              <div className="history-number">13</div>
-              <div className="history-label">年の歴史</div>
-            </div>
-            <div className="history-connector"></div>
-            <div className="history-point">
-              <div className="history-number">50+</div>
-              <div className="history-label">オリジナルカクテル</div>
-            </div>
-          </div>
-        </div>
+
+
+
       </div>
     </section>
   );

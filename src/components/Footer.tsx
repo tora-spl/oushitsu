@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
             <h4>営業時間</h4>
             <ul className="footer-list">
               <li>月曜日 - 日曜日</li>
-              <li>18:00 - 翌4:00</li>
+              <li>20:00 - 翌2:00</li>
               <li>年中無休</li>
             </ul>
           </div>
@@ -36,8 +36,8 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h4>お問い合わせ</h4>
             <ul className="footer-list">
-              <li>📞 03-1234-5678</li>
-              <li>✉️ info@luxebar.tokyo</li>
+              <li>📞 0942-656062</li>
+              <li>✉️ bar.ohshitsu1205@gmail.com</li>
               <li>
                 <a 
                   href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D" 

@@ -39,9 +39,12 @@
 /* 4項目を一行に並べるコンパクトなレイアウト */
 .gallery-categories {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   margin-bottom: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery-category {
@@ -282,8 +285,9 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .gallery-categories {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
   }
   
   .category-image {

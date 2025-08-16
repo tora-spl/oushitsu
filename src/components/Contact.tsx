@@ -18,10 +18,10 @@ const Contact: React.FC = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const contactInfo: ContactInfo = {
-    address: '東京都渋谷区神南1-2-3 LUXEビル 5F',
-    phone: '03-1234-5678',
-    email: 'info@luxebar.tokyo',
-    hours: '18:00 - 翌4:00 (年中無休)'
+    address: '〒830-0017 福岡県久留米市日吉町5-17',
+    phone: '0942-656062',
+    email: 'bar.ohshitsu1205@gmail.com',
+    hours: '20:00 - 翌2:00 (年中無休)'
   };
 
   const validateForm = () => {
@@ -248,12 +248,12 @@ const Contact: React.FC = () => {
                     required
                   >
                     <option value="">時間を選択</option>
-                    <option value="18:00">18:00</option>
-                    <option value="19:00">19:00</option>
                     <option value="20:00">20:00</option>
                     <option value="21:00">21:00</option>
                     <option value="22:00">22:00</option>
                     <option value="23:00">23:00</option>
+                    <option value="24:00">24:00</option>
+                    <option value="01:00">01:00</option>
                   </select>
                 </div>
                 
