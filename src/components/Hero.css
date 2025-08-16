@@ -111,32 +111,6 @@
 
 /* ボタンスタイルは src/index.css で統合済み */
 
-.hero-features {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  animation: fadeInUp 1s ease-out 1.2s both;
-  will-change: transform, opacity;
-}
-
-.feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.feature-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.feature span {
-  font-size: 0.9rem;
-  opacity: 0.8;
-  letter-spacing: 1px;
-}
-
 /* スクロールインジケーターは削除 */
 
 @keyframes fadeInUp {
@@ -187,10 +161,6 @@
     font-size: 1.1rem;
   }
   
-  .hero-features {
-    gap: 2.5rem;
-  }
-  
   .hero-logo img {
     width: 100px;
     height: 100px;
@@ -218,10 +188,5 @@
   
   .btn {
     width: 200px;
-  }
-  
-  .hero-features {
-    flex-direction: column;
-    gap: 2rem;
   }
 }

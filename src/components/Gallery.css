@@ -117,30 +117,12 @@
   opacity: 0.9;
 }
 
-.image-count {
-  display: block;
-  font-size: 0.8rem;
-  color: #d4af37;
-  margin-bottom: 0.5rem;
-}
-
-.view-icon {
-  font-size: 1.5rem;
-  opacity: 0.8;
-}
-
-.gallery-cta {
-  text-align: center;
-  padding: 2rem;
-  background: rgba(212, 175, 55, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.gallery-cta p {
-  font-size: 1.1rem;
-  margin: 0;
-  opacity: 0.9;
+/* アコーディオン形式のメニューカテゴリー */
+.menu-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
 /* Modal Styles */
@@ -321,10 +303,6 @@
   
   .section-title {
     font-size: 2rem;
-  }
-  
-  .gallery-cta {
-    padding: 1.5rem;
   }
   
   .modal-content {

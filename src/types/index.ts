@@ -7,18 +7,16 @@ export interface Drink {
   image?: string;
 }
 
-export interface GalleryImage {
-  id: number;
-  src: string;
-  alt: string;
-  title: string;
-}
-
 export interface GalleryCategory {
   id: number;
   title: string;
   description: string;
-  images: GalleryImage[];
+  images: {
+    id: number;
+    src: string;
+    alt: string;
+    title: string;
+  }[];
   thumbnail: string;
 }
 
@@ -26,11 +24,4 @@ export interface MenuCategory {
   id: number;
   name: string;
   drinks: Drink[];
-}
-
-export interface ContactInfo {
-  address: string;
-  phone: string;
-  email: string;
-  hours: string;
 }

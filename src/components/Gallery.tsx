@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { GalleryCategory, GalleryImage } from '../types/index';
+import type { GalleryCategory } from '../types/index';
 import './Gallery.css';
 
 const Gallery: React.FC = () => {
