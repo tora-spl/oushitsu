@@ -13,13 +13,16 @@ const Footer: React.FC = () => {
             <ul className="footer-list" role="list">
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📅</span>
-                <span className="footer-text">火曜日 - 日曜日  （月曜 定休日）</span>
+                <span className="footer-text">火曜日 - 日曜日</span>
               </li>
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">🕒</span>
                 <span className="footer-text">20:00 - 翌2:00</span>
               </li>
-    
+              <li role="listitem">
+                <span className="footer-icon" aria-hidden="true">✨</span>
+                <span className="footer-text">定休日：月曜日</span>
+              </li>
             </ul>
           </div>
           
@@ -47,37 +50,32 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li role="listitem">
-                <a 
-                  href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="map-link"
-                  aria-label="GoogleマップでBAR王室の場所を表示"
-                >
-                  <span className="footer-icon" aria-hidden="true">📍</span>
-                  <span className="footer-text">
-                    〒830-0017<br />
-                    福岡県久留米市日吉町５−１７<br />
-                    BAR王室
-                  </span>
-                </a>
+                <span className="footer-icon" aria-hidden="true">📍</span>
+                <span className="footer-text">
+                  〒830-0017<br />
+                  福岡県久留米市日吉町５−１７<br />
+                  BAR王室
+                </span>
               </li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h4>フォローする</h4>
-            <div className="social-links">
-              <a 
-                href="https://www.instagram.com/bar.ohshitsu1205/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="social-link instagram-link" 
-                aria-label="InstagramでBAR王室をフォロー"
-              >
-                <span aria-hidden="true">📷</span> Instagram
-              </a>
-            </div>
+            <ul className="footer-list" role="list">
+              <li role="listitem">
+                <span className="footer-icon" aria-hidden="true">📷</span>
+                <a 
+                  href="https://www.instagram.com/bar.ohshitsu1205/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="footer-social-link instagram-link" 
+                  aria-label="InstagramでBAR王室をフォロー"
+                >
+                  <span className="footer-text">Instagram</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         
