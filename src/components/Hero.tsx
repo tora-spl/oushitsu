@@ -34,20 +34,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
         
-        <div className="hero-features">
-          <div className="feature">
-            <div className="feature-icon">🍸</div>
-            <span>アートなカクテル</span>
-          </div>
-          <div className="feature">
-            <div className="feature-icon">🎵</div>
-            <span>ライブ音楽</span>
-          </div>
-          <div className="feature">
-            <div className="feature-icon">✨</div>
-            <span>特別な体験</span>
-          </div>
-        </div>
+
       </div>
       
       {/* スクロールインジケーターは削除 */}

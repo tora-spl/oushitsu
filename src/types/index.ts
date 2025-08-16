@@ -14,6 +14,14 @@ export interface GalleryImage {
   title: string;
 }
 
+export interface GalleryCategory {
+  id: number;
+  title: string;
+  description: string;
+  images: GalleryImage[];
+  thumbnail: string;
+}
+
 export interface MenuCategory {
   id: number;
   name: string;

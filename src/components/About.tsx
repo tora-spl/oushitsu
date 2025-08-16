@@ -41,9 +41,13 @@ const About: React.FC = () => {
           </div>
           
           <div className="about-image">
-            <div className="image-placeholder">
+            <div className="elegant-space-image">
+              <img 
+                src="/elegant.png" 
+                alt="エレガントな空間" 
+                className="about-main-image"
+              />
               <div className="image-overlay">
-                <span>エレガントな空間</span>
               </div>
             </div>
           </div>

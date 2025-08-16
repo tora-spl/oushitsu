@@ -1,5 +1,5 @@
 .gallery {
-  padding: 6rem 0;
+  padding: 4rem 0;
   background: #0f0f0f;
   color: #fff;
 }
@@ -33,64 +33,58 @@
   text-align: center;
   font-size: 1.1rem;
   opacity: 0.8;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.gallery-grid {
+/* 4項目を一行に並べるコンパクトなレイアウト */
+.gallery-categories {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
 }
 
-.gallery-item {
+.gallery-category {
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 12px;
   transition: all 0.3s ease;
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.gallery-item:hover {
-  transform: scale(1.05);
+.gallery-category:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.2);
 }
 
-.gallery-image {
+.category-image {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 180px;
   overflow: hidden;
-  border-radius: 15px;
 }
 
-.gallery-image img {
+.category-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: all 0.3s ease;
 }
 
-.gallery-image img.loading {
-  opacity: 0.3;
-  filter: grayscale(100%);
-}
-
-.gallery-image img.loaded {
-  opacity: 1;
-  filter: grayscale(0%);
-}
-
-.gallery-item:hover .gallery-image img {
+.gallery-category:hover .category-image img {
   transform: scale(1.1);
 }
 
-.gallery-overlay {
+.category-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,41 +92,53 @@
   transition: opacity 0.3s ease;
 }
 
-.gallery-item:hover .gallery-overlay {
+.gallery-category:hover .category-overlay {
   opacity: 1;
 }
 
-.gallery-overlay-content {
+.category-overlay-content {
   text-align: center;
   color: #fff;
+  padding: 1rem;
 }
 
-.gallery-overlay-content h3 {
+.category-overlay-content h3 {
   color: #d4af37;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.category-overlay-content p {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.image-count {
+  display: block;
+  font-size: 0.8rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
 }
 
 .view-icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
   opacity: 0.8;
 }
 
 .gallery-cta {
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
   background: rgba(212, 175, 55, 0.05);
-  border-radius: 15px;
+  border-radius: 12px;
   border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .gallery-cta p {
   font-size: 1.1rem;
-  margin-bottom: 2rem;
+  margin: 0;
   opacity: 0.9;
 }
-
-/* ボタンスタイルは src/index.css で統合済み */
 
 /* Modal Styles */
 .modal-overlay {
@@ -141,7 +147,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,30 +197,112 @@
 .modal-main-image {
   width: 100%;
   height: auto;
-  max-height: 70vh;
+  max-height: 60vh;
   object-fit: contain;
   border-radius: 8px;
 }
 
-/* 画像スライド機能のスタイルは削除 */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-.modal-content h3 {
-  color: #d4af37;
+.modal-nav:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+.modal-nav-prev {
+  left: 1rem;
+}
+
+.modal-nav-next {
+  right: 1rem;
+}
+
+.modal-info {
   text-align: center;
   padding: 1.5rem;
-  margin: 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.modal-info h3 {
+  color: #d4af37;
+  margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
 }
 
-/* Responsive Grid */
-@media (max-width: 768px) {
-  .gallery-grid {
+.modal-info p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.modal-thumbnails {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.modal-thumbnail {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.modal-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.modal-thumbnail.active {
+  border-color: #d4af37;
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .gallery-categories {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
   }
   
-  .gallery-image {
+  .category-image {
     height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    padding: 3rem 0;
+  }
+  
+  .gallery-categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .category-image {
+    height: 160px;
   }
   
   .section-title {
@@ -222,16 +310,46 @@
   }
   
   .gallery-cta {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .modal-content {
+    max-width: 95vw;
+    padding: 1rem;
+  }
+  
+  .modal-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .modal-thumbnails {
+    padding: 1rem;
+  }
+  
+  .modal-thumbnail {
+    width: 60px;
+    height: 45px;
   }
 }
 
 @media (max-width: 480px) {
-  .gallery-grid {
+  .gallery-categories {
     grid-template-columns: 1fr;
   }
   
-  .gallery-image {
-    height: 250px;
+  .category-image {
+    height: 200px;
+  }
+  
+  .modal-overlay {
+    padding: 1rem;
+  }
+  
+  .modal-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
   }
 }

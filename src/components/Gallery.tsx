@@ -1,85 +1,123 @@
-import { useState, useEffect, useRef } from 'react';
-import type { GalleryImage } from '../types/index';
+import { useState } from 'react';
+import type { GalleryCategory, GalleryImage } from '../types/index';
 import './Gallery.css';
 
 const Gallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-  const imageRefs = useRef<{ [key: number]: HTMLImageElement | null }>({});
+  const [selectedCategory, setSelectedCategory] = useState<GalleryCategory | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
 
-  const galleryData: GalleryImage[] = [
+  // ダミーデータ：4つのカテゴリー、それぞれに複数の画像
+  const galleryCategories: GalleryCategory[] = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop',
-      alt: 'エレガントなバーカウンター',
-      title: 'カウンター'
+      title: 'カウンター',
+      description: 'エレガントなバーカウンター',
+      thumbnail: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop',
+      images: [
+        {
+          id: 1,
+          src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop',
+          alt: 'エレガントなバーカウンター',
+          title: 'カウンター'
+        },
+        {
+          id: 2,
+          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
+          alt: 'カウンターの夜景',
+          title: 'カウンター夜景'
+        },
+        {
+          id: 3,
+          src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+          alt: 'カウンターのディテール',
+          title: 'カウンターディテール'
+        }
+      ]
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=400&h=300&fit=crop',
-      alt: 'ライブ音楽ステージ',
-      title: 'ライブステージ'
+      title: 'ライブステージ',
+      description: '音楽と共に楽しむ空間',
+      thumbnail: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=200&fit=crop',
+      images: [
+        {
+          id: 4,
+          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
+          alt: 'ライブ音楽ステージ',
+          title: 'ライブステージ'
+        },
+        {
+          id: 5,
+          src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+          alt: 'ステージの照明',
+          title: 'ステージ照明'
+        },
+        {
+          id: 6,
+          src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+          alt: 'ステージの全景',
+          title: 'ステージ全景'
+        }
+      ]
     },
-    {
-      id: 3,
-      src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop',
-      alt: '洗練されたインテリア',
-      title: 'インテリア'
-    },
+
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop',
-      alt: 'バーの歴史',
-      title: '歴史'
+      title: '歴史',
+      description: 'バーの歴史と伝統',
+      thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop',
+      images: [
+        {
+          id: 10,
+          src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+          alt: 'バーの歴史',
+          title: '歴史'
+        },
+        {
+          id: 11,
+          src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop',
+          alt: '歴史的な装飾',
+          title: '歴史的装飾'
+        },
+        {
+          id: 12,
+          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
+          alt: '伝統的な要素',
+          title: '伝統的要素'
+        }
+      ]
     }
   ];
 
-  const openModal = (image: GalleryImage) => {
-    setSelectedImage(image);
+  const openModal = (category: GalleryCategory) => {
+    setSelectedCategory(category);
+    setSelectedImageIndex(0);
   };
 
   const closeModal = () => {
-    setSelectedImage(null);
+    setSelectedCategory(null);
+    setSelectedImageIndex(0);
   };
 
-  const handleImageLoad = (imageId: number) => {
-    setLoadedImages(prev => new Set(prev).add(imageId));
+  const nextImage = () => {
+    if (selectedCategory) {
+      setSelectedImageIndex((prev) => 
+        prev === selectedCategory.images.length - 1 ? 0 : prev + 1
+      );
+    }
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target as HTMLImageElement;
-            const imageId = parseInt(img.dataset.imageId || '0');
-            const targetImage = galleryData.find(img => img.id === imageId);
-            if (targetImage && img.src !== targetImage.src) {
-              // 画像のプリロード
-              const tempImg = new Image();
-              tempImg.onload = () => {
-                img.src = targetImage.src;
-                img.classList.add('loaded');
-              };
-              tempImg.src = targetImage.src;
-            }
-          }
-        });
-      },
-      {
-        rootMargin: '100px',
-        threshold: 0.01
-      }
-    );
+  const prevImage = () => {
+    if (selectedCategory) {
+      setSelectedImageIndex((prev) => 
+        prev === 0 ? selectedCategory.images.length - 1 : prev - 1
+      );
+    }
+  };
 
-    Object.values(imageRefs.current).forEach((imgRef) => {
-      if (imgRef) {
-        observer.observe(imgRef);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const goToImage = (index: number) => {
+    setSelectedImageIndex(index);
+  };
 
   return (
     <section id="gallery" className="gallery">
@@ -87,26 +125,24 @@ const Gallery: React.FC = () => {
         <h2 className="section-title">ギャラリー</h2>
         <p className="section-subtitle">王室の美しい空間をご覧ください</p>
         
-        <div className="gallery-grid">
-          {galleryData.map((image, index) => (
+        <div className="gallery-categories">
+          {galleryCategories.map((category) => (
             <div 
-              key={image.id} 
-              className={`gallery-item gallery-item-${index + 1}`}
-              onClick={() => openModal(image)}
+              key={category.id} 
+              className="gallery-category"
+              onClick={() => openModal(category)}
             >
-                          <div className="gallery-image">
-              <img 
-                ref={(el) => { imageRefs.current[image.id] = el; }}
-                data-image-id={image.id}
-                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%231a1a1a'/%3E%3C/svg%3E"
-                alt={image.alt}
-                loading="lazy"
-                onLoad={() => handleImageLoad(image.id)}
-                className={loadedImages.has(image.id) ? 'loaded' : 'loading'}
-              />
-              <div className="gallery-overlay">
-                  <div className="gallery-overlay-content">
-                    <h3>{image.title}</h3>
+              <div className="category-image">
+                <img 
+                  src={category.thumbnail}
+                  alt={category.title}
+                  loading="lazy"
+                />
+                <div className="category-overlay">
+                  <div className="category-overlay-content">
+                    <h3>{category.title}</h3>
+                    <p>{category.description}</p>
+                    <span className="image-count">{category.images.length}枚の画像</span>
                     <span className="view-icon">👁️</span>
                   </div>
                 </div>
@@ -117,27 +153,47 @@ const Gallery: React.FC = () => {
         
         <div className="gallery-cta">
           <p>実際の空間で特別な体験をお楽しみください</p>
-          {/* <button className="btn btn-secondary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            予約する
-          </button> */}
         </div>
       </div>
 
       {/* Modal */}
-      {selectedImage && (
+      {selectedCategory && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             
             <div className="modal-image-container">
+              <button className="modal-nav modal-nav-prev" onClick={prevImage}>
+                ‹
+              </button>
+              
               <img 
-                src={selectedImage.src} 
-                alt={selectedImage.alt} 
+                src={selectedCategory.images[selectedImageIndex].src} 
+                alt={selectedCategory.images[selectedImageIndex].alt} 
                 className="modal-main-image"
               />
+              
+              <button className="modal-nav modal-nav-next" onClick={nextImage}>
+                ›
+              </button>
             </div>
             
-            <h3>{selectedImage.title}</h3>
+            <div className="modal-info">
+              <h3>{selectedCategory.title}</h3>
+              <p>{selectedCategory.images[selectedImageIndex].title}</p>
+            </div>
+
+            <div className="modal-thumbnails">
+              {selectedCategory.images.map((image, index) => (
+                <img
+                  key={image.id}
+                  src={image.src}
+                  alt={image.alt}
+                  className={`modal-thumbnail ${index === selectedImageIndex ? 'active' : ''}`}
+                  onClick={() => goToImage(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       )}
