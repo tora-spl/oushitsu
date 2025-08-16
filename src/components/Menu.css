@@ -216,6 +216,11 @@
     font-size: 2rem;
   }
   
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
   .category-header {
     padding: 1.2rem;
   }
@@ -226,6 +231,10 @@
   
   .category-name {
     font-size: 1.2rem;
+  }
+  
+  .category-count {
+    font-size: 0.8rem;
   }
   
   .menu-items {
@@ -247,9 +256,34 @@
   .menu-item-price {
     align-self: flex-start;
   }
+  
+  .menu-item-name {
+    font-size: 1rem;
+  }
+  
+  .menu-item-description {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .menu {
+    padding: 2rem 0;
+  }
+  
+  .menu-container {
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .category-header {
     padding: 1rem;
   }
@@ -264,11 +298,34 @@
     font-size: 1.1rem;
   }
   
+  .category-count {
+    font-size: 0.75rem;
+  }
+  
+  .category-icon {
+    font-size: 1.2rem;
+  }
+  
   .menu-items {
     padding: 1rem;
+    gap: 0.8rem;
   }
   
   .menu-item {
     padding: 0.8rem;
+  }
+  
+  .menu-item-name {
+    font-size: 0.95rem;
+  }
+  
+  .menu-item-description {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .menu-item-price {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
   }
 }

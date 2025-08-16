@@ -78,14 +78,64 @@ textarea:focus {
 }
 
 /* レスポンシブ設定 */
+@media (max-width: 1024px) {
+  body {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 14px;
+  }
+  
+  /* モバイルでのスクロールバー調整 */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* モバイルでのフォーカスアウトライン調整 */
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid #d4af37;
+    outline-offset: 1px;
   }
 }
 
 @media (max-width: 480px) {
   body {
     font-size: 13px;
+  }
+  
+  /* 小画面でのスクロールバー調整 */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  /* 小画面でのフォーカスアウトライン調整 */
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 1px solid #d4af37;
+    outline-offset: 1px;
+  }
+}
+
+/* タッチデバイス対応 */
+@media (hover: none) and (pointer: coarse) {
+  /* タッチデバイスでのホバー効果を無効化 */
+  button:hover,
+  a:hover {
+    transform: none !important;
+  }
+  
+  /* タッチデバイスでのフォーカス表示を強化 */
+  button:focus,
+  a:focus {
+    outline: 3px solid #d4af37;
+    outline-offset: 2px;
   }
 }

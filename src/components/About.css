@@ -315,4 +315,119 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+  
+  .history-line {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .history-connector {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(180deg, var(--primary-gold), transparent);
+  }
+  
+  .history-connector::after {
+    bottom: 0;
+    right: -3px;
+    top: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 2rem 0;
+  }
+  
+  .about-container {
+    padding: 0 1rem;
+  }
+  
+  .about-content {
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .elegant-space-image {
+    height: 220px;
+  }
+  
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat {
+    padding: 1.2rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .about-features {
+    gap: 1.5rem;
+  }
+  
+  .about-feature {
+    padding: 1.2rem;
+  }
+  
+  .feature-number {
+    font-size: 1.5rem;
+  }
+  
+  .feature-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .feature-content p {
+    font-size: 0.9rem;
+  }
+  
+  .anniversary-fair {
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+  }
+  
+  .fair-title {
+    font-size: 1.5rem;
+  }
+  
+  .fair-description {
+    font-size: 0.9rem;
+  }
+  
+  .fair-details {
+    gap: 0.8rem;
+  }
+  
+  .fair-item {
+    gap: 0.3rem;
+  }
+  
+  .fair-label {
+    font-size: 0.8rem;
+  }
+  
+  .fair-text {
+    font-size: 0.9rem;
+  }
+  
+  .fair-price {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .fair-cta {
+    font-size: 1rem;
+  }
 }

@@ -52,11 +52,11 @@ const Header: React.FC = () => {
         
         <div className="header-social">
           <a 
-            href="https://www.instagram.com/bar.ohshitsu1205/" 
+            href="https://www.instagram.com/bar.ohshitsu1205/"
             target="_blank" 
             rel="noopener noreferrer"
-            className="social-icon instagram-icon" 
-            aria-label="Instagramで王室をフォロー"
+            className="social-icon instagram-icon"
+            aria-label="InstagramでBAR王室をフォロー"
           >
             <img src="/instagram.png" alt="Instagram" className="social-icon-image" />
           </a>
@@ -65,7 +65,7 @@ const Header: React.FC = () => {
             target="_blank" 
             rel="noopener noreferrer"
             className="social-icon map-icon"
-            aria-label="Googleマップで場所を表示"
+            aria-label="GoogleマップでBAR王室の場所を表示"
           >
             <img src="/googleMap.png" alt="Google Maps" className="social-icon-image" />
           </a>
@@ -74,15 +74,8 @@ const Header: React.FC = () => {
         <button 
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              e.preventDefault();
-              toggleMenu();
-            }
-          }}
           aria-label="メニューを開く"
           aria-expanded={isMenuOpen}
-          aria-controls="nav-menu"
         >
           <span></span>
           <span></span>

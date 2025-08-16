@@ -245,6 +245,57 @@ button:focus-visible {
   transform: scale(1.1);
 }
 
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    gap: 0.4rem;
+  }
+  
+  .section-divider {
+    width: 90%;
+    max-width: 300px;
+  }
+  
+  .section-divider::before {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    gap: 0.3rem;
+    min-width: auto;
+  }
+  
+  .section-divider {
+    width: 95%;
+    max-width: 250px;
+  }
+  
+  .section-divider::before {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* タッチデバイス対応 */
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px var(--shadow-gold-hover);
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
