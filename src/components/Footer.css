@@ -12,7 +12,7 @@
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
   margin-bottom: 3rem;
 }
@@ -32,46 +32,6 @@
   width: 30px;
   height: 2px;
   background: #d4af37;
-}
-
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.footer-logo-image {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-}
-
-.footer-logo-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.footer-logo-text h3 {
-  color: #d4af37;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-}
-
-.footer-logo p {
-  color: #fff;
-  opacity: 0.8;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-}
-
-.footer-description {
-  line-height: 1.6;
-  opacity: 0.7;
-  font-size: 0.9rem;
 }
 
 .footer-list {
@@ -223,28 +183,6 @@
     text-align: center;
   }
   
-  .footer-logo {
-    justify-content: center;
-  }
-  
-  .footer-logo-image {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .footer-logo-text h3 {
-    font-size: 1.5rem;
-  }
-  
-  .footer-logo-text p {
-    font-size: 0.9rem;
-  }
-  
-  .footer-description {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
   .footer-list {
     gap: 0.8rem;
   }
@@ -288,24 +226,6 @@
   
   .footer-content {
     gap: 1.5rem;
-  }
-  
-  .footer-logo-image {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .footer-logo-text h3 {
-    font-size: 1.3rem;
-  }
-  
-  .footer-logo-text p {
-    font-size: 0.8rem;
-  }
-  
-  .footer-description {
-    font-size: 0.8rem;
-    line-height: 1.5;
   }
   
   .footer-list {
