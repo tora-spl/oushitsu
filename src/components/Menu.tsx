@@ -3,7 +3,7 @@ import type { MenuCategory } from '../types/index';
 import './Menu.css';
 
 const Menu: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [expandedCategories, setExpandedCategories] = useState<Set<number>>(new Set());
 
   const menuData: MenuCategory[] = [
     {
@@ -109,20 +109,27 @@ const Menu: React.FC = () => {
     }
   ];
 
-  const allDrinks = menuData.flatMap(category => category.drinks);
-  
-  const filteredDrinks = activeCategory === 'all' 
-    ? allDrinks 
-    : allDrinks.filter(drink => drink.category === activeCategory);
+  const toggleCategory = (categoryId: number) => {
+    const newExpanded = new Set(expandedCategories);
+    if (newExpanded.has(categoryId)) {
+      newExpanded.delete(categoryId);
+    } else {
+      newExpanded.add(categoryId);
+    }
+    setExpandedCategories(newExpanded);
+  };
 
-  const categories = [
-    { id: 'all', name: 'すべて', icon: '🍷' },
-    { id: 'cocktail', name: 'カクテル', icon: '🍸' },
-    { id: 'spirit', name: 'ウイスキー・スピリッツ', icon: '🥃' },
-    { id: 'wine', name: 'ワイン・シャンパン', icon: '🍷' },
-    { id: 'beer', name: 'ビール・ソフトドリンク', icon: '🍺' },
-    { id: 'non-alcoholic', name: 'ノンアルコール', icon: '🥤' }
-  ];
+  const getCategoryIcon = (categoryName: string) => {
+    const iconMap: { [key: string]: string } = {
+      'カクテル': '🍸',
+      'オリジナルカクテル': '🍹',
+      'ウイスキー': '🥃',
+      'ワイン・シャンパン': '🍷',
+      'リキュール・その他': '🍾',
+      'ビール・ソフトドリンク': '🍺'
+    };
+    return iconMap[categoryName] || '🍷';
+  };
 
   return (
     <section id="menu" className="menu">
@@ -130,43 +137,48 @@ const Menu: React.FC = () => {
         <h2 className="section-title">メニュー</h2>
         <p className="section-subtitle">厳選されたドリンクをお楽しみください</p>
         
-        <div className="category-filters">
-          {categories.map(category => (
-            <button
-              key={category.id}
-              className={`category-filter ${activeCategory === category.id ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              <span className="category-icon">{category.icon}</span>
-              <span className="category-name">{category.name}</span>
-            </button>
-          ))}
-        </div>
-        
-        <div className="menu-grid">
-          {filteredDrinks.map(drink => (
-            <div key={drink.id} className="menu-item">
-              <div className="menu-item-content">
-                <div className="menu-item-header">
-                  <h3 className="menu-item-name">{drink.name}</h3>
-                  <span className="menu-item-price">¥{drink.price.toLocaleString()}</span>
+        <div className="menu-categories">
+          {menuData.map(category => (
+            <div key={category.id} className="menu-category">
+              <div 
+                className="category-header"
+                onClick={() => toggleCategory(category.id)}
+              >
+                <div className="category-info">
+                  <span className="category-icon">{getCategoryIcon(category.name)}</span>
+                  <h3 className="category-name">{category.name}</h3>
+                  <span className="category-count">({category.drinks.length}品)</span>
                 </div>
-                <p className="menu-item-description">{drink.description}</p>
-                <div className="menu-item-category">
-                  <span className={`category-badge ${drink.category}`}>
-                    {categories.find(c => c.id === drink.category)?.name}
+                <div className="category-toggle">
+                  <span className={`toggle-icon ${expandedCategories.has(category.id) ? 'expanded' : ''}`}>
+                    ▼
                   </span>
                 </div>
               </div>
+              
+              {expandedCategories.has(category.id) && (
+                <div className="category-content">
+                  <div className="menu-items">
+                    {category.drinks.map(drink => (
+                      <div key={drink.id} className="menu-item">
+                        <div className="menu-item-content">
+                          <div className="menu-item-header">
+                            <h4 className="menu-item-name">{drink.name}</h4>
+                            <span className="menu-item-price">¥{drink.price.toLocaleString()}</span>
+                          </div>
+                          <p className="menu-item-description">{drink.description}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
         
         <div className="menu-cta">
           <p>特別なリクエストがございましたら、お気軽にお声がけください</p>
-          {/* <button className="btn btn-primary" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-            お問い合わせ
-          </button> */}
         </div>
       </div>
     </section>
