@@ -44,11 +44,23 @@ const Footer: React.FC = () => {
             <ul className="footer-list" role="list">
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📞</span>
-                <span className="footer-text">0942-656062</span>
+                <a 
+                  href="tel:0942-656062"
+                  className="footer-phone-link"
+                  aria-label="0942-656062に電話をかける"
+                >
+                  <span className="footer-text">0942-656062</span>
+                </a>
               </li>
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">✉️</span>
-                <span className="footer-text">bar.ohshitsu1205@gmail.com</span>
+                <a 
+                  href="mailto:bar.ohshitsu1205@gmail.com"
+                  className="footer-email-link"
+                  aria-label="bar.ohshitsu1205@gmail.comにメールを送る"
+                >
+                  <span className="footer-text">bar.ohshitsu1205@gmail.com</span>
+                </a>
               </li>
               <li role="listitem">
                 <a 

@@ -143,6 +143,30 @@
   text-decoration: underline;
 }
 
+/* 電話番号とメールアドレスのリンクスタイル */
+.footer-phone-link,
+.footer-email-link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.footer-phone-link:hover,
+.footer-email-link:hover {
+  color: var(--primary-gold);
+  text-decoration: underline;
+  transform: translateX(3px);
+}
+
+.footer-phone-link:active,
+.footer-email-link:active {
+  transform: translateX(3px) scale(0.98);
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(212, 175, 55, 0.2);
   padding-top: 2rem;
