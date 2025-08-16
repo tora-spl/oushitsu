@@ -160,7 +160,7 @@ const Gallery: React.FC = () => {
             
             <div className="modal-image-container">
               <button className="modal-nav modal-nav-prev" onClick={prevImage}>
-                ‹
+                ←
               </button>
               
               <img 
@@ -170,7 +170,7 @@ const Gallery: React.FC = () => {
               />
               
               <button className="modal-nav modal-nav-next" onClick={nextImage}>
-                ›
+                →
               </button>
             </div>
             
