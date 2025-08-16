@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import type { MenuCategory } from '../types/index';
 import './Menu.css';
@@ -132,35 +133,45 @@ const Menu: React.FC = () => {
   };
 
   return (
-    <section id="menu" className="menu">
+    <section id="menu" className="menu" role="region" aria-labelledby="menu-title">
       <div className="menu-container">
-        <h2 className="section-title">メニュー</h2>
+        <h2 id="menu-title" className="section-title">メニュー</h2>
         <p className="section-subtitle">厳選されたドリンクをお楽しみください</p>
         
-        <div className="menu-categories">
+        <div className="menu-categories" role="list">
           {menuData.map(category => (
-            <div key={category.id} className="menu-category">
+            <div key={category.id} className="menu-category" role="listitem">
               <div 
                 className="category-header"
                 onClick={() => toggleCategory(category.id)}
+                role="button"
+                tabIndex={0}
+                aria-expanded={expandedCategories.has(category.id)}
+                aria-controls={`category-${category.id}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCategory(category.id);
+                  }
+                }}
               >
                 <div className="category-info">
-                  <span className="category-icon">{getCategoryIcon(category.name)}</span>
+                  <span className="category-icon" aria-hidden="true">{getCategoryIcon(category.name)}</span>
                   <h3 className="category-name">{category.name}</h3>
                   <span className="category-count">({category.drinks.length}品)</span>
                 </div>
                 <div className="category-toggle">
-                  <span className={`toggle-icon ${expandedCategories.has(category.id) ? 'expanded' : ''}`}>
+                  <span className={`toggle-icon ${expandedCategories.has(category.id) ? 'expanded' : ''}`} aria-hidden="true">
                     ▼
                   </span>
                 </div>
               </div>
               
               {expandedCategories.has(category.id) && (
-                <div className="category-content">
-                  <div className="menu-items">
+                <div className="category-content" id={`category-${category.id}`} role="region" aria-labelledby={`category-${category.id}-title`}>
+                  <div className="menu-items" role="list">
                     {category.drinks.map(drink => (
-                      <div key={drink.id} className="menu-item">
+                      <div key={drink.id} className="menu-item" role="listitem">
                         <div className="menu-item-content">
                           <div className="menu-item-header">
                             <h4 className="menu-item-name">{drink.name}</h4>

@@ -1,5 +1,5 @@
 .menu {
-  padding: var(--section-padding);
+  padding: 4rem 0;
   background: var(--background-darker);
   color: var(--text-primary);
 }
@@ -194,9 +194,6 @@
 .menu-cta {
   text-align: center;
   padding: 2rem;
-  background: rgba(212, 175, 55, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
 .menu-cta p {

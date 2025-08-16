@@ -1,5 +1,5 @@
 .about {
-  padding: var(--section-padding);
+  padding: 4rem 0;
   background: var(--background-darker);
   color: var(--text-primary);
 }

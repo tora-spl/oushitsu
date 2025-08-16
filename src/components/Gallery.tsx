@@ -142,8 +142,7 @@ const Gallery: React.FC = () => {
                   <div className="category-overlay-content">
                     <h3>{category.title}</h3>
                     <p>{category.description}</p>
-                    <span className="image-count">{category.images.length}枚の画像</span>
-                    <span className="view-icon">👁️</span>
+
                   </div>
                 </div>
               </div>
@@ -151,9 +150,6 @@ const Gallery: React.FC = () => {
           ))}
         </div>
         
-        <div className="gallery-cta">
-          <p>実際の空間で特別な体験をお楽しみください</p>
-        </div>
       </div>
 
       {/* Modal */}
@@ -180,7 +176,6 @@ const Gallery: React.FC = () => {
             
             <div className="modal-info">
               <h3>{selectedCategory.title}</h3>
-              <p>{selectedCategory.images[selectedImageIndex].title}</p>
             </div>
 
             <div className="modal-thumbnails">
