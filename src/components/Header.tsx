@@ -1,12 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -14,18 +19,34 @@ const Header: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false);
+    closeMenu();
   };
 
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 50;
       setIsScrolled(scrolled);
+      
+      // スクロール時にメニューを閉じる
+      if (isMenuOpen) {
+        closeMenu();
+      }
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        closeMenu();
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   return (
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
@@ -40,7 +61,13 @@ const Header: React.FC = () => {
           </div>
         </div>
         
-        <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`} id="nav-menu" role="navigation" aria-label="メインナビゲーション">
+        <nav 
+          ref={navRef}
+          className={`nav ${isMenuOpen ? 'nav-open' : ''}`} 
+          id="nav-menu" 
+          role="navigation" 
+          aria-label="メインナビゲーション"
+        >
           <ul className="nav-list">
             <li><button onClick={() => scrollToSection('home')} aria-label="ホームセクションへ移動">ホーム</button></li>
             <li><button onClick={() => scrollToSection('about')} aria-label="私たちについてセクションへ移動">私たちについて</button></li>
