@@ -194,12 +194,18 @@
 .menu-cta {
   text-align: center;
   padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .menu-cta p {
   font-size: 1.1rem;
   margin: 0;
   opacity: 0.9;
+  white-space: nowrap;
 }
 
 /* レスポンシブデザイン */
@@ -264,6 +270,18 @@
   .menu-item-description {
     font-size: 0.9rem;
   }
+  
+  .menu-cta {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.5rem;
+  }
+  
+  .menu-cta p {
+    white-space: normal;
+    line-height: 1.6;
+    max-width: 500px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -327,5 +345,16 @@
   .menu-item-price {
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
+  }
+  
+  .menu-cta {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+  
+  .menu-cta p {
+    font-size: 0.9rem;
+    max-width: 400px;
+    line-height: 1.5;
   }
 }

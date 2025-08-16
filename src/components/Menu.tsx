@@ -189,7 +189,8 @@ const Menu: React.FC = () => {
         </div>
         
         <div className="menu-cta">
-          <p>特別なリクエストがございましたら、お気軽にお声がけください</p>
+          <p>特別なリクエストがございましたら</p>
+          <p>お気軽にお声がけください</p>
         </div>
       </div>
     </section>
