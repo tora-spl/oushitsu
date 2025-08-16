@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
                 <span className="footer-text">20:00 - 翌2:00</span>
               </li>
               <li role="listitem">
-                <span className="footer-icon" aria-hidden="true">✨</span>
+                <span className="footer-icon" aria-hidden="true">🚫</span>
                 <span className="footer-text">定休日：月曜日</span>
               </li>
             </ul>
