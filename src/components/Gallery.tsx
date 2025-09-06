@@ -1,61 +1,59 @@
 import { useState, useEffect } from 'react';
 import type { GalleryCategory, GalleryImage } from '../types/index';
 import './Gallery.css';
+import guitersImage from '../assets/images/guiters.jpg';
+import live1Image from '../assets/images/live1.jpg';
+import live2Image from '../assets/images/live2.jpg';
 
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [animationStopped, setAnimationStopped] = useState<boolean>(false);
 
-  // ダミーデータ：4つのカテゴリー、それぞれに複数の画像
+  // ダミーデータ：ライブステージカテゴリー
   const galleryCategories: GalleryCategory[] = [
     {
       id: 1,
-      title: '',
-      description: 'ギャラリー',
-      thumbnail: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop',
+      title: 'ライブステージ',
+      description: '音楽と共に楽しむ空間',
+      thumbnail: guitersImage,
       images: [
         {
           id: 1,
-          src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop',
-          alt: 'エレガントなバーカウンター',
-          title: 'カウンター'
+          src: guitersImage,
+          alt: 'ギタースタジオ',
+          title: 'ギタースタジオ'
         },
         {
           id: 2,
-          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
-          alt: 'カウンターの夜景',
-          title: 'カウンター夜景'
+          src: live1Image,
+          alt: 'ライブ演奏の様子',
+          title: 'ライブ演奏'
         },
         {
+          id: 3,
+          src: live2Image,
+          alt: 'ライブハウスの雰囲気',
+          title: 'ライブハウス'
+        }, 
+               {
             id: 4,
-            src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
-            alt: 'ライブ音楽ステージ',
-            title: 'ライブステージ'
+            src: live2Image,
+            alt: 'ライブハウスの雰囲気',
+            title: '歴史'
           },
           {
             id: 5,
-            src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
-            alt: 'ステージの照明',
-            title: 'ステージ照明'
+            src: live2Image,
+            alt: 'ライブハウスの雰囲気',
+            title: '歴史'
           },
           {
             id: 6,
-            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-            alt: 'ステージの全景',
-            title: 'ステージ全景'
-          },    
-        {
-          id: 3,
-          src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
-          alt: 'カウンターのディテール',
-          title: 'カウンターディテール'
-        },
-        {
-            id: 10,
-            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-            alt: 'バーの歴史',
+            src: live2Image,
+            alt: 'ライブハウスの雰囲気',
             title: '歴史'
-          },
+          }
       ]
     }
   ];
@@ -89,6 +87,15 @@ const Gallery: React.FC = () => {
       );
     }
   };
+
+  // アニメーション完了を検知
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimationStopped(true);
+    }, 10000); // 5回 × 2秒 = 10秒後に停止
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // スマホでの横スクロール対応
   useEffect(() => {
@@ -143,28 +150,22 @@ const Gallery: React.FC = () => {
     <section id="gallery" className="gallery">
       <div className="gallery-container">
         <h2 className="section-title">ギャラリー</h2>
-        <p className="section-subtitle">王室の美しい空間をご覧ください</p>
+        <p className="section-subtitle">クリックして写真を拡大表示</p>
         
         <div className="gallery-categories">
           {galleryCategories.map((category) => (
             <div 
               key={category.id} 
-              className="gallery-category"
+              className={`gallery-category ${animationStopped ? 'animation-stopped' : ''}`}
               onClick={() => openModal(category)}
             >
-              <div className="category-image">
-                <img 
-                  src={category.thumbnail}
-                  alt={category.title}
-                  loading="lazy"
-                />
-                <div className="category-overlay">
-                  <div className="category-overlay-content">
-                    <h3>{category.title}</h3>
-                    <p>{category.description}</p>
-                  </div>
-                </div>
-              </div>
+               <div className="category-image">
+                 <img 
+                   src={category.thumbnail}
+                   alt={category.title}
+                   loading="lazy"
+                 />
+               </div>
             </div>
           ))}
         </div>
