@@ -34,7 +34,15 @@ const Header: React.FC = () => {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      const hamburgerButton = document.querySelector('.hamburger');
+      
+      // ハンバーガーボタンまたはナビゲーション内のクリックは無視
+      if (hamburgerButton && hamburgerButton.contains(target)) {
+        return;
+      }
+      
+      if (navRef.current && !navRef.current.contains(target)) {
         closeMenu();
       }
     };

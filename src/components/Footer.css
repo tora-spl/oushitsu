@@ -179,12 +179,21 @@
     text-align: center;
   }
   
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .footer-list {
     gap: 0.8rem;
   }
   
   .footer-list li {
     gap: 0.6rem;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
   }
   
   .footer-icon {
@@ -193,6 +202,7 @@
   
   .footer-text {
     font-size: 0.9rem;
+    text-align: left;
   }
   
   .footer-bottom-content {
@@ -224,12 +234,21 @@
     gap: 1.5rem;
   }
   
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .footer-list {
     gap: 0.6rem;
   }
   
   .footer-list li {
     gap: 0.5rem;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
   }
   
   .footer-icon {
@@ -238,6 +257,7 @@
   
   .footer-text {
     font-size: 0.8rem;
+    text-align: left;
   }
   
   .footer-bottom-content {
