@@ -183,6 +183,15 @@
   padding: 0.5rem;
   gap: 4px;
   z-index: 1000;
+  outline: none;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+.hamburger:focus-visible {
+  outline: none;
 }
 
 .hamburger span {
