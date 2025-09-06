@@ -206,7 +206,7 @@
   font-size: 2rem;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,7 +217,6 @@
 .modal-nav:hover {
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
-  transform: translateY(-50%);
 }
 
 .modal-nav-prev {
