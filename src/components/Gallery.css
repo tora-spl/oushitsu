@@ -184,6 +184,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  touch-action: pan-x;
+  overflow: hidden;
 }
 
 .modal-main-image {
@@ -212,6 +214,7 @@
   justify-content: center;
   text-align: center;
   outline: none;
+  border: none;
 }
 
 .modal-nav:hover {
@@ -309,10 +312,7 @@
   }
   
   .modal-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    transform: translateY(-50%) !important;
+    display: none;
   }
   
   .modal-thumbnails {
@@ -335,7 +335,34 @@
   }
   
   .modal-overlay {
-    padding: 1rem;
+    padding: 0.5rem;
+  }
+  
+  .modal-content {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  .modal-image-container {
+    margin-bottom: 0.5rem;
+    min-height: 50vh;
+  }
+  
+  .modal-main-image {
+    max-height: 50vh;
+    object-fit: contain;
+  }
+  
+  .modal-thumbnails {
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
+  
+  .modal-thumbnail {
+    width: 50px;
+    height: 40px;
   }
   
   .modal-nav {

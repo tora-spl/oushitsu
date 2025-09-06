@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { GalleryCategory } from '../types/index';
 import './Gallery.css';
 
@@ -99,6 +99,11 @@ const Gallery: React.FC = () => {
     setSelectedImageIndex(0);
   };
 
+
+  const goToImage = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
   const nextImage = () => {
     if (selectedCategory) {
       setSelectedImageIndex((prev) => 
@@ -115,9 +120,54 @@ const Gallery: React.FC = () => {
     }
   };
 
-  const goToImage = (index: number) => {
-    setSelectedImageIndex(index);
-  };
+  // スマホでの横スクロール対応
+  useEffect(() => {
+    if (!selectedCategory) return;
+
+    const handleTouchStart = (e: Event) => {
+      const touchEvent = e as TouchEvent;
+      const startX = touchEvent.touches[0].clientX;
+      const startY = touchEvent.touches[0].clientY;
+      
+      const handleTouchEnd = (e: Event) => {
+        const touchEndEvent = e as TouchEvent;
+        const endX = touchEndEvent.changedTouches[0].clientX;
+        const endY = touchEndEvent.changedTouches[0].clientY;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+        
+        // 横方向のスワイプが縦方向より大きい場合のみ処理
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            // 左スワイプ（次の画像）
+            setSelectedImageIndex((prev) => 
+              prev === selectedCategory.images.length - 1 ? 0 : prev + 1
+            );
+          } else {
+            // 右スワイプ（前の画像）
+            setSelectedImageIndex((prev) => 
+              prev === 0 ? selectedCategory.images.length - 1 : prev - 1
+            );
+          }
+        }
+        
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+      
+      document.addEventListener('touchend', handleTouchEnd);
+    };
+
+    const modalElement = document.querySelector('.modal-content');
+    if (modalElement) {
+      modalElement.addEventListener('touchstart', handleTouchStart);
+    }
+
+    return () => {
+      if (modalElement) {
+        modalElement.removeEventListener('touchstart', handleTouchStart);
+      }
+    };
+  }, [selectedCategory]);
 
   return (
     <section id="gallery" className="gallery">
@@ -158,21 +208,21 @@ const Gallery: React.FC = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             
-            <div className="modal-image-container">
-              <button className="modal-nav modal-nav-prev" onClick={prevImage}>
-                ←
-              </button>
-              
-              <img 
-                src={selectedCategory.images[selectedImageIndex].src} 
-                alt={selectedCategory.images[selectedImageIndex].alt} 
-                className="modal-main-image"
-              />
-              
-              <button className="modal-nav modal-nav-next" onClick={nextImage}>
-                →
-              </button>
-            </div>
+             <div className="modal-image-container">
+               <button className="modal-nav modal-nav-prev" onClick={prevImage}>
+                 ←
+               </button>
+               
+               <img 
+                 src={selectedCategory.images[selectedImageIndex].src} 
+                 alt={selectedCategory.images[selectedImageIndex].alt} 
+                 className="modal-main-image"
+               />
+               
+               <button className="modal-nav modal-nav-next" onClick={nextImage}>
+                 →
+               </button>
+             </div>
             
             <div className="modal-info">
               <h3>{selectedCategory.title}</h3>
