@@ -7,16 +7,18 @@ export interface Drink {
   image?: string;
 }
 
+export interface GalleryImage {
+  id: number;
+  src: string;
+  alt: string;
+  title: string;
+}
+
 export interface GalleryCategory {
   id: number;
   title: string;
   description: string;
-  images: {
-    id: number;
-    src: string;
-    alt: string;
-    title: string;
-  }[];
+  images: GalleryImage[];
   thumbnail: string;
 }
 

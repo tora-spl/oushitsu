@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import type { GalleryCategory } from '../types/index';
+import type { GalleryCategory, GalleryImage } from '../types/index';
 import './Gallery.css';
 
 const Gallery: React.FC = () => {
@@ -10,8 +10,8 @@ const Gallery: React.FC = () => {
   const galleryCategories: GalleryCategory[] = [
     {
       id: 1,
-      title: 'カウンター',
-      description: 'エレガントなバーカウンター',
+      title: '',
+      description: 'ギャラリー',
       thumbnail: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop',
       images: [
         {
@@ -27,64 +27,35 @@ const Gallery: React.FC = () => {
           title: 'カウンター夜景'
         },
         {
+            id: 4,
+            src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
+            alt: 'ライブ音楽ステージ',
+            title: 'ライブステージ'
+          },
+          {
+            id: 5,
+            src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+            alt: 'ステージの照明',
+            title: 'ステージ照明'
+          },
+          {
+            id: 6,
+            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+            alt: 'ステージの全景',
+            title: 'ステージ全景'
+          },    
+        {
           id: 3,
           src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
           alt: 'カウンターのディテール',
           title: 'カウンターディテール'
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: 'ライブステージ',
-      description: '音楽と共に楽しむ空間',
-      thumbnail: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=200&fit=crop',
-      images: [
-        {
-          id: 4,
-          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
-          alt: 'ライブ音楽ステージ',
-          title: 'ライブステージ'
         },
         {
-          id: 5,
-          src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
-          alt: 'ステージの照明',
-          title: 'ステージ照明'
-        },
-        {
-          id: 6,
-          src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-          alt: 'ステージの全景',
-          title: 'ステージ全景'
-        }
-      ]
-    },
-
-    {
-      id: 4,
-      title: '歴史',
-      description: 'バーの歴史と伝統',
-      thumbnail: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop',
-      images: [
-        {
-          id: 10,
-          src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-          alt: 'バーの歴史',
-          title: '歴史'
-        },
-        {
-          id: 11,
-          src: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=600&fit=crop',
-          alt: '歴史的な装飾',
-          title: '歴史的装飾'
-        },
-        {
-          id: 12,
-          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
-          alt: '伝統的な要素',
-          title: '伝統的要素'
-        }
+            id: 10,
+            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+            alt: 'バーの歴史',
+            title: '歴史'
+          },
       ]
     }
   ];
@@ -98,7 +69,6 @@ const Gallery: React.FC = () => {
     setSelectedCategory(null);
     setSelectedImageIndex(0);
   };
-
 
   const goToImage = (index: number) => {
     setSelectedImageIndex(index);
@@ -192,14 +162,12 @@ const Gallery: React.FC = () => {
                   <div className="category-overlay-content">
                     <h3>{category.title}</h3>
                     <p>{category.description}</p>
-
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
       </div>
 
       {/* Modal */}
@@ -208,28 +176,28 @@ const Gallery: React.FC = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
             
-             <div className="modal-image-container">
-               <button className="modal-nav modal-nav-prev" onClick={prevImage}>
-                 ←
-               </button>
-               
-               <img 
-                 src={selectedCategory.images[selectedImageIndex].src} 
-                 alt={selectedCategory.images[selectedImageIndex].alt} 
-                 className="modal-main-image"
-               />
-               
-               <button className="modal-nav modal-nav-next" onClick={nextImage}>
-                 →
-               </button>
-             </div>
+            <div className="modal-image-container">
+              <button className="modal-nav modal-nav-prev" onClick={prevImage}>
+                ←
+              </button>
+              
+              <img 
+                src={selectedCategory.images[selectedImageIndex].src} 
+                alt={selectedCategory.images[selectedImageIndex].alt} 
+                className="modal-main-image"
+              />
+              
+              <button className="modal-nav modal-nav-next" onClick={nextImage}>
+                →
+              </button>
+            </div>
             
             <div className="modal-info">
               <h3>{selectedCategory.title}</h3>
             </div>
 
             <div className="modal-thumbnails">
-              {selectedCategory.images.map((image, index) => (
+              {selectedCategory.images.map((image: GalleryImage, index: number) => (
                 <img
                   key={image.id}
                   src={image.src}
