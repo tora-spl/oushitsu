@@ -38,25 +38,25 @@ const Gallery: React.FC = () => {
       id: 2,
       title: 'ライブステージ',
       description: '音楽と共に楽しむ空間',
-      thumbnail: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=300&h=200&fit=crop',
+      thumbnail: '/src/assets/images/guiters.jpg',
       images: [
         {
           id: 4,
-          src: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=800&h=600&fit=crop',
-          alt: 'ライブ音楽ステージ',
-          title: 'ライブステージ'
+          src: '/src/assets/images/guiters.jpg',
+          alt: 'ギター演奏',
+          title: 'ギター演奏'
         },
         {
           id: 5,
-          src: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
-          alt: 'ステージの照明',
-          title: 'ステージ照明'
+          src: '/src/assets/images/live1.jpg',
+          alt: 'ライブ演奏',
+          title: 'ライブ演奏'
         },
         {
           id: 6,
-          src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-          alt: 'ステージの全景',
-          title: 'ステージ全景'
+          src: '/src/assets/images/live2.jpg',
+          alt: 'ステージ演奏',
+          title: 'ステージ演奏'
         }
       ]
     },
