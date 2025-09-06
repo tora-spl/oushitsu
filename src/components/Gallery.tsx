@@ -89,13 +89,39 @@ const Gallery: React.FC = () => {
     }
   };
 
-  // アニメーション完了を検知
+  // ギャラリーセクションの表示を監視してアニメーションを再開
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimationStopped(true);
-    }, 10000); // 5回 × 2秒 = 10秒後に停止
+    const galleryElement = document.getElementById('gallery');
+    if (!galleryElement) return;
 
-    return () => clearTimeout(timer);
+    let timer: number;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // ギャラリーが画面に表示されたらアニメーションを再開
+            setAnimationStopped(false);
+            
+            // 既存のタイマーをクリア
+            if (timer) clearTimeout(timer);
+            
+            // 10秒後にアニメーションを停止
+            timer = setTimeout(() => {
+              setAnimationStopped(true);
+            }, 10000);
+          }
+        });
+      },
+      { threshold: 0.3 } // 30%表示されたら発火
+    );
+
+    observer.observe(galleryElement);
+
+    return () => {
+      observer.disconnect();
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   // スマホでの横スクロール対応

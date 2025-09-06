@@ -29,7 +29,7 @@
   position: absolute;
   bottom: -8px;
   left: 0;
-  width: 30px;
+  width: 150px;
   height: 2px;
   background: #d4af37;
 }
@@ -63,6 +63,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 4rem;
 }
 
 .footer-text {
@@ -165,6 +166,18 @@
   opacity: 1;
 }
 
+/* PC専用のスタイル */
+@media (min-width: 769px) {
+  .footer-section h4 {
+    padding-left: 6rem;
+  }
+  
+  .footer-section h4::after {
+    left: 2rem;
+    width: 250px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 3rem 0 1.5rem;
@@ -186,7 +199,11 @@
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
-    width: 240px;
+    width: 300px;
+  }
+  
+  .footer-section h4.no-underline::after {
+    display: none;
   }
   
   .footer-list {
@@ -242,7 +259,11 @@
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
+    width: 200px;
+  }
+  
+  .footer-section h4.no-underline::after {
+    display: none;
   }
   
   .footer-list {
