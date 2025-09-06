@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
           </div>
           
           <div className="footer-section">
-            <h4>フォローする</h4>
+            <h4 className="no-underline">フォローする</h4>
             <ul className="footer-list" role="list">
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📷</span>

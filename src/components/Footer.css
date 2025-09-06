@@ -34,6 +34,10 @@
   background: #d4af37;
 }
 
+.footer-section h4.no-underline::after {
+  display: none;
+}
+
 .footer-list {
   list-style: none;
   padding: 0;
@@ -182,6 +186,7 @@
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
+    width: 240px;
   }
   
   .footer-list {
@@ -237,6 +242,7 @@
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
+    width: 120px;
   }
   
   .footer-list {

@@ -54,6 +54,7 @@ const Gallery: React.FC = () => {
             alt: 'ライブハウスの雰囲気',
             title: '歴史'
           }
+
       ]
     }
   ];
