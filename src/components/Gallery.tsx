@@ -7,7 +7,7 @@ const Gallery: React.FC = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [animationStopped, setAnimationStopped] = useState<boolean>(false);
   const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
-  const [categoryImageIndex, setCategoryImageIndex] = useState<{[key: number]: number}>({});
+  const [categoryImageIndex, setCategoryImageIndex] = useState<{ [key: number]: number }>({});
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [isAutoSliding, setIsAutoSliding] = useState<boolean>(true);
 
@@ -54,7 +54,7 @@ const Gallery: React.FC = () => {
   const handleIndicatorClick = (categoryId: number, imageIndex: number) => {
     setCurrentImageIndex(imageIndex);
     setIsAutoSliding(false);
-    
+
     // 10秒後に自動スライドを再開
     setTimeout(() => {
       setIsAutoSliding(true);
@@ -71,7 +71,7 @@ const Gallery: React.FC = () => {
     if (!isAutoSliding) return;
 
     const interval = setInterval(() => {
-        setCurrentImageIndex(prev => (prev + 1) % 4); // 3枚の写真をループ
+      setCurrentImageIndex(prev => (prev + 1) % 4); // 3枚の写真をループ
     }, 3000);
 
     return () => clearInterval(interval);
@@ -79,7 +79,7 @@ const Gallery: React.FC = () => {
 
   // 現在の画像インデックスを全カテゴリーに適用
   useEffect(() => {
-    const newCategoryImageIndex: {[key: number]: number} = {};
+    const newCategoryImageIndex: { [key: number]: number } = {};
     galleryCategories.forEach(category => {
       newCategoryImageIndex[category.id] = currentImageIndex;
     });
@@ -97,7 +97,7 @@ const Gallery: React.FC = () => {
 
   const nextImage = () => {
     if (selectedCategory) {
-      setSelectedImageIndex((prev) => 
+      setSelectedImageIndex((prev) =>
         prev === selectedCategory.images.length - 1 ? 0 : prev + 1
       );
     }
@@ -105,7 +105,7 @@ const Gallery: React.FC = () => {
 
   const prevImage = () => {
     if (selectedCategory) {
-      setSelectedImageIndex((prev) => 
+      setSelectedImageIndex((prev) =>
         prev === 0 ? selectedCategory.images.length - 1 : prev - 1
       );
     }
@@ -119,32 +119,32 @@ const Gallery: React.FC = () => {
       const touchEvent = e as TouchEvent;
       const startX = touchEvent.touches[0].clientX;
       const startY = touchEvent.touches[0].clientY;
-      
+
       const handleTouchEnd = (e: Event) => {
         const touchEndEvent = e as TouchEvent;
         const endX = touchEndEvent.changedTouches[0].clientX;
         const endY = touchEndEvent.changedTouches[0].clientY;
         const diffX = startX - endX;
         const diffY = startY - endY;
-        
+
         // 横方向のスワイプが縦方向より大きい場合のみ処理
         if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
           if (diffX > 0) {
             // 左スワイプ（次の画像）
-            setSelectedImageIndex((prev) => 
+            setSelectedImageIndex((prev) =>
               prev === selectedCategory.images.length - 1 ? 0 : prev + 1
             );
           } else {
             // 右スワイプ（前の画像）
-            setSelectedImageIndex((prev) => 
+            setSelectedImageIndex((prev) =>
               prev === 0 ? selectedCategory.images.length - 1 : prev - 1
             );
           }
         }
-        
+
         document.removeEventListener('touchend', handleTouchEnd);
       };
-      
+
       document.addEventListener('touchend', handleTouchEnd);
     };
 
@@ -163,11 +163,14 @@ const Gallery: React.FC = () => {
   return (
     <section id="gallery" className="gallery">
       <div className="gallery-container">
+        <div className="gallery-header">
+          <h2 className="section-title">ギャラリー</h2>
+        </div>
         <div className="gallery-categories">
           {galleryCategories.map((category) => (
             <div key={category.id} className="gallery-item">
-              <div 
-                key={category.id} 
+              <div
+                key={category.id}
                 className="gallery-category"
                 onMouseEnter={() => setHoveredCategory(category.id)}
                 onMouseLeave={() => setHoveredCategory(null)}
@@ -182,28 +185,28 @@ const Gallery: React.FC = () => {
                 tabIndex={0}
                 aria-label={`${category.images[categoryImageIndex[category.id] || 0]?.title || ''}の画像をクリックして詳細を表示`}
               >
-                 <div className="category-image">
-                   <img 
-                     src={category.images[categoryImageIndex[category.id] || 0].src}
-                     alt={category.images[categoryImageIndex[category.id] || 0].alt}
-                     loading="lazy"
-                     decoding="async"
-                     onError={(e) => {
-                       const target = e.target as HTMLImageElement;
-                       target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
-                     }}
-                   />
-                 </div>
-                 <div className="category-info">
-                   <h3 className="category-title">{category.images[categoryImageIndex[category.id] || 0]?.title || ''}</h3>
-                   <p className="category-description">{category.description}</p>
-                 </div>
+                <div className="category-image">
+                  <img
+                    src={category.images[categoryImageIndex[category.id] || 0].src}
+                    alt={category.images[categoryImageIndex[category.id] || 0].alt}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
+                    }}
+                  />
+                </div>
+                <div className="category-info">
+                  <h3 className="category-title">{category.images[categoryImageIndex[category.id] || 0]?.title || ''}</h3>
+                  <p className="category-description">{category.description}</p>
+                </div>
               </div>
-              
+
               <div className="category-photos-indicator">
                 {category.images.map((_, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className={`category-photo-dot ${categoryImageIndex[category.id] === index ? 'active' : ''}`}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -222,27 +225,27 @@ const Gallery: React.FC = () => {
         <div className="modal-overlay" onClick={closeModal} role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal} aria-label="モーダルを閉じる">×</button>
-            
+
             <div className="modal-image-container">
               <button className="modal-nav modal-nav-prev" onClick={prevImage} aria-label="前の画像">
                 ←
               </button>
-              
-              <img 
-                src={selectedCategory.images[selectedImageIndex].src} 
-                alt={selectedCategory.images[selectedImageIndex].alt} 
+
+              <img
+                src={selectedCategory.images[selectedImageIndex].src}
+                alt={selectedCategory.images[selectedImageIndex].alt}
                 className="modal-main-image"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
                 }}
               />
-              
+
               <button className="modal-nav modal-nav-next" onClick={nextImage} aria-label="次の画像">
                 →
               </button>
             </div>
-            
+
             <div className="modal-info">
               <h3>{selectedCategory.images[selectedImageIndex]?.title || ''}</h3>
               <p>{selectedCategory.images[selectedImageIndex]?.subtitle || ''}</p>

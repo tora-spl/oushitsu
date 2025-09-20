@@ -46,7 +46,9 @@ const Footer: React.FC = () => {
           // 特定のセクションに対してオフセットを適用
           let offset = 0;
           if (sectionId === '#about') {
-            offset = -400; // 200px上に表示
+            offset = -150; // 200px上に表示
+          } else if (sectionId === '#menu') {
+            offset = -150; // 150px上に表示
           }
 
           const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;

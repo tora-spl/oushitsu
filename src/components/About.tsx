@@ -13,7 +13,7 @@ const About: React.FC = () => {
               王室は、1968年の創業以来、福岡県久留米市の夜を彩る特別な場所として多くのお客様に愛されてまいりました。
               先代が52年にわたり築き上げてきた王室の良さを残しつつ、お客様一人ひとりに心に残る特別な体験をお届けすることを使命としております。
             </p>
-            
+
             <div className="about-features" role="list">
               <div className="about-feature" role="listitem">
                 <div className="feature-number" aria-label="特徴1">01</div>
@@ -22,7 +22,7 @@ const About: React.FC = () => {
                   <p>バーテンダー歴37年のマスターが、厳選された材料で最高品質のカクテルをお作りします。</p>
                 </div>
               </div>
-              
+
               <div className="about-feature" role="listitem">
                 <div className="feature-number" aria-label="特徴2">02</div>
                 <div className="feature-content">
@@ -30,7 +30,7 @@ const About: React.FC = () => {
                   <p>創業当時から設置されているジュークボックスと共に、伝統とモダンが融合した洗練された空間です。</p>
                 </div>
               </div>
-              
+
               <div className="about-feature" role="listitem">
                 <div className="feature-number" aria-label="特徴3">03</div>
                 <div className="feature-content">
