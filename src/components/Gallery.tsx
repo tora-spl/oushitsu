@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { GalleryCategory, GalleryImage } from '../types/index';
 import './Gallery.css';
-import guitersImage from '../assets/images/guiters.jpg';
-import live1Image from '../assets/images/live1.jpg';
-import live2Image from '../assets/images/live2.jpg';
 
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory | null>(null);
@@ -20,25 +17,31 @@ const Gallery: React.FC = () => {
       id: 1,
       title: 'ライブステージ',
       description: '音楽と共に楽しむ空間',
-      thumbnail: guitersImage,
+      thumbnail: '/src/assets/images/guiters.jpg',
       images: [
         {
           id: 1,
-          src: guitersImage,
+          src: '/src/assets/images/guiters.jpg',
           alt: 'ギタースタジオ',
           title: 'ギタースタジオ'
         },
         {
           id: 2,
-          src: live1Image,
+          src: '/src/assets/images/live1.jpg',
           alt: 'ライブ演奏の様子',
           title: 'ライブ演奏'
         },
         {
           id: 3,
-          src: live2Image,
+          src: '/src/assets/images/live2.jpg',
           alt: 'ライブハウスの雰囲気',
           title: 'ライブハウス'
+        },
+        {
+          id: 4,
+          src: '/src/assets/images/elegant.png',
+          alt: 'エレガントな空間',
+          title: 'エレガントな空間'
         }
       ]
     }
@@ -64,7 +67,7 @@ const Gallery: React.FC = () => {
     if (!isAutoSliding) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex(prev => (prev + 1) % 3); // 3枚の写真をループ
+        setCurrentImageIndex(prev => (prev + 1) % 4); // 3枚の写真をループ
     }, 3000);
 
     return () => clearInterval(interval);
@@ -156,44 +159,41 @@ const Gallery: React.FC = () => {
   return (
     <section id="gallery" className="gallery">
       <div className="gallery-container">
-        <div className="gallery-header">
-          <h2 className="section-title">ギャラリー</h2>
-          <p className="section-subtitle">クリックして写真を拡大表示</p>
-        </div>
-        
         <div className="gallery-categories">
           {galleryCategories.map((category) => (
-            <div 
-              key={category.id} 
-              className="gallery-category"
-              onMouseEnter={() => setHoveredCategory(category.id)}
-              onMouseLeave={() => setHoveredCategory(null)}
-              onClick={() => openModal(category, categoryImageIndex[category.id] || 0)}
-            >
-               <div className="category-image">
-                 <img 
-                   src={category.images[categoryImageIndex[category.id] || 0].src}
-                   alt={category.images[categoryImageIndex[category.id] || 0].alt}
-                   loading="lazy"
-                 />
-               </div>
-               <div className="category-info">
-                 <h3 className="category-title">{category.title}</h3>
-                 <p className="category-description">{category.description}</p>
-                 
-                 <div className="category-photos-indicator">
-                   {category.images.map((_, index) => (
-                     <div 
-                       key={index} 
-                       className={`category-photo-dot ${categoryImageIndex[category.id] === index ? 'active' : ''}`}
-                       onClick={(e) => {
-                         e.stopPropagation();
-                         handleIndicatorClick(category.id, index);
-                       }}
-                     />
-                   ))}
+            <div key={category.id} className="gallery-item">
+              <div 
+                key={category.id} 
+                className="gallery-category"
+                onMouseEnter={() => setHoveredCategory(category.id)}
+                onMouseLeave={() => setHoveredCategory(null)}
+                onClick={() => openModal(category, categoryImageIndex[category.id] || 0)}
+              >
+                 <div className="category-image">
+                   <img 
+                     src={category.images[categoryImageIndex[category.id] || 0].src}
+                     alt={category.images[categoryImageIndex[category.id] || 0].alt}
+                     loading="lazy"
+                   />
                  </div>
-               </div>
+                 <div className="category-info">
+                   <h3 className="category-title">{category.title}</h3>
+                   <p className="category-description">{category.description}</p>
+                 </div>
+              </div>
+              
+              <div className="category-photos-indicator">
+                {category.images.map((_, index) => (
+                  <div 
+                    key={index} 
+                    className={`category-photo-dot ${categoryImageIndex[category.id] === index ? 'active' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleIndicatorClick(category.id, index);
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           ))}
         </div>

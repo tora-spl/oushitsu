@@ -1,5 +1,6 @@
 
 import './About.css';
+import Gallery from './Gallery';
 
 const About: React.FC = () => {
   return (
@@ -41,13 +42,7 @@ const About: React.FC = () => {
           </div>
           
           <div className="about-image">
-            <div className="elegant-space-image">
-              <img 
-                src="/elegant.png" 
-                alt="BAR王室のエレガントな内装空間 - 洗練された照明とインテリア" 
-                className="about-main-image"
-              />
-            </div>
+            <Gallery />
           </div>
         </div>
       </div>
