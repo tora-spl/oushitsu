@@ -196,9 +196,9 @@
 }
 
 .hamburger span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
+  width: 28px;
+  height: 4px;
+  background: #d4af37;
   transition: all 0.3s ease;
   border-radius: 2px;
   transform-origin: center;
@@ -327,12 +327,103 @@
   }
   
   .hamburger {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
   }
   
   .hamburger span {
-    height: 2px;
+    width: 26px;
+    height: 3px;
+  }
+}
+
+/* iPhone XR対応（414px） */
+@media (max-width: 414px) {
+  .header-container {
+    padding: 0.9rem 1rem;
+    min-height: 65px;
+  }
+  
+  .nav {
+    top: 65px;
+  }
+  
+  .logo-image {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .logo-text h1 {
+    font-size: 1.2rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .tagline {
+    font-size: 0.75rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .nav-links {
+    gap: 1.8rem;
+  }
+  
+  .nav-link {
+    font-size: 0.95rem;
+  }
+  
+  .hamburger {
+    width: 29px;
+    height: 29px;
+  }
+  
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+  }
+}
+
+/* iPhone SE対応（375px） */
+@media (max-width: 375px) {
+  .header-container {
+    padding: 0.8rem 0.8rem;
+    min-height: 60px;
+  }
+  
+  .nav {
+    top: 60px;
+  }
+  
+  .logo-image {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .logo-text h1 {
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .tagline {
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+  }
+  
+  .hamburger {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .hamburger span {
+    width: 24px;
+    height: 3px;
   }
 }
 
@@ -367,5 +458,15 @@
   .nav-list button {
     font-size: 1.1rem;
     padding: 0.8rem;
+  }
+  
+  .hamburger {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .hamburger span {
+    width: 22px;
+    height: 3px;
   }
 }
