@@ -7,74 +7,63 @@ const Footer: React.FC = () => {
 
   const openModal = (type: 'terms' | 'sitemap') => {
     setShowModal(type);
-    
-    // より確実なスクロールバー非表示
+    // シンプルなスクロール無効化（位置は保持）
     document.body.style.overflow = 'hidden';
-    document.body.style.paddingRight = '0px';
-    
-    // 全ブラウザ対応のスクロールバー非表示CSS
-    const style = document.createElement('style');
-    style.id = 'hide-scrollbar';
-    style.textContent = `
-      body::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-      body {
-        -ms-overflow-style: none !important;
-        scrollbar-width: none !important;
-      }
-      html {
-        overflow: hidden !important;
-      }
-    `;
-    document.head.appendChild(style);
   };
 
   const closeModal = () => {
     setShowModal(null);
-    
-    // スクロール制御を完全に復元
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-    document.documentElement.style.overflow = '';
-    
-    // 追加したスタイルを削除
-    const style = document.getElementById('hide-scrollbar');
-    if (style) {
-      document.head.removeChild(style);
-    }
+    // モーダルを閉じる時にスクロールを確実に復元
+    setTimeout(() => {
+      document.body.style.overflow = 'auto';
+      // フッター要素にスクロール
+      const footer = document.querySelector('.footer');
+      if (footer) {
+        footer.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 0);
   };
 
 
   useEffect(() => {
     // コンポーネントマウント時にスクロールを確実に有効化
-    document.body.style.overflow = '';
-    document.body.style.paddingRight = '';
-    document.documentElement.style.overflow = '';
+    document.body.style.overflow = 'auto';
 
     (window as any).scrollToSection = (sectionId: string) => {
       closeModal();
       setTimeout(() => {
+        // トップページの場合はページの一番上に移動
+        if (sectionId === '#hero') {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          return;
+        
+        }
+        
         const element = document.querySelector(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          // 特定のセクションに対してオフセットを適用
+          let offset = 0;
+          if (sectionId === '#about') {
+            offset = -150; // 150px上に表示
+          }
+          
+          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition + offset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }, 200);
     };
 
     // コンポーネントがアンマウントされる時にスクロールを確実に復元
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.paddingRight = '';
-      document.documentElement.style.overflow = '';
-      
-      // 追加したスタイルを削除
-      const style = document.getElementById('hide-scrollbar');
-      if (style) {
-        document.head.removeChild(style);
-      }
+      document.body.style.overflow = 'auto';
     };
   }, []); // 依存配列を空にして、マウント時のみ実行
 
@@ -132,8 +121,8 @@ const Footer: React.FC = () => {
             <ul>
               <li><button onclick="window.scrollToSection('#hero')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">トップページ</button></li>
               <li><button onclick="window.scrollToSection('#about')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">私たちについて</button></li>
+              <li><button onclick="window.scrollToSection('#about')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">ギャラリー</button></li>
               <li><button onclick="window.scrollToSection('#menu')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">メニュー</button></li>
-              <li><button onclick="window.scrollToSection('#gallery')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">ギャラリー</button></li>
             </ul>
             
             <h4>お問い合わせ</h4>
