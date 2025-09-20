@@ -5,17 +5,18 @@
 }
 
 .about-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: var(--container-padding);
 }
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--section-gap);
+  grid-template-columns: 0.8fr 1fr;
+  gap: 6rem;
   margin-bottom: var(--section-gap);
   align-items: center;
+  justify-content: center;
 }
 
 .section-title {
