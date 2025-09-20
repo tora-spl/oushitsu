@@ -167,6 +167,56 @@
   }
 }
 
+/* 大型デスクトップ対応 */
+@media (max-width: 1440px) {
+  .hero {
+    padding: 3rem 0;
+    min-height: 90vh;
+  }
+  
+  .hero-container {
+    padding: 0 3rem;
+  }
+  
+  .hero-title-main {
+    font-size: 4rem;
+    letter-spacing: 4px;
+  }
+  
+  .hero-title-sub {
+    font-size: 1.8rem;
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+  }
+}
+
+/* 中型デスクトップ対応 */
+@media (max-width: 1200px) {
+  .hero {
+    padding: 2.5rem 0;
+    min-height: 85vh;
+  }
+  
+  .hero-container {
+    padding: 0 2.5rem;
+  }
+  
+  .hero-title-main {
+    font-size: 3.8rem;
+    letter-spacing: 3.5px;
+  }
+  
+  .hero-title-sub {
+    font-size: 1.7rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
     padding: 2rem 0;
@@ -251,5 +301,46 @@
   .hero-logo img {
     width: 60px;
     height: 60px;
+  }
+}
+
+/* 小型スマートフォン対応 */
+@media (max-width: 320px) {
+  .hero {
+    padding: 1rem 0;
+    min-height: 65vh;
+  }
+  
+  .hero-content {
+    padding: 0 0.6rem;
+  }
+  
+  .hero-title-main {
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .hero-title-sub {
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .hero-description {
+    font-size: 0.8rem;
+  }
+  
+  .hero-buttons {
+    gap: 0.6rem;
+  }
+  
+  .btn {
+    width: 160px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .hero-logo img {
+    width: 50px;
+    height: 50px;
   }
 }

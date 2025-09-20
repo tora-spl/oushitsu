@@ -41,7 +41,7 @@ const About: React.FC = () => {
             </div>
           </div>
           
-          <div className="about-image">
+          <div className="about-gallery">
             <Gallery />
           </div>
         </div>

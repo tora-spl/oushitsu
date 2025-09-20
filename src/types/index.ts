@@ -12,6 +12,7 @@ export interface GalleryImage {
   src: string;
   alt: string;
   title: string;
+  subtitle?: string;
 }
 
 export interface GalleryCategory {

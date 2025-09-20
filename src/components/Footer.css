@@ -196,6 +196,11 @@
     text-align: center;
   }
   
+  .footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
@@ -240,6 +245,215 @@
   
   .footer-link {
     font-size: 0.8rem;
+  }
+}
+
+/* 小型スマートフォン対応 */
+@media (max-width: 320px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer-container {
+    padding: 0 1rem;
+  }
+  
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+  
+  .footer-text {
+    font-size: 0.85rem;
+  }
+  
+  .footer-icon {
+    font-size: 1rem;
+  }
+  
+  .footer-links {
+    gap: 1rem;
+  }
+  
+  .footer-link {
+    font-size: 0.75rem;
+  }
+  
+  .footer-modal-content {
+    width: 98vw;
+    max-width: 400px;
+    padding: 1rem;
+  }
+  
+  .footer-modal-title {
+    font-size: 1.3rem;
+  }
+  
+  .footer-modal-body h3 {
+    font-size: 1.1rem;
+  }
+  
+  .footer-modal-body h4 {
+    font-size: 0.9rem;
+  }
+  
+  .footer-modal-body p {
+    font-size: 0.8rem;
+  }
+  
+  .footer-modal-body li {
+    font-size: 0.8rem;
+  }
+}
+
+/* Footer Modal Styles */
+.footer-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+}
+
+.footer-modal-content {
+  position: relative;
+  max-width: 600px;
+  max-height: 80vh;
+  background: #1a1a1a;
+  border-radius: 15px;
+  overflow-y: auto;
+  border: 2px solid #d4af37;
+  padding: 2rem;
+}
+
+.footer-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.footer-modal-close:hover {
+  background: #d4af37;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.footer-modal-title {
+  color: #d4af37;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-right: 3rem;
+}
+
+.footer-modal-body {
+  color: #fff;
+  line-height: 1.6;
+}
+
+.footer-modal-body h3 {
+  color: #d4af37;
+  font-size: 1.3rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.footer-modal-body h4 {
+  color: #d4af37;
+  font-size: 1.1rem;
+  margin: 1.2rem 0 0.8rem 0;
+}
+
+.footer-modal-body p {
+  margin-bottom: 1rem;
+}
+
+.footer-modal-body ul {
+  margin: 0.8rem 0 1rem 1.5rem;
+}
+
+.footer-modal-body li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-modal-body a {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
+.footer-modal-body a:hover {
+  color: #b8941f;
+}
+
+/* Footer Link Button Styles */
+.footer-link {
+  background: none;
+  border: none;
+  color: #d4af37;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #b8941f;
+  text-decoration: underline;
+}
+
+.footer-link:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* Footer Modal Responsive */
+@media (max-width: 768px) {
+  .footer-modal-content {
+    width: 95vw;
+    max-width: 500px;
+    padding: 1.5rem;
+  }
+  
+  .footer-modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .footer-modal-body h3 {
+    font-size: 1.2rem;
+  }
+  
+  .footer-modal-body h4 {
+    font-size: 1rem;
+  }
+  
+  .footer-modal-body p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-modal-body ul {
+    margin: 0.6rem 0 0.8rem 1rem;
+  }
+  
+  .footer-modal-body li {
+    font-size: 0.9rem;
   }
 }
 

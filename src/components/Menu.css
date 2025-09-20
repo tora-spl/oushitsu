@@ -277,6 +277,69 @@
   }
 }
 
+/* 小型スマートフォン対応 */
+@media (max-width: 320px) {
+  .menu {
+    padding: 1.5rem 0;
+  }
+  
+  .menu-container {
+    padding: 0 0.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .category-header {
+    padding: 1rem;
+  }
+  
+  .category-name {
+    font-size: 1.1rem;
+  }
+  
+  .category-count {
+    font-size: 0.7rem;
+  }
+  
+  .category-description {
+    font-size: 0.8rem;
+  }
+  
+  .menu-items {
+    padding: 1rem;
+  }
+  
+  .menu-item {
+    padding: 0.8rem;
+  }
+  
+  .menu-item-name {
+    font-size: 0.9rem;
+  }
+  
+  .menu-item-description {
+    font-size: 0.75rem;
+  }
+  
+  .menu-item-price {
+    font-size: 0.9rem;
+  }
+  
+  .menu-cta {
+    padding: 1rem;
+  }
+  
+  .menu-cta p {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 480px) {
   .menu {
     padding: 2rem 0;

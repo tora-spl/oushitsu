@@ -23,25 +23,29 @@ const Gallery: React.FC = () => {
           id: 1,
           src: '/src/assets/images/guiters.jpg',
           alt: 'ライブステージ',
-          title: 'ライブステージ'
+          title: 'ライブステージ',
+          subtitle: '~音楽と共に楽しむ空間~'
         },
         {
           id: 2,
           src: '/src/assets/images/live1.jpg',
           alt: 'ライブ演奏の様子',
-          title: 'ライブ演奏'
+          title: 'ライブ演奏',
+          subtitle: '~生演奏でお楽しみください~'
         },
         {
           id: 3,
           src: '/src/assets/images/live2.jpg',
           alt: 'ライブハウスの雰囲気',
-          title: 'ライブ会場'
+          title: 'ライブ会場',
+          subtitle: '~特別な夜をお過ごしください'
         },
         {
           id: 4,
           src: '/src/assets/images/elegant.png',
           alt: 'エレガントな空間',
-          title: 'バーカウンター'
+          title: 'バーカウンター',
+          subtitle: '上質な時間をお約束'
         }
       ]
     }
@@ -168,12 +172,26 @@ const Gallery: React.FC = () => {
                 onMouseEnter={() => setHoveredCategory(category.id)}
                 onMouseLeave={() => setHoveredCategory(null)}
                 onClick={() => openModal(category, categoryImageIndex[category.id] || 0)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(category, categoryImageIndex[category.id] || 0);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`${category.images[categoryImageIndex[category.id] || 0]?.title || ''}の画像をクリックして詳細を表示`}
               >
                  <div className="category-image">
                    <img 
                      src={category.images[categoryImageIndex[category.id] || 0].src}
                      alt={category.images[categoryImageIndex[category.id] || 0].alt}
                      loading="lazy"
+                     decoding="async"
+                     onError={(e) => {
+                       const target = e.target as HTMLImageElement;
+                       target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
+                     }}
                    />
                  </div>
                  <div className="category-info">
@@ -201,12 +219,12 @@ const Gallery: React.FC = () => {
 
       {/* Modal */}
       {selectedCategory && (
-        <div className="modal-overlay" onClick={closeModal}>
+        <div className="modal-overlay" onClick={closeModal} role="dialog" aria-modal="true" aria-labelledby="modal-title">
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>×</button>
+            <button className="modal-close" onClick={closeModal} aria-label="モーダルを閉じる">×</button>
             
             <div className="modal-image-container">
-              <button className="modal-nav modal-nav-prev" onClick={prevImage}>
+              <button className="modal-nav modal-nav-prev" onClick={prevImage} aria-label="前の画像">
                 ←
               </button>
               
@@ -214,15 +232,20 @@ const Gallery: React.FC = () => {
                 src={selectedCategory.images[selectedImageIndex].src} 
                 alt={selectedCategory.images[selectedImageIndex].alt} 
                 className="modal-main-image"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
+                }}
               />
               
-              <button className="modal-nav modal-nav-next" onClick={nextImage}>
+              <button className="modal-nav modal-nav-next" onClick={nextImage} aria-label="次の画像">
                 →
               </button>
             </div>
             
             <div className="modal-info">
-              <h3>{selectedCategory.title}</h3>
+              <h3>{selectedCategory.images[selectedImageIndex]?.title || ''}</h3>
+              <p>{selectedCategory.images[selectedImageIndex]?.subtitle || ''}</p>
             </div>
 
             <div className="modal-thumbnails">

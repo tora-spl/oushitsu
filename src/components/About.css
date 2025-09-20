@@ -6,8 +6,10 @@
 
 .about-container {
   max-width: 1600px;
-  margin: 0 0 0 auto;
+  margin: 2px auto 0 auto;
   padding: var(--container-padding);
+  padding-left: 8rem;
+  padding-right: 2rem;
 }
 
 .about-content {
@@ -74,10 +76,11 @@
   line-height: 1.6;
 }
 
-.about-image {
+.about-gallery {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .elegant-space-image {
@@ -251,6 +254,95 @@
   font-style: italic;
 }
 
+/* 大型デスクトップ対応 */
+@media (max-width: 1440px) {
+  .about-container {
+    padding-left: 6rem;
+    padding-right: 2rem;
+  }
+  
+  .about-content {
+    gap: 5rem;
+  }
+  
+  .section-title {
+    font-size: 2.3rem;
+  }
+  
+  .about-gallery {
+    max-width: 90%;
+  }
+}
+
+/* 中型デスクトップ対応 */
+@media (max-width: 1200px) {
+  .about-container {
+    padding-left: 5rem;
+    padding-right: 2rem;
+  }
+  
+  .about-content {
+    gap: 4.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .about-gallery {
+    max-width: 85%;
+  }
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .about-container {
+    padding-left: 4rem;
+    padding-right: 2rem;
+  }
+  
+  .about-content {
+    gap: 4rem;
+  }
+  
+  .section-title {
+    font-size: 2.1rem;
+  }
+  
+  .about-gallery {
+    max-width: 80%;
+  }
+}
+
+/* 小型タブレット対応 - 上下配置に変更 */
+@media (max-width: 900px) {
+  .about-container {
+    padding-left: 3rem;
+    padding-right: 2rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .about-gallery {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+  }
+}
+
 @media (max-width: 768px) {
   .about {
     padding: var(--section-padding-mobile);
@@ -258,6 +350,8 @@
   
   .about-container {
     padding: var(--container-padding-mobile);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   
   .about-content {
@@ -266,8 +360,20 @@
     margin-bottom: var(--section-gap-mobile);
   }
   
-  .about-image {
-    order: -1;
+  .section-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .about-gallery {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
   }
   
   .elegant-space-image {
@@ -343,8 +449,10 @@
     margin-bottom: 2rem;
   }
   
-  .elegant-space-image {
-    height: 220px;
+  .about-gallery {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
   }
   
   .about-stats {
@@ -424,5 +532,46 @@
   
   .fair-cta {
     font-size: 1rem;
+  }
+}
+
+/* 小型スマートフォン対応 */
+@media (max-width: 320px) {
+  .about {
+    padding: 1.5rem 0;
+  }
+  
+  .about-container {
+    padding: 0 0.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .about-description {
+    font-size: 0.9rem;
+  }
+  
+  .about-feature-text {
+    font-size: 0.85rem;
+  }
+  
+  .about-gallery {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+  }
+  
+  .anniversary-fair {
+    padding: 1rem;
+  }
+  
+  .fair-title {
+    font-size: 1.2rem;
+  }
+  
+  .fair-description {
+    font-size: 0.85rem;
   }
 }

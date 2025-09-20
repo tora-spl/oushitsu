@@ -242,19 +242,23 @@
   .nav-list {
     flex-direction: column;
     padding: 2rem;
-    gap: 1rem;
+    gap: 1.5rem;
+    align-items: center;
   }
 
   .nav-list button {
-    font-size: 1.2rem;
-    padding: 1rem;
-    text-align: left;
-    width: 100%;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+    text-align: center;
+    width: auto;
+    border-bottom: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
   }
   
-  .nav-list button:last-child {
-    border-bottom: none;
+  .nav-list button:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
   }
 
   .hamburger {
@@ -283,6 +287,51 @@
   
   .header-social {
     display: none;
+  }
+}
+
+/* 小型スマートフォン対応 */
+@media (max-width: 320px) {
+  .header-container {
+    padding: 0.8rem 1rem;
+    min-height: 60px;
+  }
+  
+  .logo {
+    gap: 0.8rem;
+  }
+  
+  .logo-image {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .logo-text h1 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+  
+  .tagline {
+    font-size: 0.6rem;
+  }
+  
+  .nav-list {
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+  
+  .nav-list button {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .hamburger {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .hamburger span {
+    height: 2px;
   }
 }
 

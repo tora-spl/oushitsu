@@ -8,11 +8,12 @@
 .gallery-container {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  padding: 0;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 
@@ -50,24 +51,143 @@
 }
 
 
+/* 基本サイズ設定（1600px以上） */
+.gallery-category {
+  width: 540px;
+  height: 405px;
+}
+
+/* 超大型デスクトップ対応 */
+@media (max-width: 1600px) {
+  .gallery-category {
+    width: 520px;
+    height: 390px;
+  }
+}
+
+/* 大型デスクトップ対応 */
+@media (max-width: 1440px) {
+  .gallery-container {
+    padding-left: 3rem;
+    padding-right: 1rem;
+  }
+  
+  .gallery-category {
+    width: 480px;
+    height: 360px;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 1rem;
+  }
+}
+
+/* 中型デスクトップ対応 */
+@media (max-width: 1200px) {
+  .gallery-container {
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+  }
+  
+  .gallery-category {
+    width: 420px;
+    height: 315px;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 0.9rem;
+  }
+}
+
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .gallery-container {
+    padding-left: 2rem;
+    padding-right: 1rem;
+  }
+  
+  .gallery-category {
+    width: 360px;
+    height: 270px;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 0.8rem;
+  }
+}
+
+/* 小型タブレット対応 - 上下配置に変更 */
+@media (max-width: 900px) {
+  .gallery-container {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+  
+  .gallery-category {
+    width: 540px;
+    height: 405px;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 1rem;
+  }
+}
+
+/* 中型モバイル対応 */
+@media (max-width: 800px) {
+  .gallery-category {
+    width: 500px;
+    height: 375px;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 0.9rem;
+  }
+}
+
 /* モバイル対応 */
 @media (max-width: 768px) {
+  .gallery {
+    padding: 2rem 0;
+  }
+  
   .gallery-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 0 1rem;
   }
   
-  .gallery-header {
-    text-align: center;
+  .gallery-category {
+    width: 450px;
+    height: 340px;
+    margin: 0 auto;
   }
   
-  .gallery-categories {
+  .category-image {
+    height: 100%;
+  }
+  
+  .category-title {
+    font-size: 1.1rem;
+  }
+  
+  .category-description {
+    font-size: 0.9rem;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 0.8rem;
     justify-content: center;
   }
   
-  .gallery-category::before {
-    font-size: 0.6rem;
-    padding: 3px 6px;
+  .category-photo-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .category-photo-dot.active {
+    width: 20px;
+    height: 8px;
   }
 }
 
@@ -79,8 +199,6 @@
   background: #1a1a1a;
   border: 2px solid rgba(212, 175, 55, 0.3);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  width: 600px;
-  height: 450px;
   display: flex;
   flex-direction: column;
 }
@@ -96,6 +214,9 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .category-photos-indicator {
@@ -149,7 +270,9 @@
 .category-image img {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
   object-position: center;
   position: absolute;
   top: 0;
@@ -204,7 +327,7 @@
 .modal-content {
   position: relative;
   width: 800px;
-  height: 600px;
+  height: 700px;
   background: #1a1a1a;
   border-radius: 15px;
   overflow: hidden;
@@ -339,15 +462,30 @@
 }
 
 /* Responsive Design */
+/* モーダルのレスポンシブ対応 */
 @media (max-width: 1024px) {
-  .gallery-categories {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 900px;
+  .modal-content {
+    width: 90vw;
+    height: 80vh;
+    max-width: 700px;
+    max-height: 600px;
   }
   
-  .category-image {
-    height: 200px;
+  .modal-main-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .modal-nav {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .modal-close {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
   }
 }
 
@@ -370,12 +508,34 @@
   }
   
   .modal-content {
-    max-width: 95vw;
-    padding: 1rem;
+    width: 95vw;
+    height: 85vh;
+    padding: 1.5rem;
+  }
+  
+  .modal-main-image {
+    width: 100%;
+    height: 100%;
   }
   
   .modal-nav {
-    display: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  
+  .modal-close {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .modal-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .modal-info p {
+    font-size: 0.9rem;
   }
   
   .modal-thumbnails {
@@ -391,6 +551,11 @@
 @media (max-width: 480px) {
   .gallery-categories {
     grid-template-columns: 1fr;
+  }
+  
+  .gallery-category {
+    width: 400px;
+    height: 300px;
   }
   
   .category-image {
@@ -433,5 +598,73 @@
     height: 35px;
     font-size: 1.2rem;
     transform: translateY(-50%) !important;
+  }
+}
+
+/* 小型スマートフォン対応 */
+@media (max-width: 320px) {
+  .gallery {
+    padding: 1.5rem 0;
+  }
+  
+  .gallery-container {
+    padding: 0 0.8rem;
+  }
+  
+  .gallery-category {
+    width: 350px;
+    height: 260px;
+  }
+  
+  .category-image {
+    height: 100%;
+  }
+  
+  .category-title {
+    font-size: 1rem;
+  }
+  
+  .category-description {
+    font-size: 0.8rem;
+  }
+  
+  .category-photos-indicator {
+    margin-top: 0.6rem;
+  }
+  
+  .category-photo-dot {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .category-photo-dot.active {
+    width: 16px;
+    height: 6px;
+  }
+  
+  .modal-content {
+    width: 98vw;
+    height: 90vh;
+    padding: 1rem;
+  }
+  
+  .modal-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+  
+  .modal-close {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+  
+  .modal-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .modal-info p {
+    font-size: 0.8rem;
   }
 }
