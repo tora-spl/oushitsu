@@ -6,7 +6,7 @@
 
 .about-container {
   max-width: 1600px;
-  margin: 0 auto;
+  margin: 0 0 0 auto;
   padding: var(--container-padding);
 }
 
