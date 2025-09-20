@@ -40,7 +40,7 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="about-gallery">
             <Gallery />
           </div>

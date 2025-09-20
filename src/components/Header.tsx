@@ -17,7 +17,21 @@ const Header: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const rect = element.getBoundingClientRect();
+      const offsetTop = window.pageYOffset + rect.top;
+
+      // サイトマップと同じオフセットを適用
+      let offset = 0;
+      if (sectionId === 'about') {
+        offset = -200; // 私たちについて
+      } else if (sectionId === 'menu') {
+        offset = -100; // メニュー（もう少し下に）
+      }
+
+      window.scrollTo({
+        top: offsetTop + offset,
+        behavior: 'smooth'
+      });
     }
     closeMenu();
   };
@@ -26,7 +40,7 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 50;
       setIsScrolled(scrolled);
-      
+
       // スクロール時にメニューを閉じる
       if (isMenuOpen) {
         closeMenu();
@@ -36,12 +50,12 @@ const Header: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
       const hamburgerButton = document.querySelector('.hamburger');
-      
+
       // ハンバーガーボタンまたはナビゲーション内のクリックは無視
       if (hamburgerButton && hamburgerButton.contains(target)) {
         return;
       }
-      
+
       if (navRef.current && !navRef.current.contains(target)) {
         closeMenu();
       }
@@ -49,7 +63,7 @@ const Header: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('mousedown', handleClickOutside);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.removeEventListener('mousedown', handleClickOutside);
@@ -68,36 +82,36 @@ const Header: React.FC = () => {
             <span className="tagline">エレガントな夜の体験</span>
           </div>
         </div>
-        
-        <nav 
+
+        <nav
           ref={navRef}
-          className={`nav ${isMenuOpen ? 'nav-open' : ''}`} 
-          id="nav-menu" 
-          role="navigation" 
+          className={`nav ${isMenuOpen ? 'nav-open' : ''}`}
+          id="nav-menu"
+          role="navigation"
           aria-label="メインナビゲーション"
         >
           <ul className="nav-list">
             <li><button onClick={() => scrollToSection('home')} aria-label="ホームセクションへ移動">ホーム</button></li>
             <li><button onClick={() => scrollToSection('about')} aria-label="私たちについてセクションへ移動">私たちについて</button></li>
-            <li><button onClick={() => scrollToSection('gallery')} aria-label="ギャラリーセクションへ移動">ギャラリー</button></li>
+            <li><button onClick={() => scrollToSection('about')} aria-label="ギャラリーセクションへ移動">ギャラリー</button></li>
             <li><button onClick={() => scrollToSection('menu')} aria-label="メニューセクションへ移動">メニュー</button></li>
             {/* <li><button onClick={() => scrollToSection('contact')} aria-label="お問い合わせセクションへ移動">お問い合わせ</button></li> */}
           </ul>
         </nav>
-        
+
         <div className="header-social">
-          <a 
+          <a
             href="https://www.instagram.com/bar.ohshitsu1205/"
-            target="_blank" 
+            target="_blank"
             rel="noopener noreferrer"
             className="social-icon instagram-icon"
             aria-label="InstagramでBAR王室をフォロー"
           >
             <img src="/instagram.png" alt="Instagram" className="social-icon-image" />
           </a>
-          <a 
-            href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D" 
-            target="_blank" 
+          <a
+            href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
             rel="noopener noreferrer"
             className="social-icon map-icon"
             aria-label="GoogleマップでBAR王室の場所を表示"
@@ -106,7 +120,7 @@ const Header: React.FC = () => {
           </a>
         </div>
 
-        <button 
+        <button
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={toggleMenu}
           aria-label="メニューを開く"
