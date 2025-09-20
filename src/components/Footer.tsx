@@ -33,26 +33,25 @@ const Footer: React.FC = () => {
       closeModal();
       setTimeout(() => {
         // トップページの場合はページの一番上に移動
-        if (sectionId === '#hero') {
+        if (sectionId === '#home') {
           window.scrollTo({
             top: 0,
             behavior: 'smooth'
           });
           return;
-        
         }
-        
+
         const element = document.querySelector(sectionId);
         if (element) {
           // 特定のセクションに対してオフセットを適用
           let offset = 0;
           if (sectionId === '#about') {
-            offset = -150; // 150px上に表示
+            offset = -400; // 200px上に表示
           }
-          
+
           const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
           const offsetPosition = elementPosition + offset;
-          
+
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
@@ -119,7 +118,7 @@ const Footer: React.FC = () => {
             
             <h4>メインページ</h4>
             <ul>
-              <li><button onclick="window.scrollToSection('#hero')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">トップページ</button></li>
+              <li><button onclick="window.scrollToSection('#home')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">トップページ</button></li>
               <li><button onclick="window.scrollToSection('#about')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">私たちについて</button></li>
               <li><button onclick="window.scrollToSection('#about')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">ギャラリー</button></li>
               <li><button onclick="window.scrollToSection('#menu')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">メニュー</button></li>
@@ -166,13 +165,13 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>お問い合わせ</h4>
             <ul className="footer-list" role="list">
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📞</span>
-                <a 
+                <a
                   href="tel:0942-656062"
                   className="footer-phone-link"
                   aria-label="0942-656062に電話をかける"
@@ -182,7 +181,7 @@ const Footer: React.FC = () => {
               </li>
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">✉️</span>
-                <a 
+                <a
                   href="mailto:bar.ohshitsu1205@gmail.com"
                   className="footer-email-link"
                   aria-label="bar.ohshitsu1205@gmail.comにメールを送る"
@@ -200,17 +199,17 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>フォローする</h4>
             <ul className="footer-list" role="list">
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📷</span>
-                <a 
-                  href="https://www.instagram.com/bar.ohshitsu1205/" 
-                  target="_blank" 
+                <a
+                  href="https://www.instagram.com/bar.ohshitsu1205/"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-social-link instagram-link" 
+                  className="footer-social-link instagram-link"
                   aria-label="InstagramでBAR王室をフォロー"
                 >
                   <span className="footer-text">Instagram</span>
@@ -219,7 +218,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p>&copy; {currentYear} 王室. All rights reserved.</p>
@@ -230,12 +229,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Modal */}
       {showModal && (
         <div className="footer-modal-overlay" onClick={closeModal} role="dialog" aria-modal="true" aria-labelledby="footer-modal-title">
-          <div 
-            className="footer-modal-content" 
+          <div
+            className="footer-modal-content"
             onClick={(e) => e.stopPropagation()}
           >
             <button className="footer-modal-close" onClick={closeModal} aria-label="モーダルを閉じる">×</button>
