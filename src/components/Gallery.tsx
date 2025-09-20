@@ -15,15 +15,15 @@ const Gallery: React.FC = () => {
   const galleryCategories: GalleryCategory[] = [
     {
       id: 1,
-      title: 'ライブステージ',
-      description: '音楽と共に楽しむ空間',
+      title: '',
+      description: '',
       thumbnail: '/src/assets/images/guiters.jpg',
       images: [
         {
           id: 1,
           src: '/src/assets/images/guiters.jpg',
-          alt: 'ギタースタジオ',
-          title: 'ギタースタジオ'
+          alt: 'ライブステージ',
+          title: 'ライブステージ'
         },
         {
           id: 2,
@@ -35,13 +35,13 @@ const Gallery: React.FC = () => {
           id: 3,
           src: '/src/assets/images/live2.jpg',
           alt: 'ライブハウスの雰囲気',
-          title: 'ライブハウス'
+          title: 'ライブ会場'
         },
         {
           id: 4,
           src: '/src/assets/images/elegant.png',
           alt: 'エレガントな空間',
-          title: 'エレガントな空間'
+          title: 'バーカウンター'
         }
       ]
     }
@@ -177,7 +177,7 @@ const Gallery: React.FC = () => {
                    />
                  </div>
                  <div className="category-info">
-                   <h3 className="category-title">{category.title}</h3>
+                   <h3 className="category-title">{category.images[categoryImageIndex[category.id] || 0]?.title || ''}</h3>
                    <p className="category-description">{category.description}</p>
                  </div>
               </div>

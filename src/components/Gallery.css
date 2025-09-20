@@ -162,10 +162,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
   padding: 1rem;
   color: white;
-  z-index: 2;
+  z-index: 10;
 }
 
 .gallery-category .category-title {
@@ -203,12 +203,14 @@
 
 .modal-content {
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 800px;
+  height: 600px;
   background: #1a1a1a;
   border-radius: 15px;
   overflow: hidden;
   border: 2px solid #d4af37;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-close {
@@ -244,16 +246,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  flex: 1;
+  padding: 0;
   touch-action: pan-x;
   overflow: hidden;
 }
 
 .modal-main-image {
   width: 100%;
-  height: auto;
-  max-height: 60vh;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
 }
 
