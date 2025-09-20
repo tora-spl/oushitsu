@@ -9,8 +9,12 @@ const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [animationStopped, setAnimationStopped] = useState<boolean>(false);
+  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
+  const [categoryImageIndex, setCategoryImageIndex] = useState<{[key: number]: number}>({});
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [isAutoSliding, setIsAutoSliding] = useState<boolean>(true);
 
-  // ダミーデータ：ライブステージカテゴリー
+  // ギャラリーカテゴリーデータ（1つのカテゴリーに統合）
   const galleryCategories: GalleryCategory[] = [
     {
       id: 1,
@@ -35,34 +39,45 @@ const Gallery: React.FC = () => {
           src: live2Image,
           alt: 'ライブハウスの雰囲気',
           title: 'ライブハウス'
-        }, 
-               {
-            id: 4,
-            src: live2Image,
-            alt: 'ライブハウスの雰囲気',
-            title: '歴史'
-          },
-          {
-            id: 5,
-            src: live2Image,
-            alt: 'ライブハウスの雰囲気',
-            title: '歴史'
-          },
-          {
-            id: 6,
-            src: live2Image,
-            alt: 'ライブハウスの雰囲気',
-            title: '歴史'
-          }
-
+        }
       ]
     }
   ];
 
-  const openModal = (category: GalleryCategory) => {
-    setSelectedCategory(category);
-    setSelectedImageIndex(0);
+  const handleIndicatorClick = (categoryId: number, imageIndex: number) => {
+    setCurrentImageIndex(imageIndex);
+    setIsAutoSliding(false);
+    
+    // 10秒後に自動スライドを再開
+    setTimeout(() => {
+      setIsAutoSliding(true);
+    }, 10000);
   };
+
+  const openModal = (category: GalleryCategory, imageIndex: number = 0) => {
+    setSelectedCategory(category);
+    setSelectedImageIndex(imageIndex);
+  };
+
+  // 自動スライド機能
+  useEffect(() => {
+    if (!isAutoSliding) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prev => (prev + 1) % 3); // 3枚の写真をループ
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [isAutoSliding]);
+
+  // 現在の画像インデックスを全カテゴリーに適用
+  useEffect(() => {
+    const newCategoryImageIndex: {[key: number]: number} = {};
+    galleryCategories.forEach(category => {
+      newCategoryImageIndex[category.id] = currentImageIndex;
+    });
+    setCategoryImageIndex(newCategoryImageIndex);
+  }, [currentImageIndex]);
 
   const closeModal = () => {
     setSelectedCategory(null);
@@ -88,41 +103,6 @@ const Gallery: React.FC = () => {
       );
     }
   };
-
-  // ギャラリーセクションの表示を監視してアニメーションを再開
-  useEffect(() => {
-    const galleryElement = document.getElementById('gallery');
-    if (!galleryElement) return;
-
-    let timer: number;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // ギャラリーが画面に表示されたらアニメーションを再開
-            setAnimationStopped(false);
-            
-            // 既存のタイマーをクリア
-            if (timer) clearTimeout(timer);
-            
-            // 10秒後にアニメーションを停止
-            timer = setTimeout(() => {
-              setAnimationStopped(true);
-            }, 10000);
-          }
-        });
-      },
-      { threshold: 0.3 } // 30%表示されたら発火
-    );
-
-    observer.observe(galleryElement);
-
-    return () => {
-      observer.disconnect();
-      if (timer) clearTimeout(timer);
-    };
-  }, []);
 
   // スマホでの横スクロール対応
   useEffect(() => {
@@ -176,22 +156,43 @@ const Gallery: React.FC = () => {
   return (
     <section id="gallery" className="gallery">
       <div className="gallery-container">
-        <h2 className="section-title">ギャラリー</h2>
-        <p className="section-subtitle">クリックして写真を拡大表示</p>
+        <div className="gallery-header">
+          <h2 className="section-title">ギャラリー</h2>
+          <p className="section-subtitle">クリックして写真を拡大表示</p>
+        </div>
         
         <div className="gallery-categories">
           {galleryCategories.map((category) => (
             <div 
               key={category.id} 
-              className={`gallery-category ${animationStopped ? 'animation-stopped' : ''}`}
-              onClick={() => openModal(category)}
+              className="gallery-category"
+              onMouseEnter={() => setHoveredCategory(category.id)}
+              onMouseLeave={() => setHoveredCategory(null)}
+              onClick={() => openModal(category, categoryImageIndex[category.id] || 0)}
             >
                <div className="category-image">
                  <img 
-                   src={category.thumbnail}
-                   alt={category.title}
+                   src={category.images[categoryImageIndex[category.id] || 0].src}
+                   alt={category.images[categoryImageIndex[category.id] || 0].alt}
                    loading="lazy"
                  />
+               </div>
+               <div className="category-info">
+                 <h3 className="category-title">{category.title}</h3>
+                 <p className="category-description">{category.description}</p>
+                 
+                 <div className="category-photos-indicator">
+                   {category.images.map((_, index) => (
+                     <div 
+                       key={index} 
+                       className={`category-photo-dot ${categoryImageIndex[category.id] === index ? 'active' : ''}`}
+                       onClick={(e) => {
+                         e.stopPropagation();
+                         handleIndicatorClick(category.id, index);
+                       }}
+                     />
+                   ))}
+                 </div>
                </div>
             </div>
           ))}
