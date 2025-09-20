@@ -43,21 +43,35 @@ const Footer: React.FC = () => {
 
         const element = document.querySelector(sectionId);
         if (element) {
-          // 特定のセクションに対してオフセットを適用
-          let offset = 0;
-          if (sectionId === '#about') {
-            offset = -150; // 200px上に表示
-          } else if (sectionId === '#menu') {
-            offset = -150; // 150px上に表示
+          // 画面サイズに応じて遷移先を調整
+          const isMobile = window.innerWidth <= 768;
+          let targetSectionId = sectionId;
+
+          // PC時はギャラリーもaboutセクションに遷移
+          if (!isMobile && sectionId === '#gallery') {
+            targetSectionId = '#about';
           }
 
-          const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition + offset;
+          const targetElement = document.querySelector(targetSectionId);
+          if (targetElement) {
+            // 特定のセクションに対してオフセットを適用
+            let offset = 0;
+            if (targetSectionId === '#about') {
+              offset = -100; // 私たちについての値に合わせる
+            } else if (targetSectionId === '#gallery') {
+              offset = -100; // ギャラリーのオフセット（スマホ時のみ）
+            } else if (targetSectionId === '#menu') {
+              offset = -150; // 150px上に表示
+            }
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition + offset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
         }
       }, 200);
     };
@@ -122,7 +136,7 @@ const Footer: React.FC = () => {
             <ul>
               <li><button onclick="window.scrollToSection('#home')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">トップページ</button></li>
               <li><button onclick="window.scrollToSection('#about')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">私たちについて</button></li>
-              <li><button onclick="window.scrollToSection('#about')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">ギャラリー</button></li>
+              <li><button onclick="window.scrollToSection('#gallery')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">ギャラリー</button></li>
               <li><button onclick="window.scrollToSection('#menu')" style="background: none; border: none; color: #d4af37; text-decoration: underline; cursor: pointer;">メニュー</button></li>
             </ul>
             
@@ -193,11 +207,19 @@ const Footer: React.FC = () => {
               </li>
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📍</span>
-                <span className="footer-text">
-                  〒830-0017<br />
-                  福岡県久留米市日吉町５−１７<br />
-                  BAR王室
-                </span>
+                <a
+                  href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-map-link"
+                  aria-label="GoogleマップでBAR王室の場所を表示"
+                >
+                  <span className="footer-text">
+                    〒830-0017<br />
+                    福岡県久留米市日吉町５−１７<br />
+                    BAR王室
+                  </span>
+                </a>
               </li>
             </ul>
           </div>

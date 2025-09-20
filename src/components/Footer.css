@@ -76,7 +76,8 @@
 
 /* 電話番号とメールアドレスのリンクスタイル */
 .footer-phone-link,
-.footer-email-link {
+.footer-email-link,
+.footer-map-link {
   color: inherit;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -88,14 +89,16 @@
 }
 
 .footer-phone-link:hover,
-.footer-email-link:hover {
+.footer-email-link:hover,
+.footer-map-link:hover {
   color: var(--primary-gold);
   text-decoration: underline;
   transform: translateX(3px);
 }
 
 .footer-phone-link:active,
-.footer-email-link:active {
+.footer-email-link:active,
+.footer-map-link:active {
   transform: translateX(3px) scale(0.98);
 }
 
@@ -177,7 +180,7 @@
   .footer-section h4 {
     padding-left: 6rem;
   }
-  
+
   .footer-section h4::after {
     left: 2rem;
     width: 250px;
@@ -191,12 +194,12 @@
     align-items: center;
     text-align: center;
   }
-  
+
   .footer-links {
     flex-direction: column;
     gap: 0.8rem;
   }
-  
+
   .footer-link {
     font-size: 0.9rem;
   }
@@ -206,39 +209,39 @@
   .footer {
     padding: 3rem 0 1.5rem;
   }
-  
+
   .footer-container {
     padding: 0 1.5rem;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .footer-section {
     text-align: center;
   }
-  
+
   .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
-  
+
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
     width: 300px;
   }
-  
+
   .footer-section h4.no-underline::after {
     display: none;
   }
-  
+
   .footer-list {
     gap: 0.8rem;
   }
-  
+
   .footer-list li {
     gap: 0.6rem;
     justify-content: center;
@@ -246,27 +249,27 @@
     align-items: center;
     text-align: center;
   }
-  
+
   .footer-icon {
     font-size: 1.2rem;
   }
-  
+
   .footer-text {
     font-size: 0.9rem;
     text-align: left;
   }
-  
+
   .footer-bottom-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  
+
   .footer-links {
     flex-direction: column;
     gap: 0.8rem;
   }
-  
+
   .footer-link {
     font-size: 0.9rem;
   }
@@ -279,12 +282,12 @@
     align-items: center;
     text-align: center;
   }
-  
+
   .footer-links {
     flex-direction: column;
     gap: 0.8rem;
   }
-  
+
   .footer-link {
     font-size: 0.85rem;
   }
@@ -295,53 +298,53 @@
   .footer {
     padding: 2rem 0 1rem;
   }
-  
+
   .footer-container {
     padding: 0 1rem;
   }
-  
+
   .footer-section h4 {
     font-size: 1.1rem;
   }
-  
+
   .footer-text {
     font-size: 0.85rem;
   }
-  
+
   .footer-icon {
     font-size: 1rem;
   }
-  
+
   .footer-links {
     gap: 1rem;
   }
-  
+
   .footer-link {
     font-size: 0.75rem;
   }
-  
+
   .footer-modal-content {
     width: 98vw;
     max-width: 400px;
     padding: 1rem;
   }
-  
+
   .footer-modal-title {
     font-size: 1.3rem;
   }
-  
+
   .footer-modal-body h3 {
     font-size: 1.1rem;
   }
-  
+
   .footer-modal-body h4 {
     font-size: 0.9rem;
   }
-  
+
   .footer-modal-body p {
     font-size: 0.8rem;
   }
-  
+
   .footer-modal-body li {
     font-size: 0.8rem;
   }
@@ -473,27 +476,27 @@
     max-width: 500px;
     padding: 1.5rem;
   }
-  
+
   .footer-modal-title {
     font-size: 1.5rem;
   }
-  
+
   .footer-modal-body h3 {
     font-size: 1.2rem;
   }
-  
+
   .footer-modal-body h4 {
     font-size: 1rem;
   }
-  
+
   .footer-modal-body p {
     font-size: 0.9rem;
   }
-  
+
   .footer-modal-body ul {
     margin: 0.6rem 0 0.8rem 1rem;
   }
-  
+
   .footer-modal-body li {
     font-size: 0.9rem;
   }
@@ -504,65 +507,65 @@
   .footer {
     padding: 1.8rem 0 1rem;
   }
-  
+
   .footer-container {
     padding: 0 1rem;
   }
-  
+
   .footer-content {
     gap: 1.5rem;
   }
-  
+
   .footer-section h4 {
     font-size: 1.1rem;
     margin-bottom: 0.9rem;
   }
-  
+
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
   }
-  
+
   .footer-section h4.no-underline::after {
     display: none;
   }
-  
+
   .footer-list {
     gap: 0.6rem;
   }
-  
+
   .footer-list li {
     gap: 0.5rem;
   }
-  
+
   .footer-list a {
     font-size: 0.85rem;
   }
-  
+
   .footer-bottom {
     margin-top: 1.8rem;
     padding-top: 1.2rem;
   }
-  
+
   .footer-bottom-content p {
     font-size: 0.85rem;
   }
-  
+
   .footer-link {
     font-size: 0.85rem;
   }
-  
+
   .footer-modal-content {
     width: 95vw;
     max-height: 88vh;
     margin: 1rem;
   }
-  
+
   .footer-modal-title {
     font-size: 1.3rem;
   }
-  
+
   .footer-modal-body {
     font-size: 0.9rem;
   }
@@ -573,65 +576,65 @@
   .footer {
     padding: 1.5rem 0 1rem;
   }
-  
+
   .footer-container {
     padding: 0 0.8rem;
   }
-  
+
   .footer-content {
     gap: 1.2rem;
   }
-  
+
   .footer-section h4 {
     font-size: 1rem;
     margin-bottom: 0.8rem;
   }
-  
+
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
     width: 150px;
   }
-  
+
   .footer-section h4.no-underline::after {
     display: none;
   }
-  
+
   .footer-list {
     gap: 0.5rem;
   }
-  
+
   .footer-list li {
     gap: 0.4rem;
   }
-  
+
   .footer-list a {
     font-size: 0.8rem;
   }
-  
+
   .footer-bottom {
     margin-top: 1.5rem;
     padding-top: 1rem;
   }
-  
+
   .footer-bottom p {
     font-size: 0.8rem;
   }
-  
+
   .footer-link {
     font-size: 0.8rem;
   }
-  
+
   .footer-modal-content {
     width: 95vw;
     max-height: 90vh;
     margin: 1rem;
   }
-  
+
   .footer-modal-title {
     font-size: 1.2rem;
   }
-  
+
   .footer-modal-body {
     font-size: 0.85rem;
   }
@@ -641,29 +644,29 @@
   .footer {
     padding: 2rem 0 1rem;
   }
-  
+
   .footer-container {
     padding: 0 1rem;
   }
-  
+
   .footer-content {
     gap: 1.5rem;
   }
-  
+
   .footer-section h4::after {
     left: 50%;
     transform: translateX(-50%);
     width: 200px;
   }
-  
+
   .footer-section h4.no-underline::after {
     display: none;
   }
-  
+
   .footer-list {
     gap: 0.6rem;
   }
-  
+
   .footer-list li {
     gap: 0.5rem;
     justify-content: center;
@@ -671,20 +674,20 @@
     align-items: center;
     text-align: center;
   }
-  
+
   .footer-icon {
     font-size: 1.1rem;
   }
-  
+
   .footer-text {
     font-size: 0.8rem;
     text-align: left;
   }
-  
+
   .footer-bottom-content p {
     font-size: 0.8rem;
   }
-  
+
   .footer-link {
     font-size: 0.75rem;
   }

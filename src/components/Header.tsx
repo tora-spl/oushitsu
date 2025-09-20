@@ -15,17 +15,29 @@ const Header: React.FC = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    // 画面サイズに応じて遷移先を調整
+    const isMobile = window.innerWidth <= 768;
+    let targetSectionId = sectionId;
+
+    // PC時はギャラリーもaboutセクションに遷移
+    if (!isMobile && sectionId === 'gallery') {
+      targetSectionId = 'about';
+    }
+
+    const element = document.getElementById(targetSectionId);
     if (element) {
       const rect = element.getBoundingClientRect();
       const offsetTop = window.pageYOffset + rect.top;
 
-      // サイトマップと同じオフセットを適用
+      // 画面サイズに応じてオフセットを調整
       let offset = 0;
-      if (sectionId === 'about') {
-        offset = -200; // 私たちについて
-      } else if (sectionId === 'menu') {
-        offset = -100; // メニュー（もう少し下に）
+
+      if (targetSectionId === 'about') {
+        offset = isMobile ? -50 : -200; // スマホ時は小さめのオフセット
+      } else if (targetSectionId === 'gallery') {
+        offset = isMobile ? -100 : -200; // ギャラリーのオフセット
+      } else if (targetSectionId === 'menu') {
+        offset = isMobile ? -50 : -100; // スマホ時は小さめのオフセット
       }
 
       window.scrollTo({
@@ -93,7 +105,7 @@ const Header: React.FC = () => {
           <ul className="nav-list">
             <li><button onClick={() => scrollToSection('home')} aria-label="ホームセクションへ移動">ホーム</button></li>
             <li><button onClick={() => scrollToSection('about')} aria-label="私たちについてセクションへ移動">私たちについて</button></li>
-            <li><button onClick={() => scrollToSection('about')} aria-label="ギャラリーセクションへ移動">ギャラリー</button></li>
+            <li><button onClick={() => scrollToSection('gallery')} aria-label="ギャラリーセクションへ移動">ギャラリー</button></li>
             <li><button onClick={() => scrollToSection('menu')} aria-label="メニューセクションへ移動">メニュー</button></li>
             {/* <li><button onClick={() => scrollToSection('contact')} aria-label="お問い合わせセクションへ移動">お問い合わせ</button></li> */}
           </ul>

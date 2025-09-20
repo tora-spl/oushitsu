@@ -161,7 +161,7 @@ const Gallery: React.FC = () => {
   }, [selectedCategory]);
 
   return (
-    <section id="gallery" className="gallery">
+    <div id="gallery" className="gallery">
       <div className="gallery-container">
         <div className="gallery-header">
           <h2 className="section-title">ギャラリー</h2>
@@ -265,7 +265,7 @@ const Gallery: React.FC = () => {
           </div>
         </div>
       )}
-    </section>
+    </div>
   );
 };
 
