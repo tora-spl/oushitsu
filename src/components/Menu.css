@@ -1,5 +1,5 @@
 .menu {
-  padding: 4rem 0;
+  padding: 0 0 4rem 0;
   background: var(--background-darker);
   color: var(--text-primary);
 }
@@ -8,12 +8,13 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: var(--container-padding);
+  overflow-x: hidden;
 }
 
 .section-title {
   font-size: 2.5rem;
   color: var(--primary-gold);
-  margin-bottom: var(--title-margin-bottom);
+  margin: 0 0 var(--title-margin-bottom) 0;
   text-align: center;
   position: relative;
 }
@@ -204,7 +205,7 @@
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .menu {
-    padding: var(--section-padding-mobile);
+    padding: 0 0 var(--section-padding-mobile) 0;
   }
   
   .menu-container {
@@ -280,7 +281,7 @@
 /* 小型スマートフォン対応 */
 @media (max-width: 320px) {
   .menu {
-    padding: 1.5rem 0;
+    padding: 0 0 1.5rem 0;
   }
   
   .menu-container {
@@ -342,7 +343,7 @@
 
 @media (max-width: 480px) {
   .menu {
-    padding: 2rem 0;
+    padding: 0 0 2rem 0;
   }
   
   .menu-container {

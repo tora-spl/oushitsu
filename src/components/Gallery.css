@@ -14,6 +14,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -117,7 +118,7 @@
 }
 
 /* 小型タブレット対応 - 上下配置に変更 */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .gallery-container {
     padding-left: 1.5rem;
     padding-right: 1rem;
