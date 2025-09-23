@@ -54,6 +54,33 @@ const Menu: React.FC = () => {
         { id: 4, name: 'Fukutokuchou Gin Mumei', description: '福徳長 ジン 無銘 / Fukutokuchou Gin Mumei', price: 800, category: 'spirit' }
       ]
     },
+    {
+      id: 3,
+      name: 'リキュール',
+      drinks: [
+        { id: 1, name: 'Kahlua Coffee Liqueur', description: 'カルーア コーヒーリキュール / Kahlua Coffee Liqueur', price: 700, category: 'spirit' },
+        { id: 2, name: 'Lejay Creme de Cassis', description: 'ルジェ クレームド カシス / Lejay Creme de Cassis', price: 700, category: 'spirit' },
+        { id: 3, name: 'Aragoshi Yuzu', description: '梅乃宿 あらごしゆず / Aragoshi Yuzu', price: 700, category: 'spirit' },
+        { id: 4, name: 'Aragoshi Momo', description: '梅乃宿 あらごしもも / Aragoshi Momo', price: 700, category: 'spirit' }
+      ]
+    },
+    {
+      id: 4,
+      name: 'Wine（ワイン）',
+      drinks: [
+        { id: 1, name: 'Skyside Chardonnay', description: 'スカイサイド シャルドネ / Skyside Chardonnay', price: 6000, category: 'wine' },
+        { id: 2, name: 'Skyside Red Blend', description: 'スカイサイド レッドブレンド / Skyside Red Blend', price: 6000, category: 'wine' },
+        { id: 3, name: 'Labouré Roi Pinotnoir', description: 'ラブレロワ ピノノワール / Labouré Roi Pinotnoir', price: 6500, category: 'wine' }
+      ]
+    },
+    {
+      id: 5,
+      name: 'Spumante / Champagne（スパークリングワイン・シャンパン）',
+      drinks: [
+        { id: 1, name: 'Santero Pinot Rose', description: 'サンテロ ピノロゼ / Santero Pinot Rose', price: 3500, category: 'wine' },
+        { id: 2, name: 'Moet & Chandon B-I', description: 'モエ・エ・シャンドン ブリュット アンペリアル / Moet & Chandon B-I', price: 15000, category: 'wine' }
+      ]
+    },
 
   ];
 
