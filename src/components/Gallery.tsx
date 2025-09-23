@@ -5,8 +5,6 @@ import './Gallery.css';
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
-  const [animationStopped, setAnimationStopped] = useState<boolean>(false);
-  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
   const [categoryImageIndex, setCategoryImageIndex] = useState<{ [key: number]: number }>({});
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [isAutoSliding, setIsAutoSliding] = useState<boolean>(true);
@@ -217,8 +215,6 @@ const Gallery: React.FC = () => {
               <div
                 key={category.id}
                 className="gallery-category"
-                onMouseEnter={() => setHoveredCategory(category.id)}
-                onMouseLeave={() => setHoveredCategory(null)}
                 onClick={() => openModal(category, categoryImageIndex[category.id] || 0)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
