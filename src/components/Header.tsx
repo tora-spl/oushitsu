@@ -33,9 +33,9 @@ const Header: React.FC = () => {
       let offset = 0;
 
       if (targetSectionId === 'about') {
-        offset = isMobile ? -50 : -200; // スマホ時は小さめのオフセット
+        offset = isMobile ? 0 : -20; // スマホ時は小さめのオフセット
       } else if (targetSectionId === 'gallery') {
-        offset = isMobile ? -100 : -200; // ギャラリーのオフセット
+        offset = isMobile ? 0 : -20; // ギャラリーのオフセット
       } else if (targetSectionId === 'menu') {
         offset = isMobile ? -50 : -100; // スマホ時は小さめのオフセット
       }

@@ -57,11 +57,11 @@ const Footer: React.FC = () => {
             // 特定のセクションに対してオフセットを適用
             let offset = 0;
             if (targetSectionId === '#about') {
-              offset = -100; // 私たちについての値に合わせる
+              offset = isMobile ? -30 : 10; // スマホ時はさらに下に調整
             } else if (targetSectionId === '#gallery') {
-              offset = -100; // ギャラリーのオフセット（スマホ時のみ）
+              offset = isMobile ? 20 : 10; // 少し下に調整
             } else if (targetSectionId === '#menu') {
-              offset = -150; // 150px上に表示
+              offset = isMobile ? -50 : -100; // メニューのオフセット
             }
 
             const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
