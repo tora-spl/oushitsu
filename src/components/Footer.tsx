@@ -145,10 +145,10 @@ const Footer: React.FC = () => {
             
             <h4>お問い合わせ</h4>
             <ul>
-              <li>電話：0942-65-6062</li>
-              <li>携帯：090-8760-6206</li>
-              <li>メール：bar.ohshitsu1205@gmail.com</li>
-              <li>住所：〒830-0017 福岡県久留米市日吉町５−１７</li>
+              <li>電話：<a href="tel:0942-65-6062" style="color: #d4af37; text-decoration: underline;">0942-65-6062</a></li>
+              <li>携帯：<a href="tel:090-8760-6206" style="color: #d4af37; text-decoration: underline;">090-8760-6206</a></li>
+              <li>メール：<a href="mailto:bar.ohshitsu1205@gmail.com" style="color: #d4af37; text-decoration: underline;">bar.ohshitsu1205@gmail.com</a></li>
+              <li>住所：<a href="https://www.google.co.jp/maps/place/BAR%E7%8E%8B%E5%AE%A4/@33.3155836,130.5100585,11z/data=!4m6!3m5!1s0x3541a4f9263faac3:0x36b0ad016eb220fb!8m2!3d33.3156269!4d130.509912!16s%2Fg%2F1tctjkpj?entry=ttu&g_ep=EgoyMDI1MDgxMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" style="color: #d4af37; text-decoration: underline;">〒830-0017 福岡県久留米市日吉町５−１７</a></li>
             </ul>
             
             <h4>SNS</h4>
