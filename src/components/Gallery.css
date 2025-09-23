@@ -173,7 +173,7 @@
 
   .gallery-category {
     width: 600px;
-    height: 800px;
+    height: 960px;
     margin: 0 auto;
   }
 
@@ -571,8 +571,8 @@
   }
 
   .gallery-category {
-    width: 500px;
-    height: 375px;
+    width: 480px;
+    height: 450px;
     margin: 0 auto;
   }
 
@@ -595,8 +595,8 @@
   }
 
   .gallery-category {
-    width: 400px;
-    height: 300px;
+    width: 360px;
+    height: 360px;
   }
 
   .category-image {
@@ -656,8 +656,8 @@
   }
 
   .gallery-category {
-    width: 380px;
-    height: 285px;
+    width: 336px;
+    height: 342px;
   }
 
   .category-image {
@@ -720,8 +720,8 @@
   }
 
   .gallery-category {
-    width: 320px;
-    height: 240px;
+    width: 288px;
+    height: 288px;
   }
 
   .category-image {
@@ -784,8 +784,8 @@
   }
 
   .gallery-category {
-    width: 350px;
-    height: 260px;
+    width: 312px;
+    height: 312px;
   }
 
   .category-image {
