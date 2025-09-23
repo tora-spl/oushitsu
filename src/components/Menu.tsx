@@ -9,7 +9,7 @@ const Menu: React.FC = () => {
   const menuData: MenuCategory[] = [
     {
       id: 1,
-      name: 'Scotch Whisky : ウイスキー',
+      name: 'Whisky (ウイスキー)',
       drinks: [
         // Scotch Whisky
         { id: 1, name: 'Ballantine\'s 12y', description: 'バランタイン 12年 / Ballantine\'s 12y', price: 800, category: 'spirit' },
@@ -156,7 +156,7 @@ const Menu: React.FC = () => {
       'リキュール・その他': '🍾',
       'ビール・ソフトドリンク': '🍺'
     };
-    return iconMap[categoryName] || '🍷';
+    return iconMap[categoryName] || '';
   };
 
   return (
