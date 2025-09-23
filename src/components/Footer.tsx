@@ -145,7 +145,8 @@ const Footer: React.FC = () => {
             
             <h4>お問い合わせ</h4>
             <ul>
-              <li>電話：0942-656062</li>
+              <li>電話：0942-65-6062</li>
+              <li>携帯：090-8760-6206</li>
               <li>メール：bar.ohshitsu1205@gmail.com</li>
               <li>住所：〒830-0017 福岡県久留米市日吉町５−１７</li>
             </ul>
@@ -191,11 +192,21 @@ const Footer: React.FC = () => {
               <li role="listitem">
                 <span className="footer-icon" aria-hidden="true">📞</span>
                 <a
-                  href="tel:0942-656062"
+                  href="tel:0942-65-6062"
                   className="footer-phone-link"
-                  aria-label="0942-656062に電話をかける"
+                  aria-label="0942-65-6062に電話をかける"
                 >
-                  <span className="footer-text">0942-656062</span>
+                  <span className="footer-text">0942-65-6062</span>
+                </a>
+              </li>
+              <li role="listitem">
+                <span className="footer-icon" aria-hidden="true">📱</span>
+                <a
+                  href="tel:090-8760-6206"
+                  className="footer-phone-link"
+                  aria-label="090-8760-6206に電話をかける"
+                >
+                  <span className="footer-text">090-8760-6206</span>
                 </a>
               </li>
               <li role="listitem">
