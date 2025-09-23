@@ -173,12 +173,16 @@
 
   .gallery-category {
     width: 600px;
-    height: 450px;
+    height: 800px;
     margin: 0 auto;
   }
 
   .category-image {
     height: 100%;
+  }
+
+  .gallery-category .category-info {
+    padding: 0.8rem;
   }
 
   .category-title {
@@ -431,7 +435,7 @@
 
 .modal-info {
   text-align: center;
-  padding: 1.5rem;
+  padding: 0.5rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.3);
 }
 
@@ -524,7 +528,7 @@
 
   .modal-content {
     width: 95vw;
-    height: 85vh;
+    height: 93vh;
     padding: 1.5rem;
   }
 
@@ -609,7 +613,7 @@
 
   .modal-content {
     max-width: 100vw;
-    max-height: 100vh;
+    max-height: 93vh;
     border-radius: 0;
     margin: 0;
   }
@@ -686,7 +690,7 @@
 
   .modal-content {
     width: 95vw;
-    height: 85vh;
+    height: 93vh;
   }
 
   .modal-image-container {
@@ -750,7 +754,7 @@
 
   .modal-content {
     width: 95vw;
-    height: 80vh;
+    height: 93vh;
   }
 
   .modal-image-container {
