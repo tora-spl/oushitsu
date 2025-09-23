@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- メインページ -->
+  <url>
+    <loc>https://oushitsu.vercel.app/</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/logo.png</image:loc>
+      <image:title>BAR王室 ロゴ</image:title>
+      <image:caption>1968年創業の老舗バー BAR王室</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- ホームセクション -->
+  <url>
+    <loc>https://oushitsu.vercel.app/#home</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- 私たちについてセクション -->
+  <url>
+    <loc>https://oushitsu.vercel.app/#about</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- ギャラリーセクション -->
+  <url>
+    <loc>https://oushitsu.vercel.app/#gallery</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/src/assets/images/guiters.jpg</image:loc>
+      <image:title>BAR王室 店内風景</image:title>
+      <image:caption>創業当時から続く伝統的な店内空間</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/src/assets/images/entrance.jpg</image:loc>
+      <image:title>BAR王室 エントランス</image:title>
+      <image:caption>夜に寄り添う、隠れた憩いの場</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/src/assets/images/joke box.jpg</image:loc>
+      <image:title>BAR王室 ジョークボックス</image:title>
+      <image:caption>創業当時から店内に設置されています 昔の王室も感じて頂けます</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/src/assets/images/drink1.jpg</image:loc>
+      <image:title>桜ウォーミング</image:title>
+      <image:caption>桜リキュールベース色鮮かなカクテル</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/src/assets/images/drink3.jpg</image:loc>
+      <image:title>パステーク</image:title>
+      <image:caption>ラムベースに西爪リキュールのカクテル</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://oushitsu.vercel.app/src/assets/images/elegant.jpg</image:loc>
+      <image:title>BAR王室 エレガントな空間</image:title>
+      <image:caption>洗練された空間で特別な夜をお過ごしいただけます</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- メニューセクション -->
+  <url>
+    <loc>https://oushitsu.vercel.app/#menu</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- 利用規約 -->
+  <url>
+    <loc>https://oushitsu.vercel.app/#terms</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- サイトマップ -->
+  <url>
+    <loc>https://oushitsu.vercel.app/#sitemap</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+</urlset>
