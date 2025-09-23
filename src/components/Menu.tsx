@@ -44,7 +44,7 @@ const Menu: React.FC = () => {
     },
     {
       id: 2,
-      name: 'ブランデー',
+      name: 'Brandy (ブランデー)',
       drinks: [
         // Cognac / Calvados
         { id: 1, name: 'Courvoisier V.S.O.P Rouge', description: 'クルボアジェ V.S.O.P ルージュ / Courvoisier V.S.O.P Rouge', price: 900, category: 'spirit' },
@@ -56,7 +56,7 @@ const Menu: React.FC = () => {
     },
     {
       id: 3,
-      name: 'リキュール',
+      name: 'Liqueur (リキュール)',
       drinks: [
         { id: 1, name: 'Kahlua Coffee Liqueur', description: 'カルーア コーヒーリキュール / Kahlua Coffee Liqueur', price: 700, category: 'spirit' },
         { id: 2, name: 'Lejay Creme de Cassis', description: 'ルジェ クレームド カシス / Lejay Creme de Cassis', price: 700, category: 'spirit' },
@@ -79,6 +79,59 @@ const Menu: React.FC = () => {
       drinks: [
         { id: 1, name: 'Santero Pinot Rose', description: 'サンテロ ピノロゼ / Santero Pinot Rose', price: 3500, category: 'wine' },
         { id: 2, name: 'Moet & Chandon B-I', description: 'モエ・エ・シャンドン ブリュット アンペリアル / Moet & Chandon B-I', price: 15000, category: 'wine' }
+      ]
+    },
+    {
+      id: 6,
+      name: 'Beer (ビール)',
+      drinks: [
+        { id: 1, name: 'Kirin Green\'s Free', description: 'キリン グリーンズフリー / Kirin Green\'s Free', price: 600, category: 'beer' },
+        { id: 2, name: 'Kirin Classic Lager', description: 'キリン クラシックラガー（S） / Kirin Classic Lager', price: 700, category: 'beer' }
+      ]
+    },
+    {
+      id: 7,
+      name: 'Soft Drink (ソフトドリンク)',
+      drinks: [
+        { id: 1, name: 'Wilkinson Ginger Ale', description: 'ウィルキンソン ジンジャエール / Wilkinson Ginger Ale', price: 600, category: 'non-alcoholic' },
+        { id: 2, name: 'Coca Cola', description: 'コカ・コーラ / Coca Cola', price: 600, category: 'non-alcoholic' },
+        { id: 3, name: 'Oolong Tea', description: '烏龍茶 / Oolong Tea', price: 600, category: 'non-alcoholic' },
+        { id: 4, name: 'Cranberry Juice', description: 'クランベリージュース / Cranberry Juice', price: 600, category: 'non-alcoholic' },
+        { id: 5, name: 'Coffee', description: 'コーヒー / Coffee', price: 600, category: 'non-alcoholic' },
+        { id: 6, name: 'Tea', description: '紅茶 / Tea', price: 600, category: 'non-alcoholic' },
+        { id: 7, name: 'Clamato Tomato Cocktail', description: 'クラマト トマトカクテル / Clamato Tomato Cocktail', price: 700, category: 'non-alcoholic' },
+        { id: 8, name: 'Lemon Squash', description: 'レモンスカッシュ / Lemon Squash', price: 800, category: 'non-alcoholic' }
+      ]
+    },
+    {
+      id: 8,
+      name: 'Original Cocktail（オリジナルカクテル）',
+      drinks: [
+        { id: 1, name: 'SAKURA WARMING', description: '桜ウォーミング / "SAKURA" WARMING - 桜リキュールベース、色鮮やかなカクテル', price: 1100, category: 'cocktail' },
+        { id: 2, name: 'WINDLESS', description: '風立ちぬ / WINDLESS - チョコレートフレーバーのカクテル', price: 1100, category: 'cocktail' },
+        { id: 3, name: 'PASTEQUE', description: 'パステーク / PASTEQUE - ラムベースに西瓜リキュールのカクテル', price: 1100, category: 'cocktail' },
+        { id: 4, name: 'PRIERE', description: 'プリエール / PRIERE - 栗リキュールベース、食後の一杯に', price: 1100, category: 'cocktail' }
+      ]
+    },
+    {
+      id: 9,
+      name: 'Cocktail（カクテル）',
+      drinks: [
+        { id: 1, name: 'Lemon Sour', description: 'レモンサワー / Lemon Sour', price: 900, category: 'cocktail' },
+        { id: 2, name: 'Paradise', description: 'パラダイス / Paradise', price: 1000, category: 'cocktail' },
+        { id: 3, name: 'Blue Moon', description: 'ブルームーン / Blue Moon', price: 1000, category: 'cocktail' },
+        { id: 4, name: 'X.Y.Z', description: 'エックス ワイ ジー / X.Y.Z', price: 1000, category: 'cocktail' },
+        { id: 5, name: 'Grasshopper', description: 'グラスホッパー / Grasshopper', price: 1000, category: 'cocktail' },
+        { id: 6, name: 'Bohemian Dream', description: 'ボヘミアンドリーム / Bohemian Dream', price: 1000, category: 'cocktail' },
+        { id: 7, name: 'Vol de Nuit', description: 'ボルドヌイ / Vol de Nuit', price: 1000, category: 'cocktail' },
+        { id: 8, name: 'Mei Hua', description: '梅花 / Mei Hua', price: 1000, category: 'cocktail' },
+        { id: 9, name: 'Margarita', description: 'マルガリータ / Margarita', price: 1100, category: 'cocktail' },
+        { id: 10, name: 'Scarlett O\'hara', description: 'スカーレット オハラ / Scarlett O\'hara', price: 1100, category: 'cocktail' },
+        { id: 11, name: 'Moscow Mule', description: 'モスコミュール / Moscow Mule', price: 1100, category: 'cocktail' },
+        { id: 12, name: 'Gimlet', description: 'ギムレット / Gimlet', price: 1200, category: 'cocktail' },
+        { id: 13, name: 'Bloody Caesar', description: 'ブラッディシーザー / Bloody Caesar', price: 1200, category: 'cocktail' },
+        { id: 14, name: 'Spumoni', description: 'スプモーニ / Spumoni', price: 1200, category: 'cocktail' },
+        { id: 15, name: 'Salty Dog', description: 'ソルティドッグ / Salty Dog', price: 1300, category: 'cocktail' }
       ]
     },
 
