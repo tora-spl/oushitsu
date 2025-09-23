@@ -12,28 +12,57 @@ const Menu: React.FC = () => {
       name: 'Scotch Whisky : ウイスキー',
       drinks: [
         // Scotch Whisky
-        { id: 20, name: 'Ballantine\'s 12y', description: 'バランタイン 12年 / Ballantine\'s 12y', price: 800, category: 'spirit' },
-        { id: 21, name: 'Dewar\'s 12y', description: 'デュワーズ 12年 / Dewar\'s 12y', price: 800, category: 'spirit' },
-        { id: 22, name: 'Old Parr 12y', description: 'オールドパー 12年 / Old Parr 12y', price: 900, category: 'spirit' },
-        { id: 23, name: 'Chivas Regal Mizunara 12y', description: 'シーバスリーガル ミズナラ 12年 / Chivas Regal Mizunara 12y', price: 900, category: 'spirit' },
-        { id: 24, name: 'Ballantine\'s 17y', description: 'バランタイン 17年 / Ballantine\'s 17y', price: 1600, category: 'spirit' },
+        { id: 1, name: 'Ballantine\'s 12y', description: 'バランタイン 12年 / Ballantine\'s 12y', price: 800, category: 'spirit' },
+        { id: 2, name: 'Dewar\'s 12y', description: 'デュワーズ 12年 / Dewar\'s 12y', price: 800, category: 'spirit' },
+        { id: 3, name: 'Old Parr 12y', description: 'オールドパー 12年 / Old Parr 12y', price: 900, category: 'spirit' },
+        { id: 4, name: 'Chivas Regal Mizunara 12y', description: 'シーバスリーガル ミズナラ 12年 / Chivas Regal Mizunara 12y', price: 900, category: 'spirit' },
+        { id: 5, name: 'Ballantine\'s 17y', description: 'バランタイン 17年 / Ballantine\'s 17y', price: 1600, category: 'spirit' },
         // Malt Whisky
-        { id: 25, name: 'Glenmorangie Original 10y', description: 'グレンモーレンジ オリジナル 10年 / Glenmorangie Original 10y', price: 900, category: 'spirit' },
-        { id: 26, name: 'Ardbeg 10y', description: 'アードベッグ 10年 / Ardbeg 10y', price: 1100, category: 'spirit' },
-        { id: 27, name: 'Bowmore 12y', description: 'ボウモア 12年 / Bowmore 12y', price: 1100, category: 'spirit' },
-        { id: 28, name: 'Laphroaig 10y', description: 'ラフロイグ 10年 / Laphroaig 10y', price: 1200, category: 'spirit' },
-        { id: 29, name: 'The Macallan 12y', description: 'ザ・マッカラン 12年 / The Macallan 12y', price: 1800, category: 'spirit' },
+        { id: 6, name: 'Glenmorangie Original 10y', description: 'グレンモーレンジ オリジナル 10年 / Glenmorangie Original 10y', price: 900, category: 'spirit' },
+        { id: 7, name: 'Ardbeg 10y', description: 'アードベッグ 10年 / Ardbeg 10y', price: 1100, category: 'spirit' },
+        { id: 8, name: 'Bowmore 12y', description: 'ボウモア 12年 / Bowmore 12y', price: 1100, category: 'spirit' },
+        { id: 9, name: 'Laphroaig 10y', description: 'ラフロイグ 10年 / Laphroaig 10y', price: 1200, category: 'spirit' },
+        { id: 10, name: 'The Macallan 12y', description: 'ザ・マッカラン 12年 / The Macallan 12y', price: 1800, category: 'spirit' },
         // Irish Whiskey
-        { id: 30, name: 'Jameson', description: 'ジェムソン / Jameson', price: 800, category: 'spirit' },
+        { id: 11, name: 'Jameson', description: 'ジェムソン / Jameson', price: 800, category: 'spirit' },
         // American Whiskey
-        { id: 31, name: 'Jim Beam Black', description: 'ジムビーム ブラック / Jim Beam Black', price: 800, category: 'spirit' },
-        { id: 32, name: 'J.W. Harper Gold Medal', description: 'L.W.ハーパーゴールドメダル / J.W. Harper Gold Medal', price: 800, category: 'spirit' },
-        { id: 33, name: 'Jack Daniel\'s Black', description: 'ジャックダニエル ブラック / Jack Daniel\'s Black', price: 800, category: 'spirit' },
-        { id: 34, name: 'Maker\'s Mark', description: 'メーカーズマーク / Maker\'s Mark', price: 800, category: 'spirit' },
-        { id: 35, name: 'Four Roses Black', description: 'フォアローゼス ブラック / Four Roses Black', price: 900, category: 'spirit' },
-        { id: 36, name: 'Wild Turkey 8y/o', description: 'ワイルドターキー 8年 / Wild Turkey 8y/o', price: 900, category: 'spirit' },
+        { id: 12, name: 'Jim Beam Black', description: 'ジムビーム ブラック / Jim Beam Black', price: 800, category: 'spirit' },
+        { id: 13, name: 'J.W. Harper Gold Medal', description: 'L.W.ハーパーゴールドメダル / J.W. Harper Gold Medal', price: 800, category: 'spirit' },
+        { id: 14, name: 'Jack Daniel\'s Black', description: 'ジャックダニエル ブラック / Jack Daniel\'s Black', price: 800, category: 'spirit' },
+        { id: 15, name: 'Maker\'s Mark', description: 'メーカーズマーク / Maker\'s Mark', price: 800, category: 'spirit' },
+        { id: 16, name: 'Four Roses Black', description: 'フォアローゼス ブラック / Four Roses Black', price: 900, category: 'spirit' },
+        { id: 17, name: 'Wild Turkey 8y/o', description: 'ワイルドターキー 8年 / Wild Turkey 8y/o', price: 900, category: 'spirit' },
         // Canadian Whisky
-        { id: 37, name: 'Canadian Club 12y/o', description: 'カナディアンクラブ 12年 / Canadian Club 12y/o', price: 800, category: 'spirit' }
+        { id: 18, name: 'Canadian Club 12y/o', description: 'カナディアンクラブ 12年 / Canadian Club 12y/o', price: 800, category: 'spirit' }
+      ]
+    },
+    {
+      id: 1,
+      name: 'Whisky : ウイスキー',
+      drinks: [
+        // Scotch Whisky
+        { id: 1, name: 'Ballantine\'s 12y', description: 'バランタイン 12年 / Ballantine\'s 12y', price: 800, category: 'spirit' },
+        { id: 2, name: 'Dewar\'s 12y', description: 'デュワーズ 12年 / Dewar\'s 12y', price: 800, category: 'spirit' },
+        { id: 3, name: 'Old Parr 12y', description: 'オールドパー 12年 / Old Parr 12y', price: 900, category: 'spirit' },
+        { id: 4, name: 'Chivas Regal Mizunara 12y', description: 'シーバスリーガル ミズナラ 12年 / Chivas Regal Mizunara 12y', price: 900, category: 'spirit' },
+        { id: 5, name: 'Ballantine\'s 17y', description: 'バランタイン 17年 / Ballantine\'s 17y', price: 1600, category: 'spirit' },
+        // Malt Whisky
+        { id: 6, name: 'Glenmorangie Original 10y', description: 'グレンモーレンジ オリジナル 10年 / Glenmorangie Original 10y', price: 900, category: 'spirit' },
+        { id: 7, name: 'Ardbeg 10y', description: 'アードベッグ 10年 / Ardbeg 10y', price: 1100, category: 'spirit' },
+        { id: 8, name: 'Bowmore 12y', description: 'ボウモア 12年 / Bowmore 12y', price: 1100, category: 'spirit' },
+        { id: 9, name: 'Laphroaig 10y', description: 'ラフロイグ 10年 / Laphroaig 10y', price: 1200, category: 'spirit' },
+        { id: 10, name: 'The Macallan 12y', description: 'ザ・マッカラン 12年 / The Macallan 12y', price: 1800, category: 'spirit' },
+        // Irish Whiskey
+        { id: 11, name: 'Jameson', description: 'ジェムソン / Jameson', price: 800, category: 'spirit' },
+        // American Whiskey
+        { id: 12, name: 'Jim Beam Black', description: 'ジムビーム ブラック / Jim Beam Black', price: 800, category: 'spirit' },
+        { id: 13, name: 'J.W. Harper Gold Medal', description: 'L.W.ハーパーゴールドメダル / J.W. Harper Gold Medal', price: 800, category: 'spirit' },
+        { id: 14, name: 'Jack Daniel\'s Black', description: 'ジャックダニエル ブラック / Jack Daniel\'s Black', price: 800, category: 'spirit' },
+        { id: 15, name: 'Maker\'s Mark', description: 'メーカーズマーク / Maker\'s Mark', price: 800, category: 'spirit' },
+        { id: 16, name: 'Four Roses Black', description: 'フォアローゼス ブラック / Four Roses Black', price: 900, category: 'spirit' },
+        { id: 17, name: 'Wild Turkey 8y/o', description: 'ワイルドターキー 8年 / Wild Turkey 8y/o', price: 900, category: 'spirit' },
+        // Canadian Whisky
+        { id: 18, name: 'Canadian Club 12y/o', description: 'カナディアンクラブ 12年 / Canadian Club 12y/o', price: 800, category: 'spirit' }
       ]
     },
   ];
