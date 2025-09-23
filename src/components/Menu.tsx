@@ -40,31 +40,31 @@ const Menu: React.FC = () => {
     },
     {
       id: 3,
-      name: 'ウイスキー',
+      name: 'Scotch Whisky : ウイスキー',
       drinks: [
-        { id: 20, name: 'Glenmorangie Original 10 y.o', description: 'グレンモーレンジ オリジナル 10年 - スコットランドのシングルモルト', price: 900, category: 'spirit' },
-        { id: 21, name: 'Ardbeg 10 y.o', description: 'アードベッグ 10年 - アイラ島のピート香豊かなウイスキー', price: 1100, category: 'spirit' },
-        { id: 22, name: 'Bowmore 12 y.o', description: 'ボウモア 12年 - バランスの取れたアイラ島ウイスキー', price: 1100, category: 'spirit' },
-        { id: 23, name: 'Laphroaig 10 y.o', description: 'ラフロイグ 10年 - 強烈なピート香のアイラ島ウイスキー', price: 1200, category: 'spirit' },
-        { id: 24, name: 'The Macallan 12 y.o', description: 'ザ・マッカラン 12年 - 高級シングルモルトウイスキー', price: 1800, category: 'spirit' },
-        { id: 25, name: 'Canadian Club 12 y.o', description: 'カナディアンクラブ 12年 - カナダの代表的なウイスキー', price: 800, category: 'spirit' },
-        { id: 26, name: 'Ballantine\'s 12 y.o', description: 'バランタイン 12年 - スコッチブレンデッドウイスキー', price: 800, category: 'spirit' },
-        { id: 27, name: 'Dewar\'s 12 y.o', description: 'デュワーズ 12年 - スムースなスコッチブレンド', price: 800, category: 'spirit' },
-        { id: 28, name: 'Old Parr 12 y.o', description: 'オールドパー 12年 - 伝統的なスコッチブレンド', price: 900, category: 'spirit' },
-        { id: 29, name: 'Chivas Regal Mizunara 12 y.o', description: 'シーバスリーガル ミズナラ 12年 - 日本樽で熟成', price: 900, category: 'spirit' },
-        { id: 30, name: 'Ballantine\'s 17 y.o', description: 'バランタイン 17年 - 高級ブレンデッドウイスキー', price: 1600, category: 'spirit' },
-        { id: 31, name: 'Jameson', description: 'ジェームソン - アイルランドの代表的なウイスキー', price: 800, category: 'spirit' },
-        { id: 32, name: 'Jim Beam Black', description: 'ジムビーム ブラック - バーボンの定番', price: 800, category: 'spirit' },
-        { id: 33, name: 'I.W. Harper Gold Medal', description: 'アイ・ダブリュ・ハーパー ゴールドメダル - 高級バーボン', price: 800, category: 'spirit' },
-        { id: 34, name: 'Jack Daniel\'s Black', description: 'ジャックダニエル ブラック - テネシーウイスキーの定番', price: 800, category: 'spirit' },
-        { id: 35, name: 'Maker\'s Mark', description: 'メーカーズマーク - 小麦を使用したスムースなバーボン', price: 800, category: 'spirit' },
-        { id: 36, name: 'Four Roses Black', description: 'フォーローズ ブラック - 複雑な味わいのバーボン', price: 900, category: 'spirit' },
-        { id: 37, name: 'Wild Turkey 8 y.o', description: 'ワイルドターキー 8年 - 力強いバーボン', price: 900, category: 'spirit' },
-        { id: 38, name: 'Suntory Kakubin', description: 'サントリー 角瓶 - 日本の代表的なブレンデッドウイスキー', price: 700, category: 'spirit' },
-        { id: 39, name: 'Suntory Yamazaki', description: 'サントリー 山崎 - 日本を代表するシングルモルト', price: 1300, category: 'spirit' },
-        { id: 40, name: 'Nikka Yoichi', description: 'ニッカ 余市 - 北海道余市蒸溜所のシングルモルト', price: 1300, category: 'spirit' },
-        { id: 41, name: 'Nikka Taketsuru', description: 'ニッカ 竹鶴 - ピュアモルトウイスキー', price: 1300, category: 'spirit' },
-        { id: 42, name: 'Suntory Hibiki', description: 'サントリー 響 - ジャパニーズハーモニー', price: 1400, category: 'spirit' }
+        // Scotch Whisky
+        { id: 20, name: 'Ballantine\'s 12y', description: 'バランタイン 12年 / Ballantine\'s 12y', price: 800, category: 'spirit' },
+        { id: 21, name: 'Dewar\'s 12y', description: 'デュワーズ 12年 / Dewar\'s 12y', price: 800, category: 'spirit' },
+        { id: 22, name: 'Old Parr 12y', description: 'オールドパー 12年 / Old Parr 12y', price: 900, category: 'spirit' },
+        { id: 23, name: 'Chivas Regal Mizunara 12y', description: 'シーバスリーガル ミズナラ 12年 / Chivas Regal Mizunara 12y', price: 900, category: 'spirit' },
+        { id: 24, name: 'Ballantine\'s 17y', description: 'バランタイン 17年 / Ballantine\'s 17y', price: 1600, category: 'spirit' },
+        // Malt Whisky
+        { id: 25, name: 'Glenmorangie Original 10y', description: 'グレンモーレンジ オリジナル 10年 / Glenmorangie Original 10y', price: 900, category: 'spirit' },
+        { id: 26, name: 'Ardbeg 10y', description: 'アードベッグ 10年 / Ardbeg 10y', price: 1100, category: 'spirit' },
+        { id: 27, name: 'Bowmore 12y', description: 'ボウモア 12年 / Bowmore 12y', price: 1100, category: 'spirit' },
+        { id: 28, name: 'Laphroaig 10y', description: 'ラフロイグ 10年 / Laphroaig 10y', price: 1200, category: 'spirit' },
+        { id: 29, name: 'The Macallan 12y', description: 'ザ・マッカラン 12年 / The Macallan 12y', price: 1800, category: 'spirit' },
+        // Irish Whiskey
+        { id: 30, name: 'Jameson', description: 'ジェムソン / Jameson', price: 800, category: 'spirit' },
+        // American Whiskey
+        { id: 31, name: 'Jim Beam Black', description: 'ジムビーム ブラック / Jim Beam Black', price: 800, category: 'spirit' },
+        { id: 32, name: 'J.W. Harper Gold Medal', description: 'L.W.ハーパーゴールドメダル / J.W. Harper Gold Medal', price: 800, category: 'spirit' },
+        { id: 33, name: 'Jack Daniel\'s Black', description: 'ジャックダニエル ブラック / Jack Daniel\'s Black', price: 800, category: 'spirit' },
+        { id: 34, name: 'Maker\'s Mark', description: 'メーカーズマーク / Maker\'s Mark', price: 800, category: 'spirit' },
+        { id: 35, name: 'Four Roses Black', description: 'フォアローゼス ブラック / Four Roses Black', price: 900, category: 'spirit' },
+        { id: 36, name: 'Wild Turkey 8y/o', description: 'ワイルドターキー 8年 / Wild Turkey 8y/o', price: 900, category: 'spirit' },
+        // Canadian Whisky
+        { id: 37, name: 'Canadian Club 12y/o', description: 'カナディアンクラブ 12年 / Canadian Club 12y/o', price: 800, category: 'spirit' }
       ]
     },
     {
@@ -137,11 +137,11 @@ const Menu: React.FC = () => {
       <div className="menu-container">
         <h2 id="menu-title" className="section-title">メニュー</h2>
         <p className="section-subtitle">厳選されたドリンクをお楽しみください</p>
-        
+
         <div className="menu-categories" role="list">
           {menuData.map(category => (
             <div key={category.id} className="menu-category" role="listitem">
-              <div 
+              <div
                 className="category-header"
                 onClick={() => toggleCategory(category.id)}
                 role="button"
@@ -166,7 +166,7 @@ const Menu: React.FC = () => {
                   </span>
                 </div>
               </div>
-              
+
               {expandedCategories.has(category.id) && (
                 <div className="category-content" id={`category-${category.id}`} role="region" aria-labelledby={`category-${category.id}-title`}>
                   <div className="menu-items" role="list">
@@ -187,7 +187,7 @@ const Menu: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <div className="menu-cta">
           <p>特別なリクエストがございましたら</p>
           <p>お気軽にお声がけください</p>
