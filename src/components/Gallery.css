@@ -385,7 +385,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 auto;
+  flex: 1;
   padding: 0;
   touch-action: pan-x;
   overflow: hidden;
@@ -620,6 +620,7 @@
   .modal-image-container {
     margin-bottom: 0.5rem;
     min-height: 35vh;
+    flex: 0 0 auto;
   }
 
   .modal-main-image {
@@ -685,11 +686,12 @@
 
   .modal-content {
     width: 95vw;
-    height: 93vh;
+    height: 75vh;
   }
 
   .modal-image-container {
     min-height: 40vh;
+    flex: 0 0 auto;
   }
 
   .modal-main-image {
@@ -753,6 +755,7 @@
 
   .modal-image-container {
     min-height: 35vh;
+    flex: 0 0 auto;
   }
 
   .modal-main-image {

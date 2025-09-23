@@ -42,7 +42,7 @@ const Gallery: React.FC = () => {
         },
         {
           id: 4,
-          src: '/src/assets/images/elegant.png',
+          src: '/src/assets/images/elegant.jpg',
           alt: 'エレガントな空間',
           title: 'バーカウンター',
           subtitle: '~ 上質な時間をお約束 ~'
