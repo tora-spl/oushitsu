@@ -338,6 +338,7 @@
   justify-content: center;
   z-index: 2000;
   padding: 2rem;
+  touch-action: none;
 }
 
 .modal-content {
@@ -608,6 +609,7 @@
 
   .modal-overlay {
     padding: 0.5rem;
+    touch-action: none;
   }
 
   .modal-content {
