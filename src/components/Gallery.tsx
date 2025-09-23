@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import type { GalleryCategory, GalleryImage } from '../types/index';
 import './Gallery.css';
 
@@ -12,7 +12,7 @@ const Gallery: React.FC = () => {
   const [isAutoSliding, setIsAutoSliding] = useState<boolean>(true);
 
   // ギャラリーカテゴリーデータ（1つのカテゴリーに統合）
-  const galleryCategories: GalleryCategory[] = [
+  const galleryCategories: GalleryCategory[] = useMemo(() => [
     {
       id: 1,
       title: '',
@@ -24,46 +24,73 @@ const Gallery: React.FC = () => {
           src: '/src/assets/images/guiters.jpg',
           alt: 'ライブステージ',
           title: 'ライブステージ',
-          subtitle: '~音楽と共に楽しむ空間~'
+          subtitle: '~ 音楽と共に楽しむ空間 ~'
         },
         {
           id: 2,
           src: '/src/assets/images/live1.jpg',
           alt: 'ライブ演奏の様子',
           title: 'ライブ演奏',
-          subtitle: '~生演奏でお楽しみください~'
+          subtitle: '~ 生演奏をお楽しみ頂けます ~'
         },
         {
           id: 3,
           src: '/src/assets/images/live2.jpg',
           alt: 'ライブハウスの雰囲気',
           title: 'ライブ会場',
-          subtitle: '~特別な夜をお過ごしください'
+          subtitle: '~ 初回の方大歓迎のイベントも開催 ~'
         },
         {
           id: 4,
           src: '/src/assets/images/elegant.png',
           alt: 'エレガントな空間',
           title: 'バーカウンター',
-          subtitle: '上質な時間をお約束'
-        }
+          subtitle: '~ 上質な時間をお約束 ~'
+        },
+        {
+          id: 5,
+          src: '/src/assets/images/drink3.jpg',
+          alt: 'ドリンクメニュー3',
+          title: 'オリジナルカクテル',
+          subtitle: '~ 想いやエピソードが込められています   是非皆様ご賞味くださいませ ~'
+        },
+        {
+          id: 6,
+          src: '/src/assets/images/entrance.jpg',
+          alt: 'エントランス',
+          title: 'エントランス',
+          subtitle: '~ 夜に寄り添う、隠れた憩いの場 ~'
+        },
+        {
+          id: 7,
+          src: '/src/assets/images/joke box.jpg',
+          alt: 'ジョークボックス',
+          title: 'ジョークボックス',
+          subtitle: '~ 創業当時から店内に設置されおり、昔の王室も感じて頂けます ~'
+        },
+
       ]
     }
-  ];
+  ], []);
 
   const handleIndicatorClick = (categoryId: number, imageIndex: number) => {
-    setCurrentImageIndex(imageIndex);
-    setIsAutoSliding(false);
+    const category = galleryCategories.find(cat => cat.id === categoryId);
+    if (category && imageIndex >= 0 && imageIndex < (category.images?.length || 0)) {
+      setCurrentImageIndex(imageIndex);
+      setIsAutoSliding(false);
 
-    // 10秒後に自動スライドを再開
-    setTimeout(() => {
-      setIsAutoSliding(true);
-    }, 10000);
+      // 10秒後に自動スライドを再開
+      setTimeout(() => {
+        setIsAutoSliding(true);
+      }, 10000);
+    }
   };
 
   const openModal = (category: GalleryCategory, imageIndex: number = 0) => {
-    setSelectedCategory(category);
-    setSelectedImageIndex(imageIndex);
+    if (category && category.images && imageIndex >= 0 && imageIndex < category.images.length) {
+      setSelectedCategory(category);
+      setSelectedImageIndex(imageIndex);
+    }
   };
 
   // 自動スライド機能
@@ -71,7 +98,10 @@ const Gallery: React.FC = () => {
     if (!isAutoSliding) return;
 
     const interval = setInterval(() => {
-      setCurrentImageIndex(prev => (prev + 1) % 4); // 3枚の写真をループ
+      setCurrentImageIndex(prev => {
+        const maxImages = galleryCategories[0]?.images?.length || 1;
+        return (prev + 1) % maxImages;
+      });
     }, 3000);
 
     return () => clearInterval(interval);
@@ -81,7 +111,8 @@ const Gallery: React.FC = () => {
   useEffect(() => {
     const newCategoryImageIndex: { [key: number]: number } = {};
     galleryCategories.forEach(category => {
-      newCategoryImageIndex[category.id] = currentImageIndex;
+      const maxImages = category.images?.length || 1;
+      newCategoryImageIndex[category.id] = Math.min(currentImageIndex, maxImages - 1);
     });
     setCategoryImageIndex(newCategoryImageIndex);
   }, [currentImageIndex]);
@@ -160,6 +191,20 @@ const Gallery: React.FC = () => {
     };
   }, [selectedCategory]);
 
+  // エラーハンドリング
+  if (!galleryCategories || galleryCategories.length === 0) {
+    return (
+      <div id="gallery" className="gallery">
+        <div className="gallery-container">
+          <div className="gallery-header">
+            <h2 className="section-title">ギャラリー</h2>
+          </div>
+          <p>ギャラリーの読み込み中...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div id="gallery" className="gallery">
       <div className="gallery-container">
@@ -187,8 +232,8 @@ const Gallery: React.FC = () => {
               >
                 <div className="category-image">
                   <img
-                    src={category.images[categoryImageIndex[category.id] || 0].src}
-                    alt={category.images[categoryImageIndex[category.id] || 0].alt}
+                    src={category.images[categoryImageIndex[category.id] || 0]?.src || '/src/assets/images/guiters.jpg'}
+                    alt={category.images[categoryImageIndex[category.id] || 0]?.alt || '画像'}
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {
@@ -204,7 +249,7 @@ const Gallery: React.FC = () => {
               </div>
 
               <div className="category-photos-indicator">
-                {category.images.map((_, index) => (
+                {category.images && category.images.length > 0 ? category.images.map((_, index) => (
                   <div
                     key={index}
                     className={`category-photo-dot ${categoryImageIndex[category.id] === index ? 'active' : ''}`}
@@ -213,7 +258,7 @@ const Gallery: React.FC = () => {
                       handleIndicatorClick(category.id, index);
                     }}
                   />
-                ))}
+                )) : null}
               </div>
             </div>
           ))}
