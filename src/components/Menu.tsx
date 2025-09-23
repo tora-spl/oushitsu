@@ -42,6 +42,18 @@ const Menu: React.FC = () => {
         { id: 23, name: 'Suntory Hibiki Japanese Harmony', description: 'サントリー響ジャパニーズハーモニー / Suntory Hibiki Japanese Harmony', price: 1400, category: 'spirit' }
       ]
     },
+    {
+      id: 2,
+      name: 'ブランデー',
+      drinks: [
+        // Cognac / Calvados
+        { id: 1, name: 'Courvoisier V.S.O.P Rouge', description: 'クルボアジェ V.S.O.P ルージュ / Courvoisier V.S.O.P Rouge', price: 900, category: 'spirit' },
+        { id: 2, name: 'Calvados Boulard Grand Solage', description: 'カルヴァドス ブラー グランソラージュ / Calvados Boulard Grand Solage', price: 900, category: 'spirit' },
+        // Spirits
+        { id: 3, name: 'Coruba Jamaica Rum', description: 'コルバ ジャマイカラム / Coruba Jamaica Rum', price: 800, category: 'spirit' },
+        { id: 4, name: 'Fukutokuchou Gin Mumei', description: '福徳長 ジン 無銘 / Fukutokuchou Gin Mumei', price: 800, category: 'spirit' }
+      ]
+    },
 
   ];
 
