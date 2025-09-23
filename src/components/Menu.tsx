@@ -9,37 +9,6 @@ const Menu: React.FC = () => {
   const menuData: MenuCategory[] = [
     {
       id: 1,
-      name: 'カクテル',
-      drinks: [
-        { id: 1, name: 'Lemon Sour', description: 'レモンサワー - 爽やかなレモンの酸味が特徴のクラシックカクテル', price: 900, category: 'cocktail' },
-        { id: 2, name: 'Paradice', description: 'パラダイス - エキゾチックなフルーツのハーモニー', price: 1000, category: 'cocktail' },
-        { id: 3, name: 'Blue Moon', description: 'ブルームーン - 神秘的な青いカクテル', price: 1000, category: 'cocktail' },
-        { id: 4, name: 'X.Y.Z', description: 'エックス ワイジー - ジン、ライム、キュラソーのバランス', price: 1000, category: 'cocktail' },
-        { id: 5, name: 'Grasshopper', description: 'グラスホッパー - ミントとチョコレートの甘いカクテル', price: 1000, category: 'cocktail' },
-        { id: 6, name: 'Bohemian Dream', description: 'ボヘミアンドリーム - アーティスティックなカクテル', price: 1000, category: 'cocktail' },
-        { id: 7, name: 'Vol de Nuit', description: 'ボルドヌイ - 夜の飛行をイメージしたカクテル', price: 1000, category: 'cocktail' },
-        { id: 8, name: 'Mei Hua', description: '梅花 - 梅の花をイメージしたエレガントなカクテル', price: 1000, category: 'cocktail' },
-        { id: 9, name: 'Margarita', description: 'マルガリータ - テキーラベースのクラシックなカクテル', price: 1100, category: 'cocktail' },
-        { id: 10, name: 'Scarlett O\'hara', description: 'スカーレット オハラ - クランベリーの華やかなカクテル', price: 1100, category: 'cocktail' },
-        { id: 11, name: 'Moscow Mule', description: 'モスコミュール - ウォッカとジンジャービールの爽やかなカクテル', price: 1100, category: 'cocktail' },
-        { id: 12, name: 'Gimlet', description: 'ギムレット - ジンとライムの爽やかなカクテル', price: 1200, category: 'cocktail' },
-        { id: 13, name: 'Bloody Caesar', description: 'ブラッディシーザー - トマトジュースベースのスパイシーなカクテル', price: 1200, category: 'cocktail' },
-        { id: 14, name: 'Spumoni', description: 'スプモーニ - イタリアンアイスクリームをイメージしたカクテル', price: 1200, category: 'cocktail' },
-        { id: 15, name: 'Salty Dog', description: 'ソルティードッグ - ウォッカベースの塩味が効いたカクテル', price: 1300, category: 'cocktail' }
-      ]
-    },
-    {
-      id: 2,
-      name: 'オリジナルカクテル',
-      drinks: [
-        { id: 16, name: 'PRIERE', description: 'プリエール - 栗リキュールベース。食後の一杯', price: 1100, category: 'cocktail' },
-        { id: 17, name: 'PASTEQUE', description: 'パステーク - ラムベース スイカリキュールカクテル', price: 1100, category: 'cocktail' },
-        { id: 18, name: 'WINDLESS', description: '風立ちぬ - チョコレート風味のカクテル', price: 1100, category: 'cocktail' },
-        { id: 19, name: 'SAKURA WARMING', description: '桜ウォーミング - 桜リキュールベース。華やかなカクテル', price: 1100, category: 'cocktail' }
-      ]
-    },
-    {
-      id: 3,
       name: 'Scotch Whisky : ウイスキー',
       drinks: [
         // Scotch Whisky
@@ -67,47 +36,6 @@ const Menu: React.FC = () => {
         { id: 37, name: 'Canadian Club 12y/o', description: 'カナディアンクラブ 12年 / Canadian Club 12y/o', price: 800, category: 'spirit' }
       ]
     },
-    {
-      id: 4,
-      name: 'ワイン・シャンパン',
-      drinks: [
-        { id: 43, name: 'Skyside Chardonnay', description: 'スカイサイド シャルドネ - フルーティーな白ワイン', price: 6000, category: 'wine' },
-        { id: 44, name: 'Skyside Red Blend', description: 'スカイサイド レッドブレンド - バランスの取れた赤ワイン', price: 6000, category: 'wine' },
-        { id: 45, name: 'Labouré Roi Pinotnoir', description: 'ラブレロワ ピノノワール - エレガントな赤ワイン', price: 6500, category: 'wine' },
-        { id: 46, name: 'Satero Pinot Rose', description: 'サテロ ピノロゼ - エレガントなロゼワイン', price: 3500, category: 'wine' },
-        { id: 47, name: 'Moet & Chandon B-I', description: 'モエ・エ・シャンドン B-I - 高級シャンパン', price: 15000, category: 'wine' }
-      ]
-    },
-    {
-      id: 5,
-      name: 'リキュール・その他',
-      drinks: [
-        { id: 48, name: 'Kahlua Coffee Liqueur', description: 'カルーア コーヒーリキュール - コーヒーの香り豊かなリキュール', price: 700, category: 'spirit' },
-        { id: 49, name: 'Lejay Creme de Cassis', description: 'ルジェ クレームドカシス - 黒カシスの甘いリキュール', price: 700, category: 'spirit' },
-        { id: 50, name: 'Aragoshi Yuzu', description: '荒樫 ゆず - 国産ゆずのリキュール', price: 700, category: 'spirit' },
-        { id: 51, name: 'Aragoshi Momo', description: '荒樫 もも - 国産桃のリキュール', price: 700, category: 'spirit' },
-        { id: 52, name: 'Courvoisier V.S.O.P Rouge', description: 'クルボジェ V.S.O.P ルージュ - 高級コニャック', price: 900, category: 'spirit' },
-        { id: 53, name: 'Calvados Boulard Grand Solage', description: 'カルバドス ブラール グランソラージュ - フランス産アップルブランデー', price: 900, category: 'spirit' }
-      ]
-    },
-    {
-      id: 6,
-      name: 'ビール・ソフトドリンク',
-      drinks: [
-        { id: 54, name: 'Coruba Jamaica Rum', description: 'コルバ ジャマイカラム - カリブ海のラム', price: 800, category: 'beer' },
-        { id: 55, name: 'Fukutokuchou Gin Mumei', description: '福徳長 ジン 無名 - 国産ジン', price: 800, category: 'beer' },
-        { id: 56, name: 'Kirin Green\'s Free', description: 'キリン グリーンズフリー - ノンアルコールビール', price: 600, category: 'beer' },
-        { id: 57, name: 'Kirin Classic Lager', description: 'キリン クラシックラガー - クラシックなラガービール', price: 700, category: 'beer' },
-        { id: 58, name: 'Lemon Squash', description: 'レモンスカッシュ - 爽やかなレモンドリンク', price: 800, category: 'non-alcoholic' },
-        { id: 59, name: 'Clamato Tomato Cocktail', description: 'クラマト トマト カクテル - トマトベースのドリンク', price: 700, category: 'non-alcoholic' },
-        { id: 60, name: 'Tea', description: '紅茶 - 上品な紅茶', price: 600, category: 'non-alcoholic' },
-        { id: 61, name: 'Coffee', description: 'コーヒー - 香り豊かなコーヒー', price: 600, category: 'non-alcoholic' },
-        { id: 62, name: 'Cranberry Juice', description: 'クランベリージュース - 酸味のあるベリージュース', price: 600, category: 'non-alcoholic' },
-        { id: 63, name: 'Oolong Tea', description: '烏龍茶 - 中国茶の定番', price: 600, category: 'non-alcoholic' },
-        { id: 64, name: 'Coca Cola', description: 'コカ・コーラ - 世界で愛される炭酸飲料', price: 600, category: 'non-alcoholic' },
-        { id: 65, name: 'Wilkinson Ginger Ale', description: 'ウィルキンソン ジンジャエール - ジンジャーの炭酸飲料', price: 600, category: 'non-alcoholic' }
-      ]
-    }
   ];
 
   const toggleCategory = (categoryId: number) => {
