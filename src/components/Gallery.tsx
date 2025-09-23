@@ -5,8 +5,6 @@ import './Gallery.css';
 const Gallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<GalleryCategory | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
-  const [animationStopped, setAnimationStopped] = useState<boolean>(false);
-  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
   const [categoryImageIndex, setCategoryImageIndex] = useState<{ [key: number]: number }>({});
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [isAutoSliding, setIsAutoSliding] = useState<boolean>(true);
@@ -17,53 +15,53 @@ const Gallery: React.FC = () => {
       id: 1,
       title: '',
       description: '',
-      thumbnail: '/src/assets/images/guiters.jpg',
+      thumbnail: '/guiters.jpg',
       images: [
         {
           id: 1,
-          src: '/src/assets/images/guiters.jpg',
+          src: '/guiters.jpg',
           alt: 'ライブステージ',
           title: 'ライブステージ',
           subtitle: '~ 音楽と共に楽しむ空間 ~'
         },
         {
           id: 2,
-          src: '/src/assets/images/live1.jpg',
+          src: '/live1.jpg',
           alt: 'ライブ演奏の様子',
           title: 'ライブ演奏',
           subtitle: '~ 生演奏をお楽しみ頂けます ~'
         },
         {
           id: 3,
-          src: '/src/assets/images/live2.jpg',
+          src: '/live2.jpg',
           alt: 'ライブハウスの雰囲気',
           title: 'ライブ会場',
           subtitle: '~ 初回の方大歓迎のイベントも開催 ~'
         },
         {
           id: 4,
-          src: '/src/assets/images/elegant.jpg',
+          src: '/elegant.jpg',
           alt: 'エレガントな空間',
           title: 'バーカウンター',
           subtitle: '~ 上質な時間をお約束 ~'
         },
         {
           id: 5,
-          src: '/src/assets/images/drink3.jpg',
+          src: '/drink3.jpg',
           alt: 'ドリンクメニュー3',
           title: 'オリジナルカクテル',
           subtitle: '~ 想いやエピソードが込められています   是非皆様ご賞味くださいませ ~'
         },
         {
           id: 6,
-          src: '/src/assets/images/entrance.jpg',
+          src: '/entrance.jpg',
           alt: 'エントランス',
           title: 'エントランス',
           subtitle: '~ 夜に寄り添う、隠れた憩いの場 ~'
         },
         {
           id: 7,
-          src: '/src/assets/images/joke box.jpg',
+          src: '/joke box.jpg',
           alt: 'ジョークボックス',
           title: 'ジョークボックス',
           subtitle: '~ 創業当時から店内に設置されおり、昔の王室も感じて頂けます ~'
@@ -217,8 +215,6 @@ const Gallery: React.FC = () => {
               <div
                 key={category.id}
                 className="gallery-category"
-                onMouseEnter={() => setHoveredCategory(category.id)}
-                onMouseLeave={() => setHoveredCategory(null)}
                 onClick={() => openModal(category, categoryImageIndex[category.id] || 0)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -232,13 +228,13 @@ const Gallery: React.FC = () => {
               >
                 <div className="category-image">
                   <img
-                    src={category.images[categoryImageIndex[category.id] || 0]?.src || '/src/assets/images/guiters.jpg'}
+                    src={category.images[categoryImageIndex[category.id] || 0]?.src || '/guiters.jpg'}
                     alt={category.images[categoryImageIndex[category.id] || 0]?.alt || '画像'}
                     loading="lazy"
                     decoding="async"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
+                      target.src = '/guiters.jpg'; // フォールバック画像
                     }}
                   />
                 </div>
@@ -282,7 +278,7 @@ const Gallery: React.FC = () => {
                 className="modal-main-image"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/src/assets/images/guiters.jpg'; // フォールバック画像
+                  target.src = '/guiters.jpg'; // フォールバック画像
                 }}
               />
 

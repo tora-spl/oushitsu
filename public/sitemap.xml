@@ -39,32 +39,32 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://oushitsu.vercel.app/src/assets/images/guiters.jpg</image:loc>
+      <image:loc>https://oushitsu.vercel.app/guiters.jpg</image:loc>
       <image:title>BAR王室 店内風景</image:title>
       <image:caption>創業当時から続く伝統的な店内空間</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://oushitsu.vercel.app/src/assets/images/entrance.jpg</image:loc>
+      <image:loc>https://oushitsu.vercel.app/entrance.jpg</image:loc>
       <image:title>BAR王室 エントランス</image:title>
       <image:caption>夜に寄り添う、隠れた憩いの場</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://oushitsu.vercel.app/src/assets/images/joke box.jpg</image:loc>
+      <image:loc>https://oushitsu.vercel.app/joke box.jpg</image:loc>
       <image:title>BAR王室 ジョークボックス</image:title>
       <image:caption>創業当時から店内に設置されています 昔の王室も感じて頂けます</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://oushitsu.vercel.app/src/assets/images/drink1.jpg</image:loc>
+      <image:loc>https://oushitsu.vercel.app/drink1.jpg</image:loc>
       <image:title>桜ウォーミング</image:title>
       <image:caption>桜リキュールベース色鮮かなカクテル</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://oushitsu.vercel.app/src/assets/images/drink3.jpg</image:loc>
+      <image:loc>https://oushitsu.vercel.app/drink3.jpg</image:loc>
       <image:title>パステーク</image:title>
       <image:caption>ラムベースに西爪リキュールのカクテル</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://oushitsu.vercel.app/src/assets/images/elegant.jpg</image:loc>
+      <image:loc>https://oushitsu.vercel.app/elegant.jpg</image:loc>
       <image:title>BAR王室 エレガントな空間</image:title>
       <image:caption>洗練された空間で特別な夜をお過ごしいただけます</image:caption>
     </image:image>
