@@ -194,8 +194,7 @@
   }
 
   .category-photos-indicator {
-    margin-top: 0.8rem;
-    justify-content: center;
+    display: none !important;
   }
 
   .category-photo-dot {
@@ -386,7 +385,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  flex: 0 0 auto;
   padding: 0;
   touch-action: pan-x;
   overflow: hidden;
@@ -494,9 +493,7 @@
   }
 
   .modal-nav {
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
+    display: none !important;
   }
 
   .modal-close {
@@ -538,9 +535,7 @@
   }
 
   .modal-nav {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+    display: none !important;
   }
 
   .modal-close {
@@ -607,6 +602,10 @@
     height: 100%;
   }
 
+  .category-photos-indicator {
+    display: none !important;
+  }
+
   .modal-overlay {
     padding: 0.5rem;
   }
@@ -620,11 +619,11 @@
 
   .modal-image-container {
     margin-bottom: 0.5rem;
-    min-height: 50vh;
+    min-height: 35vh;
   }
 
   .modal-main-image {
-    max-height: 50vh;
+    max-height: 40vh;
     object-fit: contain;
   }
 
@@ -639,10 +638,7 @@
   }
 
   .modal-nav {
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
-    transform: translateY(-50%) !important;
+    display: none !important;
   }
 }
 
@@ -674,8 +670,7 @@
   }
 
   .category-photos-indicator {
-    margin-top: 1rem;
-    gap: 0.8rem;
+    display: none !important;
   }
 
   .category-photo-dot {
@@ -694,11 +689,11 @@
   }
 
   .modal-image-container {
-    min-height: 70vh;
+    min-height: 40vh;
   }
 
   .modal-main-image {
-    max-height: 70vh;
+    max-height: 50vh;
   }
 
   .modal-info h3 {
@@ -738,8 +733,7 @@
   }
 
   .category-photos-indicator {
-    margin-top: 0.8rem;
-    gap: 0.6rem;
+    display: none !important;
   }
 
   .category-photo-dot {
@@ -758,11 +752,11 @@
   }
 
   .modal-image-container {
-    min-height: 60vh;
+    min-height: 35vh;
   }
 
   .modal-main-image {
-    max-height: 60vh;
+    max-height: 45vh;
   }
 
   .modal-info h3 {
@@ -802,7 +796,7 @@
   }
 
   .category-photos-indicator {
-    margin-top: 0.6rem;
+    display: none !important;
   }
 
   .category-photo-dot {
@@ -822,9 +816,7 @@
   }
 
   .modal-nav {
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
+    display: none !important;
   }
 
   .modal-close {
