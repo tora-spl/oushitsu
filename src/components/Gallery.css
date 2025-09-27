@@ -524,10 +524,17 @@
     font-size: 2rem;
   }
 
+  .modal-overlay {
+    padding: 2vh 0;
+  }
+
   .modal-content {
     width: 95vw;
-    height: 93vh;
-    padding: 1.5rem;
+    height: 70vh;
+    padding: 1rem;
+    max-width: none;
+    max-height: none;
+    margin: 0 auto;
   }
 
   .modal-main-image {
@@ -608,25 +615,26 @@
   }
 
   .modal-overlay {
-    padding: 0.5rem;
+    padding: 2vh 0;
     touch-action: none;
   }
 
   .modal-content {
-    max-width: 100vw;
-    max-height: 93vh;
+    width: 95vw;
+    height: 75vh;
     border-radius: 0;
-    margin: 0;
+    margin: 0 auto;
+    padding: 1rem;
   }
 
   .modal-image-container {
     margin-bottom: 0.5rem;
-    min-height: 35vh;
+    min-height: 30vh;
     flex: 0 0 auto;
   }
 
   .modal-main-image {
-    max-height: 40vh;
+    max-height: 35vh;
     object-fit: contain;
   }
 
@@ -642,6 +650,76 @@
 
   .modal-nav {
     display: none !important;
+  }
+}
+
+/* iPhone 14 Pro Max対応（430px） */
+@media (max-width: 430px) {
+  .gallery {
+    padding: 1.8rem 0;
+  }
+
+  .gallery-container {
+    padding: 0 1rem;
+  }
+
+  .gallery-category {
+    width: 336px;
+    height: 342px;
+  }
+
+  .category-image {
+    height: 100%;
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+  }
+
+  .category-description {
+    font-size: 0.9rem;
+  }
+
+  .category-photos-indicator {
+    display: none !important;
+  }
+
+  .category-photo-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .category-photo-dot.active {
+    width: 24px;
+    height: 8px;
+  }
+
+  .modal-overlay {
+    padding: 2vh 0;
+  }
+
+  .modal-content {
+    width: 95vw;
+    height: 65vh;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+
+  .modal-image-container {
+    min-height: 35vh;
+    flex: 0 0 auto;
+  }
+
+  .modal-main-image {
+    max-height: 45vh;
+  }
+
+  .modal-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal-info p {
+    font-size: 0.95rem;
   }
 }
 
@@ -686,18 +764,24 @@
     height: 8px;
   }
 
+  .modal-overlay {
+    padding: 2vh 0;
+  }
+
   .modal-content {
     width: 95vw;
-    height: 75vh;
+    height: 70vh;
+    padding: 1rem;
+    margin: 0 auto;
   }
 
   .modal-image-container {
-    min-height: 40vh;
+    min-height: 35vh;
     flex: 0 0 auto;
   }
 
   .modal-main-image {
-    max-height: 50vh;
+    max-height: 45vh;
   }
 
   .modal-info h3 {
@@ -750,18 +834,24 @@
     height: 6px;
   }
 
+  .modal-overlay {
+    padding: 2vh 0;
+  }
+
   .modal-content {
     width: 95vw;
-    height: 93vh;
+    height: 68vh;
+    padding: 1rem;
+    margin: 0 auto;
   }
 
   .modal-image-container {
-    min-height: 35vh;
+    min-height: 30vh;
     flex: 0 0 auto;
   }
 
   .modal-main-image {
-    max-height: 45vh;
+    max-height: 40vh;
   }
 
   .modal-info h3 {
@@ -814,10 +904,24 @@
     height: 6px;
   }
 
+  .modal-overlay {
+    padding: 2vh 0;
+  }
+
   .modal-content {
-    width: 98vw;
-    height: 90vh;
+    width: 95vw;
+    height: 60vh;
     padding: 1rem;
+    margin: 0 auto;
+  }
+
+  .modal-image-container {
+    min-height: 25vh;
+    flex: 0 0 auto;
+  }
+
+  .modal-main-image {
+    max-height: 35vh;
   }
 
   .modal-nav {
