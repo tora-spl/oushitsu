@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# サイトマップの場所
+Sitemap: https://oushitsu.vercel.app/sitemap.xml

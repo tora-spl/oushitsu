@@ -61,7 +61,7 @@ const Gallery: React.FC = () => {
         },
         {
           id: 7,
-          src: '/joke box.jpg',
+          src: '/jokebox.jpg',
           alt: 'ジョークボックス',
           title: 'ジョークボックス',
           subtitle: '~ 創業当時から店内に設置されおり、昔の王室も感じて頂けます ~'
